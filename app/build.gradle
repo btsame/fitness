@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.dkjs.fitness"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -47,4 +47,7 @@ dependencies {
     compile 'com.brucetoo.pickview:library:1.1.1'
 
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    //加载进度
+    compile 'me.wangyuwei:LoadingiVew:1.0.3'
 }
