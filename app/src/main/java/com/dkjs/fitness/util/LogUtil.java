@@ -5,7 +5,7 @@ import android.util.Log;
 import com.dkjs.fitness.comm.AppConfig;
 
 
-public class LogUtils {
+public class LogUtil {
 
     public static void d(String tag, String msg) {
         if (AppConfig.DEBUG){
