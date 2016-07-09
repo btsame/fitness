@@ -2,6 +2,8 @@ package com.dkjs.fitness.comm;
 
 import android.os.Environment;
 
+import com.dkjs.fitness.BuildConfig;
+
 import java.io.File;
 
 /**
@@ -12,7 +14,7 @@ public class AppConfig {
     public static final String BASE_DIRECTORY;
     public static final String PHOTO_DIRECTORY;
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = BuildConfig.DEBUG;
 
     public static final String BAIDU_WEATHER_ENDPOINT = "http://api.map.baidu.com/";
 
