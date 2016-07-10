@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.dkjs.fitness.MainActivity;
+import com.dkjs.fitness.main.MainActivity;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessActivity;
 import com.maxleap.LogInCallback;
@@ -42,7 +42,7 @@ public class RegisterAndLoginActivity extends FitnessActivity {
         initView();
     }
 
-    private void initView() {
+    protected void initView() {
         etAccount= (EditText) findViewById(R.id.et_account);
         etPwd= (EditText) findViewById(R.id.et_pwd);
         btnLogin= (Button) findViewById(R.id.btn_login);

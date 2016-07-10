@@ -4,6 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <!-- main pageBottomTab colors -->
+    <color name="tab_color_1">#FF00796B</color>
+    <color name="tab_color_2">#FF5B4947</color>
+    <color name="tab_color_3">#FF607D8B</color>
+
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 </resources>

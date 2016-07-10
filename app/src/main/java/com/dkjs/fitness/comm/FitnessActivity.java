@@ -31,6 +31,10 @@ public class FitnessActivity extends AppCompatActivity {
         mContext = this;
     }
 
+    protected void initView(){}
+
+    protected void setListener(){}
+
     @Override
     protected void onResume() {
         super.onResume();

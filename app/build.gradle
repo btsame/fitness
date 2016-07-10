@@ -44,4 +44,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'me.wangyuwei:LoadingiVew:1.0.3'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+
+    //底部导航栏
+    compile 'me.majiajie:pager-bottom-tab-strip:1.0.0'
 }
