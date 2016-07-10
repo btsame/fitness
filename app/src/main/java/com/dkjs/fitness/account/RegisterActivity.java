@@ -1,6 +1,5 @@
 package com.dkjs.fitness.account;
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
@@ -113,7 +112,7 @@ public class RegisterActivity extends FitnessActivity  implements OnClickListene
                     public void done(MLException e) {
                         if (e==null){
                             ToastUtils.showToast(RegisterActivity.this,"注册成功");
-                            startActivity(new Intent(RegisterActivity.this,ResigterAndLoginActivity.class));
+                            startActivity(new Intent(RegisterActivity.this,RegisterAndLoginActivity.class));
 
                         }else{
                             ToastUtils.showToast(RegisterActivity.this,"注册失败");

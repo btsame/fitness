@@ -19,7 +19,7 @@ import com.maxleap.utils.ToastUtils;
 /**
  * Created by administrator on 16/7/9.
  */
-public class ResigterAndLoginActivity extends FitnessActivity {
+public class RegisterAndLoginActivity extends FitnessActivity {
 
     //账号 密码输入框
     EditText etAccount,etPwd;
@@ -60,13 +60,13 @@ public class ResigterAndLoginActivity extends FitnessActivity {
             public void done(MLUser mlUser, MLException e) {
                 if (mlUser!=null){
                     //登录成功
-                    ToastUtils.showToast(ResigterAndLoginActivity.this,"登录成功");
-                    startActivity(new Intent(ResigterAndLoginActivity.this, MainActivity.class));
+                    ToastUtils.showToast(RegisterAndLoginActivity.this,"登录成功");
+                    startActivity(new Intent(RegisterAndLoginActivity.this, MainActivity.class));
 
                 }else{
 
                     //登录失败
-                    ToastUtils.showToast(ResigterAndLoginActivity.this,"登录失败");
+                    ToastUtils.showToast(RegisterAndLoginActivity.this,"登录失败");
                 }
             }
         });
@@ -77,13 +77,13 @@ public class ResigterAndLoginActivity extends FitnessActivity {
 
     public void register(View view){
 
-        startActivity(new Intent(ResigterAndLoginActivity.this,RegisterActivity.class));
+        startActivity(new Intent(RegisterAndLoginActivity.this,RegisterActivity.class));
 
     }
 
 
     public void forgetPassword(View view){
-        startActivity(new Intent(ResigterAndLoginActivity.this,ForgetPasswordActivity.class));
+        startActivity(new Intent(RegisterAndLoginActivity.this,ForgetPasswordActivity.class));
     }
 
 
