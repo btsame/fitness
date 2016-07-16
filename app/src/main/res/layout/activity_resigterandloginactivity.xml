@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="其他方式登录"
-        android:id="@+id/textView"
+        android:id="@+id/tv_managerRe"
         android:layout_below="@+id/btn_login"
         android:layout_toRightOf="@+id/tv_register"
         android:layout_toEndOf="@+id/tv_register"
@@ -67,6 +67,6 @@
         android:text="忘记密码"
         android:id="@+id/tv_forget"
         android:layout_alignTop="@+id/tv_register"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_toRightOf="@+id/tv_managerRe"
+        android:layout_toEndOf="@+id/tv_managerRe" />
 </RelativeLayout>
