@@ -11,6 +11,8 @@ import com.maxleap.MLObject;
 public class AccountProfile extends MLObject{
 
     private int sex;
+    private int height;
+    private int weight;
 
     public int getSex() {
         return getInt("sex");
@@ -18,5 +20,21 @@ public class AccountProfile extends MLObject{
 
     public void setSex(int sex) {
         put("sex", sex);
+    }
+
+    public int getHeight() {
+        return getInt("height");
+    }
+
+    public void setHeight(int height) {
+        put("height", height);
+    }
+
+    public int getWeight() {
+        return getInt("weight");
+    }
+
+    public void setWeight(int weight) {
+        put("weight", weight);
     }
 }
