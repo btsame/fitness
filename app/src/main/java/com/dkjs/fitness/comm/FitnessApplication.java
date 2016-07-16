@@ -1,8 +1,10 @@
 package com.dkjs.fitness.comm;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.dkjs.fitness.util.LogUtil;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.maxleap.GetCallback;
 import com.maxleap.MLDataManager;
 import com.maxleap.MLObject;
@@ -15,11 +17,14 @@ import com.maxleap.exception.MLException;
 public class FitnessApplication extends Application {
 
     private static final String TAG = "FitnessApplication";
+    private Context mContext;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mContext = this;
 
         MaxLeap.setLogLevel(MaxLeap.LOG_LEVEL_ERROR);
         MaxLeap.initialize(this, "57807296a5ff7f00013e797b",
@@ -42,6 +47,14 @@ public class FitnessApplication extends Application {
                 });
 
 
+        /** 初始化fresco图片加载库 */
+        Fresco.initialize(this);
 
+
+
+    }
+
+    public Context getGlobalContext() {
+        return mContext;
     }
 }

@@ -47,4 +47,7 @@ dependencies {
 
     //底部导航栏
     compile 'me.majiajie:pager-bottom-tab-strip:1.0.0'
+
+    //banner
+    compile 'com.bigkoo:convenientbanner:2.0.5'
 }
