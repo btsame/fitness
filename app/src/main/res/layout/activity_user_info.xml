@@ -5,14 +5,14 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:background="@color/light_blue_300"
+        android:background="@color/light_blue_100"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="30dp">
         <TextView
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -25,7 +25,7 @@
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -126,7 +126,9 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="生日"
             />
-        <EditText
+        <Button
+            android:onClick="setDate"
+            android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -149,7 +151,9 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="城市"
             />
-        <EditText
+        <Button
+            android:onClick="setCity"
+            android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
