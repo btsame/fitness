@@ -7,7 +7,7 @@
     <RelativeLayout
         android:background="@color/light_blue_100"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="50dp">
         <TextView
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
@@ -15,25 +15,23 @@
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="个人资料"
             android:id="@+id/textView4"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+           android:layout_centerInParent="true" />
 
         <TextView
+            android:layout_centerInParent="true"
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
             android:textStyle="bold"
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="保存"
             android:id="@+id/textView5"
-            android:layout_alignParentTop="true"
+
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+             />
     </RelativeLayout>
 
 
@@ -124,9 +122,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="生日"
+            android:text="年龄"
             />
         <Button
+            android:id="@+id/btn_date_set"
             android:onClick="setDate"
             android:background="@null"
             android:layout_margin="5dp"
@@ -152,6 +151,7 @@
             android:text="城市"
             />
         <Button
+            android:id="@+id/btn_city_set"
             android:onClick="setCity"
             android:background="@null"
             android:layout_margin="5dp"
