@@ -21,8 +21,7 @@ public class MineFragment extends FitnessFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view=inflater.inflate(R.layout.fragment_mine_user,container,false);
+        View view=inflater.inflate(R.layout.fragment_mine_vipuser,container,false);
         editUserInfo= (Button) view.findViewById(R.id.btn_editUserInfo);
         editUserInfo();
         return view;
