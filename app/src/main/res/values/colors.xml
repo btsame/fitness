@@ -9,8 +9,15 @@
     <color name="tab_color_2">#FF5B4947</color>
     <color name="tab_color_3">#FF607D8B</color>
 
+    <color name="common_bg">#e6e6e6</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="black_alpha65">#59000000</color>
+    <color name="black_alpha35">#A5000000</color>
+    <color name="black_alpha15">#D8000000</color>
+    <color name="light_blue_500_alpha15">#D803A9F4</color>
+    <color name="gray">#474747</color>
+    <color name="light_gray">#626262</color>
 
     <color name="light_blue_50">#E1F5FE</color>
     <color name="light_blue_100">#B3E5FC</color>
