@@ -3,217 +3,174 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_gravity="center_horizontal">
-
-        <ImageView
-            android:scaleType="fitXY"
-            android:layout_margin="10dp"
-            android:background="@drawable/accout_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/iv_accout_icon"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignTop="@+id/iv_accout_icon"
-            android:layout_toRightOf="@+id/iv_accout_icon"
-            android:layout_toEndOf="@+id/iv_accout_icon"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
-
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/lv_staus">
-
-                    <TextView
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="0"
-                        android:id="@+id/textView2" />
-
-                    <TextView
-                        android:textSize="16dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="动态"
-                        android:id="@+id/textView3" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/lv_foucs">
-                    <TextView
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="0"
-                        />
-
-                    <TextView
-                        android:textSize="16dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="关注"
-                        />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/lv_fans">
-                    <TextView
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="0"
-                        />
-
-                    <TextView
-
-                        android:textSize="16dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="粉丝"
-                        /></LinearLayout>
-
-            </LinearLayout>
-            <Button
-                android:layout_marginTop="5dp"
-                android:textSize="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="编辑个人资料"
-                android:id="@+id/btn_editUserInfo"
-                android:layout_gravity="right" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="用户名"
-            android:id="@+id/tv_userName"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/iv_accout_icon"
-            android:layout_alignStart="@+id/iv_accout_icon"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp" />
-    </RelativeLayout>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/iv_accout_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/accout_icon"
+            android:scaleType="fitXY" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="用户名"
+                android:textSize="18sp"/>
+            <Button
+                android:background="@null"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/btn_editUserInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="编辑个人资料"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-
-        <TextView
-            android:drawableTop="@drawable/accout_icon"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           android:layout_weight="1"
-            android:text="管理活动"
-            android:id="@+id/tv_managerActivity" />
-
-        <TextView
-            android:gravity="center"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/lv_staus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/accout_icon"
-            android:text="管理报名"
-            android:id="@+id/tv_managerSignup"
-            android:layout_gravity="center_horizontal" />
-        <TextView
-            android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="动态"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lv_foucs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="验票"
-            android:id="@+id/tv_managerRecount"
-            android:layout_gravity="center_horizontal" />
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="关注"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lv_fans"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="粉丝"
+                android:textSize="16dp" />
+        </LinearLayout>
     </LinearLayout>
 
-
-    <RelativeLayout
-        android:background="@color/light_blue_300"
+    <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="wrap_content">
         <TextView
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/accout_icon"
+            android:gravity="center"
             android:text="发起活动" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_managerActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/accout_icon"
+            android:gravity="center"
+            android:text="管理活动" />
+    </LinearLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2dp"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/accout_icon"
+            android:gravity="center"
+            android:text="管理报名" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/accout_icon"
+            android:gravity="center"
+            android:text="验票" />
+    </LinearLayout>
 
     <RelativeLayout
-        android:background="@color/light_blue_300"
+        style="@style/linearlayout_bg_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
+
         <TextView
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="3dp"
             android:text="活动收入"
-            android:id="@+id/textView" />
+            android:textSize="20dp" />
 
     </RelativeLayout>
-
 
 
 </LinearLayout>

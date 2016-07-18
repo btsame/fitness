@@ -11,8 +11,19 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/citydateselector" />
           </set>
         </option>
+<<<<<<< HEAD
+=======
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/citydateselector" />
+          </set>
+        </option>
+>>>>>>> 494ecb19e5811ebd195f78e3f5b5a22b2ca2f4fd
       </GradleProjectSettings>
     </option>
   </component>

@@ -27,12 +27,9 @@ public class FitnessActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mContext = this;
     }
-
     protected void initView(){}
-
     protected void setListener(){}
 
     @Override

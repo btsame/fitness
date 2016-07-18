@@ -5,47 +5,41 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:background="@color/light_blue_300"
+        android:background="@color/light_blue_100"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="159px">
         <TextView
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="个人资料"
             android:id="@+id/textView4"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+           android:layout_centerInParent="true" />
 
         <TextView
+           android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+             android:layout_centerVertical="true"
             android:textColor="@android:color/white"
-            android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="保存"
-            android:id="@+id/textView5"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+             />
     </RelativeLayout>
-
-
-
     <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="55dp">
         <ImageView
-
             android:layout_margin="5dp"
             android:src="@drawable/accout_icon"
             android:layout_width="wrap_content"
@@ -57,24 +51,25 @@
            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="更改头像"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/textView6"
             />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
         >
         <TextView
             android:layout_margin="5dp"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -85,98 +80,115 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:layout_gravity="center_horizontal" />
+            android:background="@null"
+             />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+         android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
         >
         <TextView
-            android:layout_margin="5dp"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+
+            android:layout_width="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="性别"
             />
         <EditText
+            android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+             />
     </LinearLayout>
     <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
         >
         <TextView
             android:layout_margin="5dp"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="生日"
+            android:text="年龄"
             />
-        <EditText
+        <Button
+            android:id="@+id/btn_date_set"
+            android:onClick="setDate"
+            android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+             />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         >
         <TextView
             android:layout_margin="5dp"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="城市"
             />
-        <EditText
+        <Button
+            android:id="@+id/btn_city_set"
+            android:onClick="setCity"
+            android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            />
     </LinearLayout>
     <LinearLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
         >
         <TextView
             android:layout_margin="5dp"
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="签名"
             />
         <EditText
+            android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            />
     </LinearLayout>
 
 </LinearLayout>
