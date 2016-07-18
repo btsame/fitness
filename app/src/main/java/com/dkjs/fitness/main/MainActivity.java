@@ -105,6 +105,9 @@ public class MainActivity extends FitnessActivity implements OnTabItemSelectList
 
     }
 
+    public void onBackPressed() {
+        exitApp();
+    }
 
     /**
      * 主界面ViewPager的Adapter

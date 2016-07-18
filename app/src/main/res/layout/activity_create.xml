@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <RelativeLayout
         android:background="@color/light_blue_100"
         android:layout_width="match_parent"
@@ -15,21 +14,20 @@
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="个人资料"
+            android:text="创建活动"
             android:id="@+id/textView4"
-           android:layout_centerInParent="true" />
-
+            android:layout_centerInParent="true" />
         <TextView
-           android:layout_alignParentRight="true"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-             android:layout_centerVertical="true"
+            android:layout_centerVertical="true"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="保存"
-             />
+            android:text="分享"
+            />
     </RelativeLayout>
     <LinearLayout
         android:background="@drawable/bg_linearlayout"
@@ -38,33 +36,6 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
-        <ImageView
-            android:layout_margin="5dp"
-            android:src="@drawable/accout_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView" />
-
-        <TextView
-            android:layout_marginLeft="20dp"
-           android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更改头像"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/textView6"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:gravity="center_vertical"
         >
@@ -73,33 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="昵称"
-            android:id="@+id/textView7" />
-        <EditText
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@null"
-             />
-    </LinearLayout>
-
-    <LinearLayout
-         android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="性别"
+            android:text="活动主题："
             />
         <EditText
             android:background="@null"
@@ -107,38 +52,10 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-             />
-    </LinearLayout>
-    <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="年龄"
             />
-        <Button
-            android:id="@+id/btn_date_set"
-            android:onClick="setDate"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-             />
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center_vertical"
         android:background="@drawable/bg_linearlayout"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
@@ -146,17 +63,16 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:gravity="center_vertical"
         >
         <TextView
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="城市"
+            android:text="人数限制："
             />
-        <Button
-            android:id="@+id/btn_city_set"
-            android:onClick="setCity"
+        <EditText
             android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -164,6 +80,7 @@
             android:layout_height="wrap_content"
             />
     </LinearLayout>
+
     <LinearLayout
         android:background="@drawable/bg_linearlayout"
         android:layout_marginRight="15dp"
@@ -179,7 +96,60 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="签名"
+            android:text="活动说明："
+            />
+        <EditText
+            android:background="@null"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="活动地点："
+            />
+        <EditText
+            android:background="@null"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/bg_linearlayout"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="自备器材："
             />
         <EditText
             android:background="@null"
