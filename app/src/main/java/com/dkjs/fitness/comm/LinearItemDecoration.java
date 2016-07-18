@@ -1,9 +1,17 @@
 package com.dkjs.fitness.comm;
 
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 
 /**
- * Created by administrator on 16/7/17.
+ * Created by boyang on 16/7/17.
  */
 public class LinearItemDecoration extends RecyclerView.ItemDecoration {
 
@@ -19,7 +27,7 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
 
     private int mOrientation;
 
-    public DividerItemDecoration(Context context, int orientation) {
+    public LinearItemDecoration(Context context, int orientation) {
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         a.recycle();
@@ -34,8 +42,8 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void onDraw(Canvas c, RecyclerView parent) {
-        Log.v("recyclerview - itemdecoration", "onDraw()");
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        Log.v("temdecoration", "onDraw()");
 
         if (mOrientation == VERTICAL_LIST) {
             drawVertical(c, parent);
@@ -80,7 +88,7 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, int itemPosition, RecyclerView parent) {
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         if (mOrientation == VERTICAL_LIST) {
             outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
         } else {

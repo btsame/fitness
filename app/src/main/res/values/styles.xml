@@ -10,6 +10,8 @@
         <!-- remove title bar -->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+
+        <item name="android:listDivider">@drawable/shape_list_divider</item>
     </style>
 
     <style name="dm_alert_dialog" parent="@android:style/Theme.Dialog">
@@ -28,6 +30,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
     </style>
+
 
 
 

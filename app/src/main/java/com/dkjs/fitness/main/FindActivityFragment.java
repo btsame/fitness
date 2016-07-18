@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessFragment;
+import com.dkjs.fitness.comm.LinearItemDecoration;
 import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.domain.StateTest;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -115,17 +116,7 @@ public class FindActivityFragment extends FitnessFragment {
         mFindActRV.setAdapter(activityAdapter);
         mFindActRV.setLayoutManager(new LinearLayoutManager(mContext,
                 LinearLayoutManager.VERTICAL, false));
-        mFindActRV.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-                super.onDraw(c, parent, state);
-            }
-
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-            }
-        });
+        mFindActRV.addItemDecoration(new LinearItemDecoration(mContext, LinearLayoutManager.VERTICAL));
     }
 
 
