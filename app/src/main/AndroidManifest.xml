@@ -24,16 +24,15 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <activity android:name=".account.RegisterAndLoginActivity">
-
         </activity>
 
         <activity android:name=".account.RegisterAndLoginActivity">
-
         </activity>
+
+        <activity android:name=".mine.ActivityCreateActivity"/>
         <activity android:name=".account.RegisterActivity" />
         <activity android:name=".account.ForgetPasswordActivity"></activity>
         <activity android:name=".mine.UserInfoActivity"></activity>
