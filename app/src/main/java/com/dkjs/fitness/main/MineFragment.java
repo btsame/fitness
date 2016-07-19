@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
+import com.dkjs.fitness.mine.ActivityManagerActivity;
 import com.dkjs.fitness.mine.UserInfoActivity;
 
 /**
@@ -20,7 +21,7 @@ import com.dkjs.fitness.mine.UserInfoActivity;
 public class MineFragment extends FitnessFragment {
 
     Button editUserInfo;
-    TextView tvCreate;
+    TextView tvCreate,tvManager;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,7 +33,19 @@ public class MineFragment extends FitnessFragment {
         editUserInfo();
         //发起活动
         createActivity();
+        //管理活动
+        managerActivity();
+
         return view;
+    }
+
+    private void managerActivity() {
+        tvManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ActivityManagerActivity.class));
+            }
+        });
     }
 
     private void createActivity() {
@@ -47,6 +60,7 @@ public class MineFragment extends FitnessFragment {
     public void initView(View view){
         editUserInfo= (Button) view.findViewById(R.id.btn_editUserInfo);
         tvCreate= (TextView) view.findViewById(R.id.tv_create_activity);
+        tvManager=(TextView)view.findViewById(R.id.tv_managerActivity);
     }
 
     private void editUserInfo(){

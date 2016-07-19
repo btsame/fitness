@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
         android:name=".comm.FitnessApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,25 +21,24 @@
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".account.RegisterAndLoginActivity">
-        </activity>
-
-        <activity android:name=".account.RegisterAndLoginActivity">
-        </activity>
-
-        <activity android:name=".mine.ActivityCreateActivity"/>
+        <activity android:name=".account.RegisterAndLoginActivity"></activity>
+        <activity android:name=".mine.ActivityCreateActivity" />
         <activity android:name=".account.RegisterActivity" />
-        <activity android:name=".account.ForgetPasswordActivity"></activity>
-        <activity android:name=".mine.UserInfoActivity"></activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".account.ForgetPasswordActivity" />
+        <activity android:name=".mine.UserInfoActivity" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".mine.ActivityManagerActivity"></activity>
     </application>
 
 </manifest>

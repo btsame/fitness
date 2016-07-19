@@ -122,7 +122,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="发起活动" />
+            android:text="发起Fitness Party" />
 
         <TextView
             android:id="@+id/tv_managerActivity"
@@ -131,7 +131,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="管理活动" />
+            android:text="管理Fitness Party" />
     </LinearLayout>
 
     <LinearLayout
@@ -145,7 +145,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="管理报名" />
+            android:text="Fitness Party报名" />
 
         <TextView
             android:id="@+id/tv_check"
@@ -154,7 +154,7 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="验票" />
+            android:text="Fitness Party验票" />
     </LinearLayout>
 
     <LinearLayout
