@@ -49,4 +49,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'me.majiajie:pager-bottom-tab-strip:1.0.0'
     compile 'com.bigkoo:convenientbanner:2.0.5'
+
+    //视频录制库
+    compile 'com.github.JeroenMols:LandscapeVideoCamera:1.1.4'
 }

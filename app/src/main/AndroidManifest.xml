@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".comm.FitnessApplication"
         android:allowBackup="true"
@@ -39,6 +43,12 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".mine.ActivityManagerActivity"></activity>
+
+        <!-- 视频录制Activity -->
+        <activity
+            android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"
+            android:screenOrientation="sensor" >
+        </activity>
     </application>
 
 </manifest>
