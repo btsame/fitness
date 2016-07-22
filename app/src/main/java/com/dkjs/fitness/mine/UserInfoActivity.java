@@ -53,7 +53,7 @@ public class UserInfoActivity extends FitnessActivity {
     public void setDate(View view) {
         DatePicker picker = new DatePicker(this);
         picker.setRange(1900, 2030);
-        picker.setSelectedItem(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH));
+        picker.setSelectedItem(1990, 01, 01);
         picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
             @Override
             public void onDatePicked(String year, String month, String day) {

@@ -23,6 +23,9 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     //加载进度
+    //底部导航栏
+    //banner
+    compile project(':citydateselector')
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
@@ -46,9 +49,9 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'me.wangyuwei:LoadingiVew:1.0.3'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
-    //底部导航栏
     compile 'me.majiajie:pager-bottom-tab-strip:1.0.0'
-    //banner
     compile 'com.bigkoo:convenientbanner:2.0.5'
-    compile project(':citydateselector')
+
+    //视频录制库
+    compile 'com.github.JeroenMols:LandscapeVideoCamera:1.1.4'
 }

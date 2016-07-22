@@ -115,13 +115,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_create_activity"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="发起活动" />
+            android:text="发起Fitness Party" />
 
         <TextView
             android:id="@+id/tv_managerActivity"
@@ -130,36 +131,38 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="管理活动" />
+            android:text="管理Fitness Party" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_join"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="管理报名" />
+            android:text="Fitness Party报名" />
 
         <TextView
+            android:id="@+id/tv_check"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/accout_icon"
             android:gravity="center"
-            android:text="验票" />
+            android:text="Fitness Party验票" />
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         style="@style/linearlayout_bg_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -167,10 +170,24 @@
             android:layout_marginBottom="3dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="3dp"
-            android:text="活动收入"
+            android:text="我的钱包"
             android:textSize="20dp" />
+    </LinearLayout>
 
-    </RelativeLayout>
-
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/linearlayout_bg_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="3dp"
+            android:text="设置管理"
+            android:textSize="20dp" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.dkjs.fitness.mine.ActivityManagerActivity">
+    <RelativeLayout
+        android:background="@color/light_blue_100"
+        android:layout_width="match_parent"
+        android:layout_height="159px">
+        <TextView
+            android:textColor="@android:color/white"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="活动管理"
+            android:id="@+id/textView4"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_frag_find"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        app:tabTextAppearance="@style/frag_find_tab"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorAccent">
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_frag_find"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tl_frag_find">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>
