@@ -36,8 +36,7 @@ public class RegisterAndLoginActivity extends FitnessActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resigterandloginactivity);
-
+        setContentView(R.layout.activity_resigterandloginactivity1);
         //初始化控件
         initView();
     }

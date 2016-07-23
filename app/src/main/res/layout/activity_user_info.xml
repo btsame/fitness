@@ -7,12 +7,12 @@
     <RelativeLayout
         android:background="@color/light_blue_100"
         android:layout_width="match_parent"
-        android:layout_height="159px">
+        android:layout_height="50dip">
         <TextView
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="个人资料"
@@ -21,11 +21,11 @@
 
         <TextView
            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="10dip"
              android:layout_centerVertical="true"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="保存"
@@ -38,19 +38,21 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="wrap_content">
         <ImageView
             android:layout_margin="5dp"
             android:src="@drawable/accout_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="66dip"
+            android:layout_height="66dip"
             android:id="@+id/imageView" />
 
         <TextView
+            android:layout_marginRight="40dip"
+            android:textSize="16dip"
             android:layout_marginLeft="20dp"
-           android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+          android:gravity="center_vertical"
+            android:layout_width="66dip"
+            android:layout_height="66dip"
             android:text="更改头像"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/textView6"
@@ -65,7 +67,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:gravity="center_vertical"
         >
         <TextView
@@ -91,7 +93,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+                android:layout_height="45dp"
         android:gravity="center_vertical"
         >
         <TextView
@@ -116,7 +118,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+                android:layout_height="45dp"
         android:gravity="center_vertical"
         >
         <TextView
@@ -145,7 +147,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+                android:layout_height="45dp"
         >
         <TextView
             android:layout_margin="5dp"
@@ -171,7 +173,7 @@
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+                android:layout_height="45dp"
         android:gravity="center_vertical"
         >
         <TextView

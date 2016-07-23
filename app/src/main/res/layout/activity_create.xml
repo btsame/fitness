@@ -6,7 +6,7 @@
     <RelativeLayout
         android:background="@color/light_blue_100"
         android:layout_width="match_parent"
-        android:layout_height="159px">
+        android:layout_height="50dip">
         <TextView
             android:textColor="@android:color/white"
             android:layout_margin="5dp"
@@ -19,11 +19,11 @@
             android:layout_centerInParent="true" />
         <TextView
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="10dip"
             android:layout_centerVertical="true"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="发布"

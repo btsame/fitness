@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="16dp"
+                android:textSize="16dip"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/textView3"
@@ -65,7 +65,7 @@
                 android:layout_marginTop="5dp"
                 android:text="动态"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="16dp" />
+                android:textSize="11dip" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/lv_foucs"
@@ -78,14 +78,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="16dp"
+                android:textSize="16dip"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="关注"
-                android:textSize="16dp" />
+                android:textSize="11dip" />
         </LinearLayout>
 
         <LinearLayout
@@ -99,63 +99,82 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="16dp"
+                android:textSize="16dip"
                 android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="粉丝"
-                android:textSize="16dp" />
+                android:textSize="11dip" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_create_activity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/accout_icon"
-            android:gravity="center"
-            android:text="发起Fitness Party" />
 
-        <TextView
-            android:id="@+id/tv_managerActivity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/accout_icon"
+        android:layout_marginTop="30dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:id="@+id/iv_create_activity"
             android:gravity="center"
-            android:text="管理Fitness Party" />
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/me_party"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="发起活动"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/iv_managerActivity"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/me_join"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="管理活动"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/me_ticket"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="验票"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_join"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/accout_icon"
-            android:gravity="center"
-            android:text="Fitness Party报名" />
 
-        <TextView
-            android:id="@+id/tv_check"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/accout_icon"
-            android:gravity="center"
-            android:text="Fitness Party验票" />
-    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"

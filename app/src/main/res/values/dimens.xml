@@ -4,4 +4,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="loading_view_perimeter">200dp</dimen>
+    <dimen name="input_divider_height">1.0dip</dimen>
+    <dimen name="content_padding">5.0dip</dimen>
+    <color name="login_statement_text_color">#ff979797</color>
+
+    <dimen name="text_size_14">14.0sp</dimen>
 </resources>
