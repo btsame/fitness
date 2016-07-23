@@ -36,7 +36,9 @@ dependencies {
     compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
     compile 'com.jakewharton.rxbinding:rxbinding-design:0.4.0'
     compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
-    compile 'com.squareup.okhttp:okhttp:2.4.0'
+//    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile "com.squareup.okhttp3:okhttp:3.1.2"
+
     compile 'com.squareup.retrofit2:retrofit:2.0.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
     compile 'com.google.code.gson:gson:2.3'
@@ -49,4 +51,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'me.majiajie:pager-bottom-tab-strip:1.0.0'
     compile 'com.bigkoo:convenientbanner:2.0.5'
+
+    //视频录制库
+    compile 'com.github.JeroenMols:LandscapeVideoCamera:1.1.4'
 }

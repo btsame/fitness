@@ -28,6 +28,7 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessFragment;
+import com.dkjs.fitness.comm.GridItemDecoration;
 import com.dkjs.fitness.domain.State;
 import com.dkjs.fitness.domain.StateTest;
 import com.dkjs.fitness.util.ToastUtils;
@@ -164,6 +165,7 @@ public class FindHotFragment extends FitnessFragment {
         stateAdapter = new StateAdapter(stateList);
         mFindHotRV.setAdapter(stateAdapter);
         mFindHotRV.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        mFindHotRV.addItemDecoration(new GridItemDecoration(mContext));
     }
 
     public class NetworkImageHolderView implements Holder<String>{

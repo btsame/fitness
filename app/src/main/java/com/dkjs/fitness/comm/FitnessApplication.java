@@ -8,8 +8,10 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.maxleap.GetCallback;
 import com.maxleap.MLDataManager;
 import com.maxleap.MLObject;
+import com.maxleap.MLUser;
 import com.maxleap.MaxLeap;
 import com.maxleap.exception.MLException;
+import com.maxleap.social.MLHermes;
 
 /**
  * Created by administrator on 16/6/21.
@@ -38,13 +40,23 @@ public class FitnessApplication extends Application {
                 new GetCallback<MLObject>() {
                     @Override
                     public void done(MLObject mlObject, MLException e) {
-                        if(e != null && e.getCode() == MLException.INVALID_OBJECT_ID){
+                        if (e != null && e.getCode() == MLException.INVALID_OBJECT_ID) {
                             LogUtil.e(TAG, "***************************SDK sucess");
-                        }else{
+                        } else {
                             LogUtil.e(TAG, "***************************SDK failed");
                         }
                     }
                 });
+
+
+        MLHermes.initialize(this, "57807296a5ff7f00013e797b",
+                "ZXNhTWdKWk1xUWVXUEVQakZxVnpNUQ");
+        MLUser currentUser = MLUser.getCurrentUser();
+        if(currentUser != null){
+            MLHermes.setSessionToken(currentUser.getSessionToken());
+        } else {
+            //
+        }
 
 
         /** 初始化fresco图片加载库 */
