@@ -8,21 +8,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/PhotoPicker" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/citydateselector" />
-<<<<<<< HEAD
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/PhotoPicker" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/citydateselector" />
-=======
-            <option value="$PROJECT_DIR$/vitamio" />
->>>>>>> 373d9d5187ad714bb21536615a33bbd4f3d3c30f
           </set>
         </option>
       </GradleProjectSettings>

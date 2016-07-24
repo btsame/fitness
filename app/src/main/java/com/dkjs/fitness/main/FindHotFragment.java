@@ -62,12 +62,12 @@ public class FindHotFragment extends FitnessFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mUIHandler = new Handler(){
+        mUIHandler = new Handler() {
 
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                switch (msg.what){
+                switch (msg.what) {
                     case LOADAD_DATA:
                         mFindHotRL.setRefreshing(false);
                         stateAdapter.notifyDataSetChanged();
@@ -104,16 +104,16 @@ public class FindHotFragment extends FitnessFragment {
                 return new NetworkImageHolderView();
             }
         }, bannerImgList)
-        .setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                ToastUtils.showCustomToast(getActivity(), "点击" + position + "个");
+                .setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        ToastUtils.showCustomToast(getActivity(), "点击" + position + "个");
 
-            }
-        }).setPageIndicator(new int[]{R.drawable.ic_page_indicator,
+                    }
+                }).setPageIndicator(new int[]{R.drawable.ic_page_indicator,
                 R.drawable.ic_page_indicator_focused})
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT)
-        .setManualPageable(true);   //设置可以手动滑动
+                .setManualPageable(true);   //设置可以手动滑动
 
         mFindHotRL.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -137,7 +137,7 @@ public class FindHotFragment extends FitnessFragment {
         mCBanner.stopTurning();
     }
 
-    private void loadData(){
+    private void loadData() {
         bannerImgList = new ArrayList<String>();
         bannerImgList.add("http://img1.imgtn.bdimg.com/it/u=948827144,1859327675&fm=21&gp=0.jpg");
         bannerImgList.add("http://img3.imgtn.bdimg.com/it/u=4076258573,3568489988&fm=21&gp=0.jpg");
@@ -147,13 +147,13 @@ public class FindHotFragment extends FitnessFragment {
         bannerImgList.add("http://img5.imgtn.bdimg.com/it/u=2679161897,2271446926&fm=21&gp=0.jpg");
 
         stateList = new ArrayList<StateTest>();
-        for(int i = 0; i < 25; i++){
+        for (int i = 0; i < 25; i++) {
             StateTest state = new StateTest();
-            if(i % 3 == 0){
+            if (i % 3 == 0) {
                 state.setSourceUrl("http://img0.imgtn.bdimg.com/it/u=2377301932,2910798798&fm=21&gp=0.jpg");
-            }else if(i % 3 == 1){
+            } else if (i % 3 == 1) {
                 state.setSourceUrl("http://img0.imgtn.bdimg.com/it/u=744815246,3640932668&fm=21&gp=0.jpg");
-            }else {
+            } else {
                 state.setSourceUrl("http://img0.imgtn.bdimg.com/it/u=3174997060,1739124222&fm=21&gp=0.jpg");
             }
             stateList.add(state);
@@ -161,14 +161,14 @@ public class FindHotFragment extends FitnessFragment {
         }
     }
 
-    private void initRecylerView(){
+    private void initRecylerView() {
         stateAdapter = new StateAdapter(stateList);
         mFindHotRV.setAdapter(stateAdapter);
         mFindHotRV.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         mFindHotRV.addItemDecoration(new GridItemDecoration(mContext));
     }
 
-    public class NetworkImageHolderView implements Holder<String>{
+    public class NetworkImageHolderView implements Holder<String> {
 
         private SimpleDraweeView simpleDraweeView;
 
@@ -191,7 +191,7 @@ public class FindHotFragment extends FitnessFragment {
     /**
      * 状态 adapter
      */
-    public class StateAdapter extends RecyclerView.Adapter<StateAdapter.StateViewHolder>{
+    public class StateAdapter extends RecyclerView.Adapter<StateAdapter.StateViewHolder> {
 
         private List<StateTest> datas;
 
@@ -213,22 +213,22 @@ public class FindHotFragment extends FitnessFragment {
 
         @Override
         public int getItemCount() {
-            if(datas == null) return 0;
+            if (datas == null) return 0;
             return datas.size();
         }
 
-        public class StateViewHolder extends RecyclerView.ViewHolder{
+        public class StateViewHolder extends RecyclerView.ViewHolder {
             SimpleDraweeView stateImg;
             ImageView praiseIV, commentIV;
             TextView praiseTV, commentTV;
 
             public StateViewHolder(View itemView) {
                 super(itemView);
-                stateImg = (SimpleDraweeView)itemView.findViewById(R.id.item_state_img);
-                praiseIV = (ImageView)itemView.findViewById(R.id.iv_praise);
-                commentIV = (ImageView)itemView.findViewById(R.id.iv_comment);
-                praiseTV = (TextView)itemView.findViewById(R.id.tv_praise_count);
-                commentTV = (TextView)itemView.findViewById(R.id.tv_comment_count);
+                stateImg = (SimpleDraweeView) itemView.findViewById(R.id.item_state_img);
+                praiseIV = (ImageView) itemView.findViewById(R.id.iv_praise);
+                commentIV = (ImageView) itemView.findViewById(R.id.iv_comment);
+                praiseTV = (TextView) itemView.findViewById(R.id.tv_praise_count);
+                commentTV = (TextView) itemView.findViewById(R.id.tv_comment_count);
 
             }
         }

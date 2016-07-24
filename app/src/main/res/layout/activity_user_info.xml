@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:background="@color/light_blue_100"
+        android:background="@color/appgreen"
         android:layout_width="match_parent"
         android:layout_height="50dip">
         <TextView

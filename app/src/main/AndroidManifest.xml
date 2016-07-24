@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -23,22 +22,18 @@
             android:value="wandoujia" />
 
         <activity android:name=".main.MainActivity">
+
+        </activity>
+        <activity android:name=".account.RegisterAndLoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account.RegisterAndLoginActivity">
-
-        </activity>
         <activity android:name=".mine.ActivityCreateActivity" />
-        <activity android:name=".account.RegisterActivity">
-
-        </activity>
-        <activity android:name=".account.ForgetPasswordActivity">
-
-        </activity>
+        <activity android:name=".account.RegisterActivity" />
+        <activity android:name=".account.ForgetPasswordActivity" />
         <activity android:name=".mine.UserInfoActivity" />
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -48,13 +43,13 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".mine.ActivityManagerActivity"></activity>
+        <activity android:name=".mine.ActivityManagerActivity" />
 
         <!-- 视频录制Activity -->
         <activity
             android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"
-            android:screenOrientation="sensor" >
-        </activity>
+            android:screenOrientation="sensor" />
+        <activity android:name=".mine.SettingsActivity"></activity>
     </application>
 
 </manifest>

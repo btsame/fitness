@@ -3,7 +3,7 @@
     android:id="@+id/layout_login_bottom"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="70.0dip"
+    android:layout_marginTop="30.0dip"
     android:gravity="bottom"
     android:orientation="vertical">
 

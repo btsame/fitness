@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-include ':app', ':citydateselector', ':PhotoPicker'
-=======
-include ':app', ':citydateselector', ':vitamio'
->>>>>>> 373d9d5187ad714bb21536615a33bbd4f3d3c30f
+include ':app', ':citydateselector'

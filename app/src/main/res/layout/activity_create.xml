@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <RelativeLayout
-        android:background="@color/light_blue_100"
+        android:background="@color/appgreen"
         android:layout_width="match_parent"
         android:layout_height="50dip">
         <TextView
@@ -166,27 +166,45 @@
     <LinearLayout
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tv_upload_image"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/accout_icon"
-            android:gravity="center"
-            android:text="上传照片" />
-        <TextView
-            android:id="@+id/tv_upload_video"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/accout_icon"
-            android:gravity="center"
-            android:text="上传视频" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
 
-    </LinearLayout>
+            <ImageView
+
+                android:src="@drawable/rich_button_camera_yes"
+                android:layout_width="50dip"
+                android:layout_height="50dip" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传照片"/>
+
+            </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/rich_button_video_yes"
+                android:layout_width="50dip"
+                android:layout_height="50dip" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传视频"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
 
 </LinearLayout>

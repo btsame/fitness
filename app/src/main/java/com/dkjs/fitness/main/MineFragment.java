@@ -14,6 +14,7 @@ import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.mine.ActivityManagerActivity;
+import com.dkjs.fitness.mine.SettingsActivity;
 import com.dkjs.fitness.mine.UserInfoActivity;
 
 /**
@@ -22,7 +23,7 @@ import com.dkjs.fitness.mine.UserInfoActivity;
 public class MineFragment extends FitnessFragment {
 
     Button editUserInfo;
-    LinearLayout lvCreate,lvManager;
+    LinearLayout lvCreate,lvManager,lvSettings;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,11 +38,23 @@ public class MineFragment extends FitnessFragment {
         //管理活动
         managerActivity();
 
+        //设置管理
+        managerSettings();
+
         return view;
     }
 
+    private void managerSettings() {
+        lvSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SettingsActivity.class));
+            }
+        });
+    }
+
     private void managerActivity() {
-        lvCreate.setOnClickListener(new View.OnClickListener() {
+        lvManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), ActivityManagerActivity.class));
@@ -50,7 +63,7 @@ public class MineFragment extends FitnessFragment {
     }
 
     private void createActivity() {
-        lvManager.setOnClickListener(new View.OnClickListener() {
+        lvCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(),ActivityCreateActivity.class));
@@ -62,6 +75,7 @@ public class MineFragment extends FitnessFragment {
         editUserInfo= (Button) view.findViewById(R.id.btn_editUserInfo);
         lvCreate= (LinearLayout) view.findViewById(R.id.iv_create_activity);
         lvManager=(LinearLayout) view.findViewById(R.id.iv_managerActivity);
+        lvSettings=(LinearLayout) view.findViewById(R.id.lv_settings);
     }
 
     private void editUserInfo(){
