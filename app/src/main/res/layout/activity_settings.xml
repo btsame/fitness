@@ -78,7 +78,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Wake教练认证"
+                        android:text="组织者认证"
                         android:textColor="#ff797979"
                         android:textSize="16.0sp" />
 
@@ -105,47 +105,11 @@
                 android:paddingLeft="22.0dip"
                 android:paddingRight="22.0dip">
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="35.0dip">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="个性设置"
-                        android:textColor="#ffb3b3b3"
-                        android:textSize="12.0sp" />
-                </RelativeLayout>
-
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="1.0px"
                     android:background="@color/appgray" />
 
-                <RelativeLayout
-                    android:id="@+id/usetinfo_setting_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="35.0dip">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="个人信息"
-                        android:textColor="#ff797979"
-                        android:textSize="16.0sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:drawablePadding="5.0dip"
-                        android:drawableRight="@mipmap/more"
-                        android:textColor="#ff969696"
-                        android:textSize="13.0sp" />
-                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -269,7 +233,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="喜欢Wake"
+                        android:text="喜欢我们"
                         android:textColor="#ffb3b3b3"
                         android:textSize="12.0sp" />
                 </RelativeLayout>

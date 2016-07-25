@@ -12,7 +12,7 @@
         <item name="windowActionBar">false</item>
 
         <item name="android:listDivider">@drawable/shape_list_divider</item>
-    </style>2
+    </style>
 
     <style name="dm_alert_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
