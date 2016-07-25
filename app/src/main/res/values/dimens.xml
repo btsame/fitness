@@ -9,4 +9,5 @@
     <color name="login_statement_text_color">#ff979797</color>
 
     <dimen name="text_size_14">14.0sp</dimen>
+    <dimen name="home_menu_counts_size">16.0dip</dimen>
 </resources>

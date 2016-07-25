@@ -22,6 +22,11 @@
             android:value="wandoujia" />
 
         <activity android:name=".main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".account.RegisterAndLoginActivity" >
@@ -34,11 +39,6 @@
 
         //达人 私教认证环节
         <activity android:name=".account.IDRegisterFirstActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
         </activity >
