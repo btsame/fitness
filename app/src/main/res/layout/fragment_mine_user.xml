@@ -192,7 +192,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dip"
                 android:layout_toRightOf="@id/iv_fans"
-                android:text="待参与"
+                android:text="待参与（活动群聊）"
                 android:textColor="@color/top_introduce_text_color"
                 android:textSize="16sp" />
             <include
