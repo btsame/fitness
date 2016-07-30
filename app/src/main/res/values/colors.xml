@@ -33,4 +33,16 @@
     <color name="light_blue_A200">#40C4FF</color>
     <color name="light_blue_A400">#00B0FF</color>
     <color name="light_blue_A700">#0091EA</color>
+
+    <color name="red">#ff0000</color>
+    <color name="app_register_gray">#ffbbbbbb</color>
+    <color name="darkgray">#ffa9a9a9</color>
+    <color name="appgreen">#ff71bd9c</color>
+    <color name="lightgray">#ffd3d3d3</color>
+    <color name="appgray">#fff1f1f7</color>
+    <color name="light_gray_text_color">#ff999999</color>
+    <color name="share_platform_icon_text_color">#ff666666</color>
+    <color name="top_introduce_text_color">#ff333333</color>
+    <color name="white_color">#ffffffff</color>
+    <color name="divider_new">#ffeeeeee</color>
 </resources>

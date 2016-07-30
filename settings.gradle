@@ -1,1 +1,1 @@
-include ':app', ':citydateselector', ':vitamio'
+include ':app', ':citydateselector'

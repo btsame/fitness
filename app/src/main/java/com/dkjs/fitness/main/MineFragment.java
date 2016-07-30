@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.mine.ActivityManagerActivity;
+import com.dkjs.fitness.mine.SettingsActivity;
 import com.dkjs.fitness.mine.UserInfoActivity;
 
 /**
@@ -21,7 +23,7 @@ import com.dkjs.fitness.mine.UserInfoActivity;
 public class MineFragment extends FitnessFragment {
 
     Button editUserInfo;
-    TextView tvCreate,tvManager;
+    LinearLayout lvCreate,lvManager,lvSettings;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,11 +38,23 @@ public class MineFragment extends FitnessFragment {
         //管理活动
         managerActivity();
 
+        //设置管理
+        managerSettings();
+
         return view;
     }
 
+    private void managerSettings() {
+        lvSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SettingsActivity.class));
+            }
+        });
+    }
+
     private void managerActivity() {
-        tvManager.setOnClickListener(new View.OnClickListener() {
+        lvManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), ActivityManagerActivity.class));
@@ -49,7 +63,7 @@ public class MineFragment extends FitnessFragment {
     }
 
     private void createActivity() {
-        tvCreate.setOnClickListener(new View.OnClickListener() {
+        lvCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(),ActivityCreateActivity.class));
@@ -59,8 +73,9 @@ public class MineFragment extends FitnessFragment {
 
     public void initView(View view){
         editUserInfo= (Button) view.findViewById(R.id.btn_editUserInfo);
-        tvCreate= (TextView) view.findViewById(R.id.tv_create_activity);
-        tvManager=(TextView)view.findViewById(R.id.tv_managerActivity);
+        lvCreate= (LinearLayout) view.findViewById(R.id.iv_create_activity);
+        lvManager=(LinearLayout) view.findViewById(R.id.iv_managerActivity);
+        lvSettings=(LinearLayout) view.findViewById(R.id.lv_settings);
     }
 
     private void editUserInfo(){

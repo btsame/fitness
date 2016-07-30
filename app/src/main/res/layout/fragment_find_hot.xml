@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/common_bg">
+    android:background="@color/appgreen">
 
     <android.support.design.widget.AppBarLayout
+
         android:id="@+id/abl_find_hot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -15,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:canLoop="true">
+            app:canLoop="true"
+            android:orientation="horizontal">
 
         </com.bigkoo.convenientbanner.ConvenientBanner>
 

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_login_bottom"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30.0dip"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/input_divider_height"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tv_login_by_other"
+            android:background="#ffc7c7c7" />
+
+        <TextView
+            android:id="@id/tv_login_by_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/content_padding"
+            android:layout_marginTop="10.0dip"
+            android:text="使用第三方帐号登录"
+            android:textColor="@color/login_statement_text_color"
+            android:textSize="@dimen/text_size_14" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/input_divider_height"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_login_by_other"
+            android:background="#ffc7c7c7" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20.0dip"
+        android:layout_marginLeft="50.0dip"
+        android:layout_marginRight="50.0dip"
+        android:layout_marginTop="10.0dip"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_login_by_wechat"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="60.0dip"
+                android:layout_height="60.0dip"
+                android:background="@drawable/share_btn_wechat_selector"
+                android:clickable="false"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:text="微信"
+                android:textColor="@color/share_text_color_selector"
+                android:textSize="@dimen/text_size_14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login_by_qq"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="60.0dip"
+                android:layout_height="60.0dip"
+                android:background="@drawable/share_btn_qq_selector"
+                android:clickable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:text="QQ"
+                android:textColor="@color/share_text_color_selector"
+                android:textSize="@dimen/text_size_14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login_by_weibo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="60.0dip"
+                android:layout_height="60.0dip"
+                android:background="@drawable/share_btn_weibo_selector"
+                android:clickable="false"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:text="微博"
+                android:textColor="@color/share_text_color_selector"
+                android:textSize="@dimen/text_size_14" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
