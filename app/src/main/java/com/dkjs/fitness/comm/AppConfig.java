@@ -21,7 +21,7 @@ public class AppConfig {
     public static final String BAIDU_APP_KEY = "6tYzTvGZSOpYB5Oc2YGGOKt8";
 
     static {
-        BASE_DIRECTORY = Environment.getExternalStorageDirectory() + "/Wardrobe";
+        BASE_DIRECTORY = Environment.getExternalStorageDirectory() + "/fitness";
         PHOTO_DIRECTORY = BASE_DIRECTORY + "/picture";
         File file = new File(PHOTO_DIRECTORY);
         if (!file.exists() && !file.isDirectory()) {

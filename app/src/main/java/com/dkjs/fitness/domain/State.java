@@ -7,8 +7,7 @@ import com.maxleap.MLObject;
 /**
  * Created by administrator on 16/7/17.
  */
-@MLClassName("state")
-public class State extends MLObject {
+public class State {
 
     protected String sourceUrl;
     protected int type;
@@ -16,34 +15,34 @@ public class State extends MLObject {
     protected MLGeoPoint loc;
 
     public String getSourceUrl() {
-        return getString("sourceUrl");
+        return sourceUrl;
     }
 
     public void setSourceUrl(String sourceUrl) {
-        put("sourceUrl", sourceUrl);
+        this.sourceUrl = sourceUrl;
     }
 
     public int getType() {
-        return getInt("type");
+        return type;
     }
 
     public void setType(int type) {
-        put("type", type);
+        this.type = type;
     }
 
     public String getDesc() {
-        return getString("desc");
+        return desc;
     }
 
     public void setDesc(String desc) {
-        put("desc", desc);
+        this.desc = desc;
     }
 
     public MLGeoPoint getLoc() {
-        return getMLGeoPoint("loc");
+        return loc;
     }
 
     public void setLoc(MLGeoPoint loc) {
-        put("loc", loc);
+        this.loc = loc;
     }
 }

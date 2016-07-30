@@ -18,6 +18,7 @@
             android:id="@+id/textView4"
             android:layout_centerInParent="true" />
         <TextView
+            android:id="@+id/tv_publish_activity"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dip"
             android:layout_centerVertical="true"
@@ -47,6 +48,7 @@
             android:text="活动主题："
             />
         <EditText
+            android:id="@+id/et_act_subject"
             android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -73,11 +75,13 @@
             android:text="人数限制："
             />
         <EditText
+            android:id="@+id/et_act_totalnum"
             android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:inputType="number"
             />
     </LinearLayout>
 
@@ -95,6 +99,7 @@
         android:gravity="center_vertical"
         >
         <TextView
+            android:id="@+id/et_act_address"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,6 +126,7 @@
         android:gravity="center_vertical"
         >
         <TextView
+            android:id="@+id/et_act_equipment"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,6 +153,7 @@
         android:gravity="center_vertical"
         >
         <TextView
+            android:id="@+id/et_act_instruction"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -170,6 +177,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/ll_upload_pic"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_weight="1"
@@ -188,6 +196,7 @@
 
             </LinearLayout>
         <LinearLayout
+            android:id="@+id/ll_upload_video"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_weight="1"

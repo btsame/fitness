@@ -69,4 +69,6 @@ public class FitnessApplication extends Application {
     public Context getGlobalContext() {
         return mContext;
     }
+
+
 }

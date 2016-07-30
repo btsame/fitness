@@ -21,7 +21,7 @@ public class FitnessActivity extends AppCompatActivity {
     private long clickTime = 0;              //记录第一次点击的时间
 
     private LoadingDialog mLoadingDialog;
-    Context mContext;
+    protected Context mContext;
 
 
     @Override

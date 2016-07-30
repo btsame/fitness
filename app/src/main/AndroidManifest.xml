@@ -59,6 +59,15 @@
             android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"
             android:screenOrientation="sensor" />
         <activity android:name=".mine.SettingsActivity"></activity>
+
+        <!-- 登录广播接收器 -->
+        <receiver android:name=".comm.LoginBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.login" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
