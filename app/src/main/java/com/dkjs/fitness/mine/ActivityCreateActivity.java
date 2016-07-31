@@ -122,7 +122,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v == mUploadPicIV) {
-            loadPic.showSelectPicDialog(cameraProxy, ActivityCreateActivity.this, ActivityCreateActivity.this);
+            showSelectPicDialog();
         } else if (v == mUploadVideoIV) {
 
         } else if (v == mPublishActTV) {
