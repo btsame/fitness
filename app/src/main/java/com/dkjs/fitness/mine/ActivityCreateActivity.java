@@ -53,7 +53,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Administrator on 2016/7/18.
  */
-public class ActivityCreateActivity extends FitnessActivity implements View.OnClickListener{
+public class ActivityCreateActivity extends FitnessActivity implements View.OnClickListener {
 
     public static final int REQUEST_CAMERA_PERMISSION = 0x11;
 
@@ -82,7 +82,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-
         ButterKnife.bind(this);
         setListener();
 
@@ -114,11 +113,11 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        if(v == mUploadPicIV){
+        if (v == mUploadPicIV) {
             showSelectPicDialog();
-        }else if(v == mUploadVideoIV){
+        } else if (v == mUploadVideoIV) {
 
-        }else if(v == mPublishActTV){
+        } else if (v == mPublishActTV) {
             publishAct();
         }
     }
@@ -142,7 +141,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         }
     }
 
-    private void showSelectPicDialog(){
+    private void showSelectPicDialog() {
         final DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
                 .setGravity(Gravity.BOTTOM)
                 .setCancelable(true)
@@ -151,7 +150,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                     @Override
                     public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
                         String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".jpg";
-                        if(position == 0){//拍照
+                        if (position == 0) {//拍照
                             /**
                              * 适配M的动态权限
                              */
@@ -167,7 +166,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                                 }
                             }
                             cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
-                        }else{
+                        } else {
                             cameraProxy.getPhoto2Album(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
                         }
 
@@ -178,20 +177,20 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         dialogPlus.show();
     }
 
-    private void publishAct(){
-        if(TextUtils.isEmpty(mSubjextET.getText()) ||
+    private void publishAct() {
+        if (TextUtils.isEmpty(mSubjextET.getText()) ||
                 TextUtils.isEmpty(mTotalNumET.getText()) ||
                 TextUtils.isEmpty(mAddressET.getText()) ||
                 TextUtils.isEmpty(mInstructionET.getText()) ||
-                TextUtils.isEmpty(ftActivity.getSourceUrl())){
+                TextUtils.isEmpty(ftActivity.getSourceUrl())) {
             ToastUtils.showCustomToast(mContext, "请完善信息");
             return;
         }
 
-        if(ftActivity.getSourceUrl().endsWith(".png") ||
-                ftActivity.getSourceUrl().endsWith(".jpg")){
+        if (ftActivity.getSourceUrl().endsWith(".png") ||
+                ftActivity.getSourceUrl().endsWith(".jpg")) {
             ftActivity.setSourceType(FTActivity.SOURCE_TYPE_PIC);
-        }else{
+        } else {
             ftActivity.setSourceType(FTActivity.SOURCE_TYPE_VIDEO);
         }
 
@@ -220,11 +219,11 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         });
     }
 
-    public class PicSelectAdapter extends BaseAdapter{
+    public class PicSelectAdapter extends BaseAdapter {
 
         private String[] itemNames = new String[]{"拍照", "相册"};
         private int[] itemPics = new int[]{android.R.drawable.ic_menu_camera,
-        android.R.drawable.ic_menu_gallery};
+                android.R.drawable.ic_menu_gallery};
 
         public PicSelectAdapter() {
 
@@ -249,8 +248,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater layoutInflater = LayoutInflater.from(mContext);
             View itemView = layoutInflater.inflate(R.layout.item_pic_select, null);
-            ((ImageView)itemView.findViewById(R.id.iv_pic_select)).setImageResource(itemPics[position]);
-            ((TextView)itemView.findViewById(R.id.tv_pic_select)).setText(itemNames[position]);
+            ((ImageView) itemView.findViewById(R.id.iv_pic_select)).setImageResource(itemPics[position]);
+            ((TextView) itemView.findViewById(R.id.tv_pic_select)).setText(itemNames[position]);
             return itemView;
         }
     }
