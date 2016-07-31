@@ -202,11 +202,22 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         ftActivity.setIntruction(mInstructionET.getText().toString());
 
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();
-        if(ftActivityBiz.publishAct(ftActivity)){
-            ToastUtils.showCustomToast(mContext, "发布成功");
-        }else{
-            ToastUtils.showCustomToast(mContext, "发布失败");
-        }
+        ftActivityBiz.publishAct(ftActivity, new IFTActivityBiz.PublishActivityListener() {
+            @Override
+            public void onSucess() {
+                ToastUtils.showCustomToast(mContext, "发布成功");
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                ToastUtils.showCustomToast(mContext, "发布失败");
+            }
+
+            @Override
+            public void onProgress(String step, int i) {
+
+            }
+        });
 
     }
 

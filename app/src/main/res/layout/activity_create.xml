@@ -99,7 +99,6 @@
         android:gravity="center_vertical"
         >
         <TextView
-            android:id="@+id/et_act_address"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,6 +106,7 @@
             android:text="活动地点："
             />
         <EditText
+            android:id="@+id/et_act_address"
             android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -126,7 +126,7 @@
         android:gravity="center_vertical"
         >
         <TextView
-            android:id="@+id/et_act_equipment"
+
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,6 +134,7 @@
             android:text="自备器材："
             />
         <EditText
+            android:id="@+id/et_act_equipment"
             android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"
@@ -153,7 +154,7 @@
         android:gravity="center_vertical"
         >
         <TextView
-            android:id="@+id/et_act_instruction"
+
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,6 +162,7 @@
             android:text="活动说明："
             />
         <EditText
+            android:id="@+id/et_act_instruction"
             android:background="@null"
             android:layout_margin="5dp"
             android:layout_weight="1"

@@ -7,30 +7,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dkjs.fitness.R;
+import com.dkjs.fitness.account.RegisterAndLoginActivity;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.mine.ActivityManagerActivity;
 import com.dkjs.fitness.mine.SettingsActivity;
 import com.dkjs.fitness.mine.UserInfoActivity;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Created by administrator on 16/7/10.
  */
-public class MineFragment extends FitnessFragment {
+public class MineFragment extends FitnessFragment implements View.OnClickListener{
 
+    @Bind(R.id.iv_accout_icon)
+    ImageView portraitIV;
     Button editUserInfo;
     LinearLayout lvCreate,lvManager,lvSettings;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_mine_vipuser,container,false);
+        ButterKnife.bind(this, view);
 
         //初始化控件
         initView(view);
+        setListener();
         //编辑个人资料
         editUserInfo();
         //发起活动
@@ -78,6 +87,10 @@ public class MineFragment extends FitnessFragment {
         lvSettings=(LinearLayout) view.findViewById(R.id.lv_settings);
     }
 
+    private void setListener(){
+        portraitIV.setOnClickListener(this);
+    }
+
     private void editUserInfo(){
         editUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,4 +100,10 @@ public class MineFragment extends FitnessFragment {
         });
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v == portraitIV){
+            startActivity(new Intent(mContext, RegisterAndLoginActivity.class));
+        }
+    }
 }

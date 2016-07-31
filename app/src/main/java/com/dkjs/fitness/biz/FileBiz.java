@@ -17,14 +17,14 @@ public class FileBiz implements IFileBiz{
     public void uploadFile(@NotNull String filePath, final FileUploadListener fileUploadListener) {
         String fileName = "";
         fileName = filePath.substring(filePath.lastIndexOf("/") + 1);
-        MLFile mlFile = new MLFile(fileName, filePath);
+        final MLFile mlFile = new MLFile(fileName, filePath);
 
         MLFileManager.saveInBackground(mlFile, new SaveCallback() {
             @Override
             public void done(MLException e) {
                 if(e == null){
                     if(fileUploadListener != null){
-                        fileUploadListener.onSucess();
+                        fileUploadListener.onSucess(mlFile.getUrl());
                     }
                 }else{
                     if(fileUploadListener != null){

@@ -7,12 +7,15 @@ import com.dkjs.fitness.domain.FTActivity;
  */
 public interface IFTActivityBiz {
 
-    boolean publishAct(FTActivity ftActivity, PublishActivityListener paListener);
+    void publishAct(FTActivity ftActivity, PublishActivityListener paListener);
 
     interface PublishActivityListener{
+        String STEP_UPLOAD_FILE = "上传文件";
+        String STEP_UPLOAD_ACT = "发布状态";
+
         void onSucess();
         void onFailure(String msg);
-        void onProgress(int i);
+        void onProgress(String step, int i);
     }
 
 }

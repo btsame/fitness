@@ -8,7 +8,7 @@ public interface IFileBiz {
     void uploadFile(String filePath, FileUploadListener fileUploadListener);
 
     interface FileUploadListener{
-        void onSucess();
+        void onSucess(String url);
         void onFailure(String reason);
         void onProgress(int i);
     }
