@@ -1,5 +1,6 @@
 package com.dkjs.fitness.main;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -30,6 +31,7 @@ import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.comm.LinearItemDecoration;
 import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.domain.StateTest;
+import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.util.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -167,7 +169,7 @@ public class FindActivityFragment extends FitnessFragment {
         }
 
         @Override
-        public void onBindViewHolder(ActivityViewHolder holder, int position) {
+        public void onBindViewHolder(ActivityViewHolder holder, final int position) {
             if(datas.get(position).getSourceUrl().startsWith("http") ||
                     datas.get(position).getSourceUrl().startsWith("https")){
                 holder.stateImg.setImageURI(datas.get(position).getSourceUrl());
@@ -176,6 +178,16 @@ public class FindActivityFragment extends FitnessFragment {
             }
             holder.titleTC.setText(datas.get(position).getSubject());
 
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, ActivityCreateActivity.class);
+                    intent.putExtra(ActivityCreateActivity.PARAM_SHOW_STYLE,
+                            ActivityCreateActivity.ACTIVITY_SHOW);
+                    intent.putExtra(ActivityCreateActivity.PARAM_FTACTIVITY, datas.get(position));
+                    startActivity(intent);
+                }
+            });
 
 
         }

@@ -1,11 +1,16 @@
 package com.dkjs.fitness.domain;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.maxleap.social.entity.ShuoShuo;
+
+import java.io.Serializable;
 
 /**
  * Created by administrator on 16/7/17.
  */
-public class FTActivity {
+public class FTActivity implements Serializable{
 
     public static final int SOURCE_TYPE_PIC = 1;
     public static final int SOURCE_TYPE_VIDEO = 2;
@@ -88,4 +93,6 @@ public class FTActivity {
     public void setShuoShuo(ShuoShuo shuoShuo) {
         this.shuoShuo = shuoShuo;
     }
+
+
 }

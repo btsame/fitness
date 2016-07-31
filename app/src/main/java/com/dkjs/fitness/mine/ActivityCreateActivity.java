@@ -60,6 +60,11 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     public static final int REQUEST_CAMERA_PERMISSION = 0x11;
 
+    public static final int ACTIVITY_CREATE = 1;
+    public static final int ACTIVITY_SHOW = 2;
+    public static final String PARAM_SHOW_STYLE = "showSytle";
+    public static final String PARAM_FTACTIVITY = "ftActivity";
+
     @Bind(R.id.ll_upload_pic)
     LinearLayout mUploadPicIV;
     @Bind(R.id.ll_upload_video)
@@ -82,17 +87,32 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
-    UploadPic loadPic;
+    //标记此Acitvity的作用
+    int showStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_create);
         ButterKnife.bind(this);
-        setListener();
-        loadPic = new UploadPic();
 
-        ftActivity = new FTActivity();
+
+        showStyle = getIntent().getIntExtra(PARAM_SHOW_STYLE, ACTIVITY_CREATE);
+        if(showStyle == ACTIVITY_CREATE){
+            ftActivity = new FTActivity();
+        }else if(showStyle == ACTIVITY_SHOW){
+            ftActivity = (FTActivity)getIntent().getSerializableExtra(PARAM_FTACTIVITY);
+        }
+
+        initView();
+        setListener();
+
+
+
+
 
         cameraProxy = new CameraProxy(new CameraResult() {
             @Override
@@ -107,6 +127,20 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                 ToastUtils.showCustomToast(mContext, "获取图片失败");
             }
         }, ActivityCreateActivity.this);
+    }
+
+
+    @Override
+    protected void initView() {
+        super.initView();
+        if(showStyle == ACTIVITY_SHOW){
+            mSubjextET.setText(ftActivity.getSubject());
+            mTotalNumET.setText("" + ftActivity.getTotalNum());
+            mAddressET.setText(ftActivity.getAddress());
+            mEquipmentET.setText(ftActivity.getSelfEquipment());
+            mInstructionET.setText(ftActivity.getIntruction());
+        }
+
     }
 
     @Override
