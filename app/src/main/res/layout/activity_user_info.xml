@@ -3,193 +3,177 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <RelativeLayout
-        android:background="@color/appgreen"
         android:layout_width="match_parent"
-        android:layout_height="50dip">
+        android:layout_height="50dip"
+        android:background="@color/appgreen">
         <TextView
-            android:textColor="@android:color/white"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="个人资料"
             android:id="@+id/textView4"
-           android:layout_centerInParent="true" />
-
-        <TextView
-           android:layout_alignParentRight="true"
-            android:layout_marginRight="10dip"
-             android:layout_centerVertical="true"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
+            android:text="个人资料"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
             android:text="保存"
-             />
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </RelativeLayout>
     <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_linearlayout"
+        android:orientation="horizontal">
         <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="66dip"
+            android:layout_height="66dip"
             android:layout_margin="5dp"
-            android:src="@drawable/accout_icon"
-            android:layout_width="66dip"
-            android:layout_height="66dip"
-            android:id="@+id/imageView" />
-
+            android:src="@drawable/accout_icon" />
         <TextView
-            android:layout_marginRight="40dip"
-            android:textSize="16dip"
-            android:layout_marginLeft="20dp"
-          android:gravity="center_vertical"
+            android:id="@+id/textView6"
             android:layout_width="66dip"
             android:layout_height="66dip"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dip"
+            android:gravity="center_vertical"
             android:text="更改头像"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/textView6"
-            />
-
+            android:textSize="16dip" />
     </LinearLayout>
-
     <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="昵称"
-            android:id="@+id/textView7" />
-        <EditText
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@null"
-             />
-    </LinearLayout>
-
-    <LinearLayout
-         android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-                android:layout_height="45dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="性别"
-            />
-        <EditText
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-             />
-    </LinearLayout>
-    <LinearLayout
         android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-                android:layout_height="45dp"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
         <TextView
-            android:layout_margin="5dp"
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_margin="5dp"
+            android:text="昵称"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@null" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="性别"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@null" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="年龄"
-            />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
         <Button
             android:id="@+id/btn_date_set"
-            android:onClick="setDate"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-             />
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="setDate" />
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center_vertical"
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-                android:layout_height="45dp"
-        >
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_margin="5dp"
             android:text="城市"
-            />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
         <Button
             android:id="@+id/btn_city_set"
-            android:onClick="setCity"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-                android:layout_height="45dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
             android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="setCity" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="签名"
-            />
-        <EditText
-            android:background="@null"
             android:layout_margin="5dp"
-            android:layout_weight="1"
+            android:text="签名"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@null" />
     </LinearLayout>
 
 </LinearLayout>

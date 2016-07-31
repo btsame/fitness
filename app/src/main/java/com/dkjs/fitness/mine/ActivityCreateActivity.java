@@ -202,6 +202,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         ftActivity.setIntruction(mInstructionET.getText().toString());
 
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();
+<<<<<<< HEAD
         ftActivityBiz.publishAct(ftActivity, new IFTActivityBiz.PublishActivityListener() {
             @Override
             public void onSucess() {
@@ -218,6 +219,13 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
             }
         });
+=======
+        if(ftActivityBiz.publishAct(ftActivity, null)){
+            ToastUtils.showCustomToast(mContext, "发布成功");
+        }else{
+            ToastUtils.showCustomToast(mContext, "发布失败");
+        }
+>>>>>>> 87fb958edc0cb64e4a6895f7a31378b7e6eefa89
 
     }
 

@@ -32,7 +32,7 @@ public class UserInfoActivity extends FitnessActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info);
+        setContentView(R.layout.activity_user_info_setting);
 
         initView();
     }
@@ -40,9 +40,9 @@ public class UserInfoActivity extends FitnessActivity {
 
     @Override
     protected void initView() {
-       btnCity= (Button) findViewById(R.id.btn_city_set);
+     btnCity= (Button) findViewById(R.id.btn_city_set);
         btnDate= (Button) findViewById(R.id.btn_date_set);
-        btnCity.setText("北京 东城区");
+       btnCity.setText("北京 东城区");
         btnDate.setText(" ");
     }
 
@@ -57,15 +57,12 @@ public class UserInfoActivity extends FitnessActivity {
         picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
             @Override
             public void onDatePicked(String year, String month, String day) {
-//                showToast(year + "-" + month + "-" + day);
                 if(calendar.get(Calendar.YEAR)-(Integer.parseInt(year))>0){
                     btnDate.setText(calendar.get(Calendar.YEAR)-(Integer.parseInt(year))+"");
                 }else{
                     btnDate.setText(0+"");
                 }
 
-
-               // Toast.makeText(UserInfoActivity.this,year + "-" + month + "-" + day,Toast.LENGTH_LONG).show();
             }
         });
         picker.show();
