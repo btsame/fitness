@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dkjs.fitness.R;
+import com.dkjs.fitness.adapter.PicSelectAdapter;
 import com.dkjs.fitness.biz.FTActivityBiz;
 import com.dkjs.fitness.biz.IFTActivityBiz;
 import com.dkjs.fitness.comm.AppConfig;
@@ -34,6 +35,7 @@ import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.util.CameraProxy;
 import com.dkjs.fitness.util.CameraResult;
 import com.dkjs.fitness.util.ToastUtils;
+import com.dkjs.fitness.util.UploadPic;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -54,7 +56,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Administrator on 2016/7/18.
  */
-public class ActivityCreateActivity extends FitnessActivity implements View.OnClickListener{
+public class ActivityCreateActivity extends FitnessActivity implements View.OnClickListener {
 
     public static final int REQUEST_CAMERA_PERMISSION = 0x11;
 
@@ -80,14 +82,15 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
+    UploadPic loadPic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-
         ButterKnife.bind(this);
         setListener();
+        loadPic = new UploadPic();
 
         ftActivity = new FTActivity();
 
@@ -118,11 +121,11 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        if(v == mUploadPicIV){
-            showSelectPicDialog();
-        }else if(v == mUploadVideoIV){
+        if (v == mUploadPicIV) {
+            loadPic.showSelectPicDialog(cameraProxy, ActivityCreateActivity.this, ActivityCreateActivity.this);
+        } else if (v == mUploadVideoIV) {
 
-        }else if(v == mPublishActTV){
+        } else if (v == mPublishActTV) {
             publishAct();
         }else if(v == mBackIB){
             finish();
@@ -190,20 +193,20 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         dialogPlus.show();
     }
 
-    private void publishAct(){
-        if(TextUtils.isEmpty(mSubjextET.getText()) ||
+    private void publishAct() {
+        if (TextUtils.isEmpty(mSubjextET.getText()) ||
                 TextUtils.isEmpty(mTotalNumET.getText()) ||
                 TextUtils.isEmpty(mAddressET.getText()) ||
                 TextUtils.isEmpty(mInstructionET.getText()) ||
-                TextUtils.isEmpty(ftActivity.getSourceUrl())){
+                TextUtils.isEmpty(ftActivity.getSourceUrl())) {
             ToastUtils.showCustomToast(mContext, "请完善信息");
             return;
         }
 
-        if(ftActivity.getSourceUrl().endsWith(".png") ||
-                ftActivity.getSourceUrl().endsWith(".jpg")){
+        if (ftActivity.getSourceUrl().endsWith(".png") ||
+                ftActivity.getSourceUrl().endsWith(".jpg")) {
             ftActivity.setSourceType(FTActivity.SOURCE_TYPE_PIC);
-        }else{
+        } else {
             ftActivity.setSourceType(FTActivity.SOURCE_TYPE_VIDEO);
         }
 
@@ -232,38 +235,5 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         });
     }
 
-    public class PicSelectAdapter extends BaseAdapter{
 
-        private String[] itemNames = new String[]{"拍照", "相册"};
-        private int[] itemPics = new int[]{android.R.drawable.ic_menu_camera,
-        android.R.drawable.ic_menu_gallery};
-
-        public PicSelectAdapter() {
-
-        }
-
-        @Override
-        public int getCount() {
-            return itemNames.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return itemNames[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-            View itemView = layoutInflater.inflate(R.layout.item_pic_select, null);
-            ((ImageView)itemView.findViewById(R.id.iv_pic_select)).setImageResource(itemPics[position]);
-            ((TextView)itemView.findViewById(R.id.tv_pic_select)).setText(itemNames[position]);
-            return itemView;
-        }
-    }
 }

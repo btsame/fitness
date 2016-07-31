@@ -21,8 +21,8 @@ public class ActivityManagerActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_manager);
-        initView();
-        initFragment();
+       // initView();
+        //initFragment();
 
     }
     protected void initView() {
