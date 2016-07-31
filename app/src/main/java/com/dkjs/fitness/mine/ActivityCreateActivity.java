@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dkjs.fitness.R;
+import com.dkjs.fitness.adapter.PicSelectAdapter;
 import com.dkjs.fitness.biz.FTActivityBiz;
 import com.dkjs.fitness.biz.IFTActivityBiz;
 import com.dkjs.fitness.comm.AppConfig;
@@ -33,6 +34,7 @@ import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.util.CameraProxy;
 import com.dkjs.fitness.util.CameraResult;
 import com.dkjs.fitness.util.ToastUtils;
+import com.dkjs.fitness.util.UploadPic;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -77,6 +79,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
+    UploadPic loadPic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,6 +87,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         setContentView(R.layout.activity_create);
         ButterKnife.bind(this);
         setListener();
+        loadPic = new UploadPic();
 
         ftActivity = new FTActivity();
 
@@ -114,7 +118,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v == mUploadPicIV) {
-            showSelectPicDialog();
+            loadPic.showSelectPicDialog(cameraProxy, ActivityCreateActivity.this, ActivityCreateActivity.this);
         } else if (v == mUploadVideoIV) {
 
         } else if (v == mPublishActTV) {
@@ -141,41 +145,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         }
     }
 
-    private void showSelectPicDialog() {
-        final DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
-                .setGravity(Gravity.BOTTOM)
-                .setCancelable(true)
-                .setAdapter(new PicSelectAdapter())
-                .setOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
-                        String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".jpg";
-                        if (position == 0) {//拍照
-                            /**
-                             * 适配M的动态权限
-                             */
-                            if (Build.VERSION.SDK_INT >= 23) {
-                                int checkCameraPermission = ContextCompat.checkSelfPermission(mContext,
-                                        android.Manifest.permission.CAMERA);
-                                if (checkCameraPermission != PackageManager.PERMISSION_GRANTED) {
-                                    ActivityCompat.requestPermissions(ActivityCreateActivity.this,
-                                            new String[]{Manifest.permission.CAMERA},
-                                            REQUEST_CAMERA_PERMISSION);
-                                    dialog.dismiss();
-                                    return;
-                                }
-                            }
-                            cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
-                        } else {
-                            cameraProxy.getPhoto2Album(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
-                        }
-
-                        dialog.dismiss();
-                    }
-                })
-                .create();
-        dialogPlus.show();
-    }
 
     private void publishAct() {
         if (TextUtils.isEmpty(mSubjextET.getText()) ||
@@ -219,38 +188,5 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         });
     }
 
-    public class PicSelectAdapter extends BaseAdapter {
 
-        private String[] itemNames = new String[]{"拍照", "相册"};
-        private int[] itemPics = new int[]{android.R.drawable.ic_menu_camera,
-                android.R.drawable.ic_menu_gallery};
-
-        public PicSelectAdapter() {
-
-        }
-
-        @Override
-        public int getCount() {
-            return itemNames.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return itemNames[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-            View itemView = layoutInflater.inflate(R.layout.item_pic_select, null);
-            ((ImageView) itemView.findViewById(R.id.iv_pic_select)).setImageResource(itemPics[position]);
-            ((TextView) itemView.findViewById(R.id.tv_pic_select)).setText(itemNames[position]);
-            return itemView;
-        }
-    }
 }
