@@ -27,7 +27,7 @@ public class GlobalUserManager {
 
     public static String getUserId(){
         if(isUserLogin()){
-            return MLUser.getCurrentUser().getString("objectId");
+            return MLUser.getCurrentUser().getSessionToken();
         }
 
         return null;

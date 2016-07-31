@@ -41,6 +41,8 @@ public class CameraCore {
     //回调函数
     private CameraResult cameraResult;
 
+    private int cropWidth, cropHeight;
+
     public CameraCore(CameraResult cameraResult, Activity activity) {
         this.cameraResult = cameraResult;
         this.activity = activity;
@@ -67,13 +69,13 @@ public class CameraCore {
 
 
     //调用系统裁剪图片，对Intent参数进行封装
-    protected Intent takeCropPicture(Uri photoURL, int with, int height) {
+    protected Intent takeCropPicture(Uri photoURL, int width, int height) {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(photoURL, "image/*");
         intent.putExtra("crop", "true");
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        intent.putExtra("outputX", with);
+        intent.putExtra("aspectX", width);
+        intent.putExtra("aspectY", height);
+        intent.putExtra("outputX", width);
         intent.putExtra("outputY", height);
         intent.putExtra("scale", true);
         intent.putExtra("scaleUpIfNeeded", true);//黑边
@@ -94,6 +96,13 @@ public class CameraCore {
 
     //拍照后截屏
     public void getPhoto2CameraCrop(Uri uri) {
+        getPhoto2CameraCrop(uri, REQUEST_WIDTH, REQUEST_HEIGHT);
+    }
+
+    //拍照后截屏
+    public void getPhoto2CameraCrop(Uri uri, int cropWidth, int cropHeight) {
+        this.cropWidth = cropWidth;
+        this.cropHeight = cropHeight;
         Intent intent = startTakePhoto(uri);
         if(intent == null) return;
         // intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);//将拍取的照片保存到指定URI
@@ -107,6 +116,13 @@ public class CameraCore {
 
     //获取系统相册后裁剪
     public void getPhoto2AlbumCrop(Uri uri) {
+        getPhoto2CameraCrop(uri, REQUEST_WIDTH, REQUEST_HEIGHT);
+    }
+
+    //获取系统相册后裁剪
+    public void getPhoto2AlbumCrop(Uri uri, int cropWidth, int cropHeight) {
+        this.cropWidth = cropWidth;
+        this.cropHeight = cropHeight;
         activity.startActivityForResult(startTakePicture(uri), REQUEST_TAKE_PICTRUE_CROP_CODE);
     }
 
@@ -137,7 +153,7 @@ public class CameraCore {
                 case REQUEST_TAKE_PICTRUE_CROP_CODE:
                     //photoURL = intent.getData();
                     FileUtil.copyFile(getPic2Uri(intent.getData(), activity), photoURL.getPath());  //复制文件
-                    activity.startActivityForResult(takeCropPicture(photoURL, REQUEST_HEIGHT, REQUEST_WIDTH), REQUEST_TAKE_CROP_CODE);
+                    activity.startActivityForResult(takeCropPicture(photoURL, cropWidth, cropHeight), REQUEST_TAKE_CROP_CODE);
                     break;
                 //调用相机
                 case REQUEST_TAKE_PHOTO_CODE:
@@ -145,7 +161,7 @@ public class CameraCore {
                     break;
                 //调用相机,裁剪
                 case REQUEST_TAKE_PHOTO_CROP_CODE:
-                    activity.startActivityForResult(takeCropPicture(Uri.fromFile(new File(photoURL.getPath())), REQUEST_HEIGHT, REQUEST_WIDTH), REQUEST_TAKE_CROP_CODE);
+                    activity.startActivityForResult(takeCropPicture(Uri.fromFile(new File(photoURL.getPath())), cropWidth, cropHeight), REQUEST_TAKE_CROP_CODE);
                     break;
                 //裁剪之后的回调
                 case REQUEST_TAKE_CROP_CODE:

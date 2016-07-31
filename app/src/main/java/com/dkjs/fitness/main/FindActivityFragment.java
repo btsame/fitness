@@ -2,6 +2,7 @@ package com.dkjs.fitness.main;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,12 +24,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dkjs.fitness.R;
+import com.dkjs.fitness.biz.FTActivityBiz;
+import com.dkjs.fitness.biz.IFTActivityBiz;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.comm.LinearItemDecoration;
 import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.domain.StateTest;
+import com.dkjs.fitness.util.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +51,7 @@ public class FindActivityFragment extends FitnessFragment {
     List<FTActivity> activityList;
     ActivityAdapter activityAdapter;
 
+    IFTActivityBiz iftActivityBiz;
     Handler mUIHandler;
 
 
@@ -61,6 +67,7 @@ public class FindActivityFragment extends FitnessFragment {
                 switch (msg.what){
                     case LOADAD_DATA:
                         mFindActRL.setRefreshing(false);
+                        activityAdapter.setDatas(activityList);
                         activityAdapter.notifyDataSetChanged();
                         break;
                 }
@@ -86,17 +93,18 @@ public class FindActivityFragment extends FitnessFragment {
         mFindActRL.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mUIHandler.sendEmptyMessageAtTime(LOADAD_DATA, SystemClock.uptimeMillis() + 2000);
+                loadData();
             }
         });
 
+        iftActivityBiz = new FTActivityBiz();
         loadData();
         initRecylerView();
 
     }
 
     private void loadData(){
-        activityList = new ArrayList<FTActivity>();
+        /*activityList = new ArrayList<FTActivity>();
         for(int i = 0; i < 25; i++){
             FTActivity activity = new FTActivity();
             if(i % 3 == 0){
@@ -108,7 +116,24 @@ public class FindActivityFragment extends FitnessFragment {
             }
             activityList.add(activity);
 
-        }
+        }*/
+
+        iftActivityBiz.queryLastestActs(new IFTActivityBiz.QueryActivityListener() {
+            @Override
+            public void onSuccess(List<FTActivity> actList) {
+                if(activityList != null){
+                    activityList.clear();
+                }
+                activityList = actList;
+                mUIHandler.sendEmptyMessage(LOADAD_DATA);
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                ToastUtils.showCustomToast(mContext, msg);
+                mUIHandler.sendEmptyMessage(LOADAD_DATA);
+            }
+        });
     }
 
     private void initRecylerView(){
@@ -131,6 +156,10 @@ public class FindActivityFragment extends FitnessFragment {
             this.datas = datas;
         }
 
+        public void setDatas(List<FTActivity> datas) {
+            this.datas = datas;
+        }
+
         @Override
         public ActivityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new ActivityViewHolder(
@@ -139,7 +168,15 @@ public class FindActivityFragment extends FitnessFragment {
 
         @Override
         public void onBindViewHolder(ActivityViewHolder holder, int position) {
-            holder.stateImg.setImageURI(datas.get(position).getSourceUrl());
+            if(datas.get(position).getSourceUrl().startsWith("http") ||
+                    datas.get(position).getSourceUrl().startsWith("https")){
+                holder.stateImg.setImageURI(datas.get(position).getSourceUrl());
+            }else{
+                holder.stateImg.setImageURI("http://" + datas.get(position).getSourceUrl());
+            }
+            holder.titleTC.setText(datas.get(position).getSubject());
+
+
 
         }
 
@@ -152,7 +189,7 @@ public class FindActivityFragment extends FitnessFragment {
         public class ActivityViewHolder extends RecyclerView.ViewHolder{
             SimpleDraweeView stateImg;
             ImageView praiseIV, commentIV;
-            TextView praiseTV, commentTV;
+            TextView praiseTV, commentTV, titleTC;
 
             public ActivityViewHolder(View itemView) {
                 super(itemView);
@@ -161,6 +198,7 @@ public class FindActivityFragment extends FitnessFragment {
                 commentIV = (ImageView)itemView.findViewById(R.id.iv_comment);
                 praiseTV = (TextView)itemView.findViewById(R.id.tv_praise_count);
                 commentTV = (TextView)itemView.findViewById(R.id.tv_comment_count);
+                titleTC = (TextView)itemView.findViewById(R.id.tv_act_title);
 
             }
         }

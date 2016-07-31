@@ -36,6 +36,12 @@ public class CameraProxy {
         cameraCore.getPhoto2CameraCrop(uri);
     }
 
+    //拍照截图
+    public void getPhoto2CameraCrop(String path, int cropWidth, int cropHeight) {
+        Uri uri = Uri.fromFile(new File(path));
+        cameraCore.getPhoto2CameraCrop(uri, cropWidth, cropHeight);
+    }
+
 
     //选择照片
     public void getPhoto2Album(String path) {
@@ -50,6 +56,13 @@ public class CameraProxy {
 
         Uri uri = Uri.fromFile(new File(path));
         cameraCore.getPhoto2AlbumCrop(uri);
+    }
+
+    //选择照片，截图
+    public void getPhoto2AlbumCrop(String path, int cropWidth, int cropHeight) {
+
+        Uri uri = Uri.fromFile(new File(path));
+        cameraCore.getPhoto2AlbumCrop(uri, cropWidth, cropHeight);
     }
 
 

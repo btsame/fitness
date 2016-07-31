@@ -9,6 +9,9 @@ public class FTActivity {
 
     public static final int SOURCE_TYPE_PIC = 1;
     public static final int SOURCE_TYPE_VIDEO = 2;
+    public static final int PIC_WIDTH = 800;
+    public static final int PIC_HEIGHT = 400;
+
 
     private String subject;
     private int totalNum;

@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -73,6 +74,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     EditText mEquipmentET;
     @Bind(R.id.et_act_instruction)
     EditText mInstructionET;
+    @Bind(R.id.left_button)
+    ImageButton mBackIB;
 
 
     private CameraProxy cameraProxy;
@@ -109,6 +112,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         mUploadPicIV.setOnClickListener(this);
         mUploadVideoIV.setOnClickListener(this);
         mPublishActTV.setOnClickListener(this);
+        mBackIB.setOnClickListener(this);
     }
 
 
@@ -120,6 +124,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
         }else if(v == mPublishActTV){
             publishAct();
+        }else if(v == mBackIB){
+            finish();
         }
     }
 
@@ -135,7 +141,9 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".jpg";
-                cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
+//                cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
+                cameraProxy.getPhoto2CameraCrop(AppConfig.PHOTO_DIRECTORY + "/" + fileName, FTActivity.PIC_WIDTH,
+                        FTActivity.PIC_HEIGHT);
             } else {
                 ToastUtils.showCustomToast(mContext, "没有权限无法进行拍照！");
             }
@@ -167,8 +175,12 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                                 }
                             }
                             cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
+                            cameraProxy.getPhoto2CameraCrop(AppConfig.PHOTO_DIRECTORY + "/" + fileName,
+                                    FTActivity.PIC_WIDTH, FTActivity.PIC_HEIGHT);
                         }else{
-                            cameraProxy.getPhoto2Album(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
+//                            cameraProxy.getPhoto2Album(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
+                            cameraProxy.getPhoto2AlbumCrop(AppConfig.PHOTO_DIRECTORY + "/" + fileName,
+                                    FTActivity.PIC_WIDTH, FTActivity.PIC_HEIGHT);
                         }
 
                         dialog.dismiss();
@@ -204,13 +216,13 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();
         ftActivityBiz.publishAct(ftActivity, new IFTActivityBiz.PublishActivityListener() {
             @Override
-            public void onSucess() {
+            public void onSuccess() {
                 ToastUtils.showCustomToast(mContext, "发布成功");
             }
 
             @Override
             public void onFailure(String msg) {
-                ToastUtils.showCustomToast(mContext, "发布失败");
+                ToastUtils.showCustomToast(mContext, msg);
             }
 
             @Override
