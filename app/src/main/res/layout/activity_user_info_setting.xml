@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
@@ -16,13 +15,13 @@
 
         <ImageButton
             android:id="@+id/left_button"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="22.0dip"
             android:background="@null"
-            android:src="@mipmap/btn_top_return" />
+            android:src="@drawable/btn_back_arrow_selector" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -166,6 +165,7 @@
         android:id="@+id/user_bir_layout"
         android:layout_width="fill_parent"
         android:layout_height="45.0dip">
+
         <TextView
             android:id="@+id/user_bir_hint"
             android:layout_width="wrap_content"
@@ -175,10 +175,7 @@
             android:text="年龄" />
 
         <Button
-            android:textAlignment="textStart"
-            android:paddingRight="40dip"
             android:id="@+id/btn_date_set"
-            android:onClick="setDate"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -186,8 +183,11 @@
             android:layout_toRightOf="@id/user_bir_hint"
             android:background="@null"
             android:ellipsize="end"
+            android:onClick="setDate"
+            android:paddingRight="40dip"
             android:singleLine="true"
             android:text=""
+            android:textAlignment="textStart"
             android:textSize="12.0sp" />
     </RelativeLayout>
 
@@ -212,10 +212,7 @@
             android:text="城市" />
 
         <Button
-            android:textAlignment="textStart"
-            android:paddingRight="40dip"
             android:id="@+id/btn_city_set"
-            android:onClick="setCity"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -223,8 +220,11 @@
             android:layout_toEndOf="@id/user_area_hint"
             android:background="@null"
             android:ellipsize="end"
+            android:onClick="setCity"
+            android:paddingRight="40dip"
             android:singleLine="true"
             android:text=""
+            android:textAlignment="textStart"
             android:textSize="12.0sp" />
     </RelativeLayout>
 

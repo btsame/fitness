@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/titlebar"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="@color/appgreen"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/layout_title_bar_back"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/iv_back_arrow"
+            android:layout_width="13.0dip"
+            android:layout_height="13.0dip"
+            android:layout_marginLeft="10dip"
+            android:clickable="false"
+            android:focusable="true"
+            android:src="@drawable/btn_back_arrow_selector" />
+
+        <TextView
+            android:text="返回"
+            android:id="@+id/tv_title_bar_back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="10.0dip"
+            android:minWidth="20.0dip"
+            android:textColor="@color/back_text_color_selector"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title_bar_title"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="60.0dip"
+        android:layout_toRightOf="@id/layout_title_bar_back"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/white_color"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/btn_title_bar_skip"
+        android:layout_width="45.0dip"
+        android:layout_height="25.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10.0dip"
+        android:gravity="center"
+
+        android:textColor="@color/white_color"
+        android:textSize="16sp" />
+</RelativeLayout>
