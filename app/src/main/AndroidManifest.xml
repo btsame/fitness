@@ -62,7 +62,7 @@
         <!-- 登录广播接收器 -->
         <receiver android:name=".comm.LoginBroadcastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.login" />
+                <action android:name="com.dkjs.fitness.login" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

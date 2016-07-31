@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dkjs.fitness.comm.LoginBroadcastReceiver;
 import com.dkjs.fitness.main.MainActivity;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessActivity;
@@ -59,6 +60,8 @@ public class RegisterAndLoginActivity extends FitnessActivity {
                     if (mlUser != null) {
                         //登录成功
                         ToastUtils.showToast(RegisterAndLoginActivity.this, "登录成功");
+                        sendLoginSuccessBroadcast();
+
                         startActivity(new Intent(RegisterAndLoginActivity.this, MainActivity.class));
                     } else {
                         //登录失败
@@ -69,6 +72,10 @@ public class RegisterAndLoginActivity extends FitnessActivity {
         }
 
 
+    }
+
+    private void sendLoginSuccessBroadcast(){
+        sendBroadcast(new Intent(LoginBroadcastReceiver.Login_Action));
     }
 
     //注册账号
