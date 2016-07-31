@@ -157,7 +157,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         final DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
                 .setGravity(Gravity.BOTTOM)
                 .setCancelable(true)
-                .setAdapter(new PicSelectAdapter())
+                .setAdapter(new PicSelectAdapter(mContext))
                 .setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
