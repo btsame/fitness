@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <RelativeLayout
-        android:background="@color/appgreen"
         android:layout_width="match_parent"
-        android:layout_height="50dip">
+        android:layout_height="50dip"
+        android:background="@color/appgreen">
+
         <ImageButton
             android:id="@+id/left_button"
             android:layout_width="20dip"
@@ -16,215 +18,247 @@
             android:layout_marginStart="22.0dip"
             android:background="@null"
             android:src="@drawable/btn_back_arrow_selector" />
+
         <TextView
-            android:textColor="@android:color/white"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="5dp"
             android:text="创建活动"
-            android:id="@+id/textView4"
-            android:layout_centerInParent="true" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tv_publish_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dip"
             android:layout_centerVertical="true"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
             android:text="发布"
-            />
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </RelativeLayout>
-    <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="活动主题："
-            />
-        <EditText
-            android:id="@+id/et_act_subject"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            />
-    </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="人数限制："
-            />
+            android:layout_marginLeft="15.0dip"
+            android:text="活动主题(*)："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+         android:singleLine="true"
+            android:textAlignment="center"
+            android:id="@+id/et_act_subject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:background="@color/appgray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15.0dip"
+            android:text="人数限制(*)："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
         <EditText
             android:id="@+id/et_act_totalnum"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="40.0dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="建议20人以内"
             android:inputType="number"
-            />
+            android:textSize="12sp" />
     </LinearLayout>
 
 
-
-
     <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="活动地点："
-            />
+            android:layout_marginLeft="15.0dip"
+            android:text="活动地点（*）："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
         <EditText
             android:id="@+id/et_act_address"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="40.0dip"
+            android:layout_weight="1"
+            android:background="@null" />
     </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
         <TextView
-
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="自备器材："
-            />
+            android:layout_marginLeft="15.0dip"
+            android:text="自备器材（*）："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
         <EditText
             android:id="@+id/et_act_equipment"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_margin="5dp"
+            android:layout_marginLeft="40.0dip"
+            android:layout_weight="1"
+            android:background="@null" />
     </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/bg_linearlayout"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
+
         <TextView
 
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="活动说明："
-            />
+            android:layout_marginLeft="15.0dip"
+            android:text="是否提供淋浴/锁柜："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
         <EditText
             android:id="@+id/et_act_instruction"
-            android:background="@null"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginLeft="40.0dip"
+            android:layout_weight="1"
+            android:background="@null" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15.0dip"
+            android:text="活动费用（*）："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="40.0dip"
+            android:layout_weight="1"
+            android:background="@null" />
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/bg_linearlayout"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15.0dip"
+            android:text="活动说明："
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40.0dip"
+            android:layout_weight="1"
+            android:background="@null" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15.0dip"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/ll_upload_pic"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-
-                android:src="@drawable/rich_button_camera_yes"
                 android:layout_width="50dip"
-                android:layout_height="50dip" />
+                android:layout_height="50dip"
+                android:src="@drawable/rich_button_camera_yes" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上传照片"/>
-
-            </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_upload_video"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/rich_button_video_yes"
-                android:layout_width="50dip"
-                android:layout_height="50dip" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="上传视频"/>
-            </LinearLayout>
+                android:text="上传照片" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_upload_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:src="@drawable/rich_button_video_yes" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传视频" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>

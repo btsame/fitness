@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="fill_parent"
-        android:layout_height="48.0dip"
+        android:layout_height="50.0dip"
         android:background="@color/appgreen">
 
         <ImageButton
