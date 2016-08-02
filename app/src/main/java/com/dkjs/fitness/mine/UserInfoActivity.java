@@ -26,23 +26,22 @@ import java.util.Calendar;
  */
 public class UserInfoActivity extends FitnessActivity {
 
-    Button btnDate,btnCity;
-
+    Button btnDate, btnCity;
     private Calendar calendar = Calendar.getInstance();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info_setting);
-
         initView();
     }
 
 
     @Override
     protected void initView() {
-     btnCity= (Button) findViewById(R.id.btn_city_set);
-        btnDate= (Button) findViewById(R.id.btn_date_set);
-       btnCity.setText("北京 东城区");
+        btnCity = (Button) findViewById(R.id.btn_city_set);
+        btnDate = (Button) findViewById(R.id.btn_date_set);
+        btnCity.setText("北京 东城区");
         btnDate.setText(" ");
     }
 
@@ -57,10 +56,10 @@ public class UserInfoActivity extends FitnessActivity {
         picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
             @Override
             public void onDatePicked(String year, String month, String day) {
-                if(calendar.get(Calendar.YEAR)-(Integer.parseInt(year))>0){
-                    btnDate.setText(calendar.get(Calendar.YEAR)-(Integer.parseInt(year))+"");
-                }else{
-                    btnDate.setText(0+"");
+                if (calendar.get(Calendar.YEAR) - (Integer.parseInt(year)) > 0) {
+                    btnDate.setText(calendar.get(Calendar.YEAR) - (Integer.parseInt(year)) + "");
+                } else {
+                    btnDate.setText(0 + "");
                 }
 
             }
@@ -69,21 +68,21 @@ public class UserInfoActivity extends FitnessActivity {
     }
 
 
-
     public class AddressInitTask extends AsyncTask<String, Void, ArrayList<AddressPicker.Province>> {
         private Activity activity;
         private ProgressDialog dialog;
         private String selectedProvince = "", selectedCity = "", selectedCounty = "";
-        private boolean hideCounty=false;
+        private boolean hideCounty = false;
 
         /**
          * 初始化为不显示区县的模式
+         *
          * @param activity
-         * @param hideCounty   is hide County
+         * @param hideCounty is hide County
          */
         public AddressInitTask(Activity activity, boolean hideCounty) {
             this.activity = activity;
-            this.hideCounty=hideCounty;
+            this.hideCounty = hideCounty;
             dialog = ProgressDialog.show(activity, null, "正在初始化数据...", true, true);
         }
 
@@ -91,6 +90,7 @@ public class UserInfoActivity extends FitnessActivity {
             this.activity = activity;
             dialog = ProgressDialog.show(activity, null, "正在初始化数据...", true, true);
         }
+
         @Override
         protected ArrayList<AddressPicker.Province> doInBackground(String... params) {
             if (params != null) {
@@ -131,10 +131,10 @@ public class UserInfoActivity extends FitnessActivity {
                 picker.setOnAddressPickListener(new AddressPicker.OnAddressPickListener() {
                     @Override
                     public void onAddressPicked(String province, String city, String county) {
-                        if (county==null){
-                            btnCity.setText(province+" " + city);
+                        if (county == null) {
+                            btnCity.setText(province + " " + city);
                         } else {
-                            btnCity.setText( province+" " + city+" " + county);
+                            btnCity.setText(province + " " + city + " " + county);
                         }
                     }
                 });

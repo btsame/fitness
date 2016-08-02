@@ -40,7 +40,6 @@
         android:layout_marginLeft="10dip"
         android:orientation="vertical">
         <EditText
-
             android:id="@+id/et_account"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
