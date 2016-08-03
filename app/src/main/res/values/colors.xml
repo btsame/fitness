@@ -53,4 +53,15 @@
     <color name="manage_party_type1">#ff38cdfd</color>
     <color name="manage_party_type6">#ffa5a5a5</color>
     <color name="black_color">#ff333333</color>
+    <color name="forget_text_normal_color">#ff999999</color>
+    <color name="activity_main_bg_color">#ffebebeb</color>
+    <color name="gray_text_color">#ff666666</color>
+    <color name="btn_focus_color">#ffd7d7d7</color>
+    <color name="first_lines_bg">#ffe5e5e5</color>
+    <color name="yellow_color">#ffff9e00</color>
+    <color name="skip_btn_disable_color">#ffcbc9c5</color>
+    <color name="orange_focus_color">#ffdb931e</color>
+    <color name="orange_normal_color">#fff4a421</color>
+    <color name="gray_menu_btn_normal_color">#ffffffff</color>
+    <color name="gray_menu_btn_focus_color">#ff888888</color>
 </resources>

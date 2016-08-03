@@ -178,7 +178,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_money"
+        android:id="@+id/ll_my_money"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dip"

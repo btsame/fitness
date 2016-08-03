@@ -44,5 +44,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="btn_postive_style" parent="@android:style/Widget.Button">
+        <item name="android:textSize">16dip</item>
+        <item name="android:textColor">@color/black_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/btn_menu_ok_gray_selector_8r</item>
+        <item name="android:layout_marginTop">8.0dip</item>
+    </style>
 
 </resources>

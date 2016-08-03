@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dkjs.fitness.comm.LoginBroadcastReceiver;
 import com.dkjs.fitness.main.MainActivity;
@@ -28,15 +27,13 @@ public class RegisterAndLoginActivity extends FitnessActivity {
     EditText etAccount, etPwd;
     //账号 密码
     String account, password;
-    //登录按钮
-    Button btnLogin;
     //注册账号 忘记密码
     TextView tvRegister, tvForget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resigterandloginactivity1);
+        setContentView(R.layout.activity_resigterandloginactivity);
         //初始化控件
         initView();
     }
@@ -44,7 +41,7 @@ public class RegisterAndLoginActivity extends FitnessActivity {
     protected void initView() {
         etAccount = (EditText) findViewById(R.id.et_account);
         etPwd = (EditText) findViewById(R.id.et_pwd);
-        btnLogin = (Button) findViewById(R.id.btn_login);
+
         tvRegister = (TextView) findViewById(R.id.tv_register);
         tvForget = (TextView) findViewById(R.id.tv_forget);
     }
