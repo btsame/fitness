@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/appgray"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:background="@color/appgreen">
+
+        <ImageButton
+            android:id="@+id/left_button"
+            android:layout_width="15dip"
+            android:layout_height="15dip"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="22.0dip"
+            android:background="@null"
+            android:src="@drawable/btn_back_arrow_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="意见反馈"
+            android:textSize="16.0sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25.0dip"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_number"
+            android:layout_width="fill_parent"
+            android:layout_height="43.0dip"
+            android:layout_marginEnd="12.0dip"
+            android:layout_marginStart="12.0dip"
+            android:background="@drawable/edit_user_background"
+            android:hint="邮箱/手机/QQ号"
+            android:paddingBottom="8.0dip"
+            android:paddingLeft="8.0dip"
+            android:paddingTop="9.0dip"
+            android:textColor="#ff969696"
+            android:textSize="12.0sp" />
+
+        <EditText
+            android:id="@+id/edit_opinion"
+            android:layout_width="fill_parent"
+            android:layout_height="240.0dip"
+            android:layout_below="@id/edit_number"
+            android:layout_marginEnd="12.0dip"
+            android:layout_marginStart="12.0dip"
+            android:layout_marginTop="11.0dip"
+            android:background="@drawable/edit_user_background"
+            android:gravity="top"
+            android:hint="输入你的意见"
+            android:paddingLeft="8.0dip"
+            android:paddingTop="9.0dip"
+            android:textSize="12.0sp" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/edit_opinion"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="-20.0dip"
+            android:text="0/255" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30.0dip"
+        android:background="@drawable/green_button_selector"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="16.0sp" />
+</LinearLayout>

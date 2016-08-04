@@ -103,20 +103,15 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     Button btnEndTime;
 
     private Calendar calendar = Calendar.getInstance();
-
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
     //标记此Acitvity的作用
     int showStyle;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_create);
         ButterKnife.bind(this);
-
         showStyle = getIntent().getIntExtra(PARAM_SHOW_STYLE, ACTIVITY_CREATE);
         if (showStyle == ACTIVITY_CREATE) {
             ftActivity = new FTActivity();
@@ -127,7 +122,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         initView();
         setListener();
 
-
         cameraProxy = new CameraProxy(new CameraResult() {
             @Override
             public void onSuccess(String path) {
@@ -135,7 +129,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                 ToastUtils.showCustomToast(mContext, "获取图片成功：" + path);
                 ftActivity.setSourceUrl(path);
             }
-
             @Override
             public void onFail(String message) {
                 ToastUtils.showCustomToast(mContext, "获取图片失败");
@@ -154,7 +147,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
             mEquipmentET.setText(ftActivity.getSelfEquipment());
             mInstructionET.setText(ftActivity.getIntruction());
         }
-
     }
 
     @Override
@@ -167,8 +159,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         //设置活动开始时间 结束时间
         btnStartTime.setOnClickListener(this);
         btnEndTime.setOnClickListener(this);
-
         mAddressET.setOnClickListener(this);
+
     }
 
 
@@ -185,7 +177,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         } else if (v == btnStartTime) {
             setStartTime();
         } else if (v == btnEndTime) {
-
             setEndTime();
         } else if (v == mAddressET) {
             setCity();
