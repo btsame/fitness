@@ -77,4 +77,5 @@
     <color name="v4_hotparty_text_color">#ff999999</color>
     <color name="buttom_bar_divider">#ffd6d6d6</color>
     <color name="orange_focus_color_4r">#ffd9822b</color>
+    <color name="divider_color">#ffeeeeee</color>
 </resources>

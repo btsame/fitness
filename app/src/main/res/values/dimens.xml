@@ -14,4 +14,13 @@
     <dimen name="v4_first_party_margin_top_16">16.0dip</dimen>
     <dimen name="v4_text_size_15">15.0sp</dimen>
     <dimen name="v4_text_size_13">13.0sp</dimen>
+    <dimen name="font_size_secondary_title">16.0sp</dimen>
+    <dimen name="font_size_text">12.0sp</dimen>
+    <dimen name="courseHintSize">13.0sp</dimen>
+    <dimen name="course_detail_vertical_space">26.0dip</dimen>
+    <dimen name="divide_space_height">10.0dip</dimen>
+    <dimen name="course_detail_content_margin_left">25.0dip</dimen>
+    <dimen name="content_margin_bewteen_cell">8.0dip</dimen>
+    <dimen name="submit_button_height">44.0dip</dimen>
+    <dimen name="course_detail_font_size_wifi">12.0dip</dimen>
 </resources>

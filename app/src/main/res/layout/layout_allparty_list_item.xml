@@ -135,6 +135,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:text="200元/人"
                     android:id="@+id/info_join_fee"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
