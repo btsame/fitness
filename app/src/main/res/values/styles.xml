@@ -51,5 +51,10 @@
         <item name="android:background">@drawable/btn_menu_ok_gray_selector_8r</item>
         <item name="android:layout_marginTop">8.0dip</item>
     </style>
+    <style name="style_rating_large" parent="@android:style/Widget.RatingBar">
+        <item name="android:maxHeight">21.0dip</item>
+        <item name="android:progressDrawable">@drawable/custom_rating_large</item>
+        <item name="android:minHeight">21.0dip</item>
+    </style>
 
 </resources>

@@ -196,6 +196,62 @@
         android:layout_marginLeft="5.0dip"
         android:layout_marginRight="5.0dip"
         android:background="@color/appgray" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip">
+        <TextView
+            android:id="@+id/user_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15.0dip"
+            android:text="身高" />
+        <EditText
+            android:id="@+id/et_user_height"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40.0dip"
+            android:layout_toRightOf="@id/user_height"
+            android:background="@null"
+            android:maxLength="20"
+            android:textSize="12.0sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:background="@color/appgray" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip">
+        <TextView
+            android:id="@+id/user_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15.0dip"
+            android:text="体重" />
+        <EditText
+            android:id="@+id/et_user_weight"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40.0dip"
+            android:layout_toRightOf="@id/user_weight"
+            android:background="@null"
+            android:maxLength="20"
+            android:textSize="12.0sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:background="@color/appgray" />
 
     <RelativeLayout
         android:id="@+id/user_area_layout"

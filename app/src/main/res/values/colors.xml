@@ -64,4 +64,11 @@
     <color name="orange_normal_color">#fff4a421</color>
     <color name="gray_menu_btn_normal_color">#ffffffff</color>
     <color name="gray_menu_btn_focus_color">#ff888888</color>
+    <color name="black_72">#ff949494</color>
+    <color name="text_subtitle_color">#ff999999</color>
+    <color name="bg_gray">#ffeeeeee</color>
+    <color name="black_80">#ff757575</color>
+    <color name="black_54">#ffa7a7a7</color>
+    <color name="text_title_color">#ff333333</color>
+    <color name="text_secondTitle_color">#ff666666</color>
 </resources>
