@@ -10,4 +10,8 @@
 
     <dimen name="text_size_14">14.0sp</dimen>
     <dimen name="home_menu_counts_size">16.0dip</dimen>
+    <dimen name="v4_first_margin">10.0dip</dimen>
+    <dimen name="v4_first_party_margin_top_16">16.0dip</dimen>
+    <dimen name="v4_text_size_15">15.0sp</dimen>
+    <dimen name="v4_text_size_13">13.0sp</dimen>
 </resources>

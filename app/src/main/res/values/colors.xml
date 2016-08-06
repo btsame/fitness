@@ -71,4 +71,10 @@
     <color name="black_54">#ffa7a7a7</color>
     <color name="text_title_color">#ff333333</color>
     <color name="text_secondTitle_color">#ff666666</color>
+    <color name="allparty_list_focus_color">#ffd9d9d9</color>
+    <color name="first_hotparty_title">#ff333333</color>
+    <color name="red_color">#ffff0000</color>
+    <color name="v4_hotparty_text_color">#ff999999</color>
+    <color name="buttom_bar_divider">#ffd6d6d6</color>
+    <color name="orange_focus_color_4r">#ffd9822b</color>
 </resources>
