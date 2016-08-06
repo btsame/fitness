@@ -574,7 +574,7 @@
             android:background="@color/appgreen"
             android:clickable="false"
             android:focusable="false"
-            android:text="开始热炼"
+            android:text="参加活动"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </FrameLayout>
