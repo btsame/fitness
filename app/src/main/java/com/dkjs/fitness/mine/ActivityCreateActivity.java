@@ -78,8 +78,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     @Bind(R.id.ll_upload_pic)
     LinearLayout mUploadPicIV;
-    @Bind(R.id.ll_upload_video)
-    LinearLayout mUploadVideoIV;
+//    @Bind(R.id.ll_upload_video)
+//    LinearLayout mUploadVideoIV;
     @Bind(R.id.tv_publish_activity)
     TextView mPublishActTV;
     @Bind(R.id.et_act_subject)
@@ -153,7 +153,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     protected void setListener() {
         super.setListener();
         mUploadPicIV.setOnClickListener(this);
-        mUploadVideoIV.setOnClickListener(this);
+       // mUploadVideoIV.setOnClickListener(this);
         mPublishActTV.setOnClickListener(this);
         mBackIB.setOnClickListener(this);
         //设置活动开始时间 结束时间
@@ -168,9 +168,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     public void onClick(View v) {
         if (v == mUploadPicIV) {
             showSelectPicDialog();
-        } else if (v == mUploadVideoIV) {
-
-        } else if (v == mPublishActTV) {
+        }  else if (v == mPublishActTV) {
             publishAct();
         } else if (v == mBackIB) {
             finish();
