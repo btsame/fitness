@@ -20,7 +20,7 @@ public class ActivityManagerActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_manager);
+        setContentView(R.layout.layout_manager_party_list_item);
        // initView();
         //initFragment();
 
