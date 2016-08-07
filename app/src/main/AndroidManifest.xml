@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account.RegisterAndLoginActivity"></activity>
+        <activity android:name=".account.RegisterAndLoginActivity" />
         <activity android:name=".mine.ActivityCreateActivity" />
         <activity android:name=".mine.MineMoneyActivity" />
         <activity android:name=".account.RegisterActivity" />
@@ -35,7 +35,7 @@
         <activity android:name=".mine.UserInfoActivity" />
         <activity android:name=".act.ActShowActivity" />
         //达人 私教认证环节
-        <activity android:name=".account.IDRegisterFirstActivity"></activity>
+        <activity android:name=".account.IDRegisterFirstActivity" />
         <activity android:name=".account.IDRegisterSecondActivity" />
 
         <!--
@@ -63,7 +63,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".mine.FankuiActivity"></activity>
+        <activity android:name=".mine.FankuiActivity" />
+        <activity android:name=".mine.AuthIDActivity" />
+        <activity android:name=".mine.AuthIDUpLoadActivity"></activity>
     </application>
 
 </manifest>

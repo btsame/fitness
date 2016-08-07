@@ -17,6 +17,7 @@ import com.dkjs.fitness.account.RegisterAndLoginActivity;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.mine.ActivityManagerActivity;
+import com.dkjs.fitness.mine.AuthIDActivity;
 import com.dkjs.fitness.mine.MineMoneyActivity;
 import com.dkjs.fitness.mine.SettingsActivity;
 import com.dkjs.fitness.mine.UserInfoActivity;
@@ -32,7 +33,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
     @Bind(R.id.iv_accout_icon)
     ImageView portraitIV;
     Button editUserInfo;
-    LinearLayout lvCreate, lvManager, lvSettings;
+    LinearLayout lvCreate, lvManager, lvSettings,layout_auth;
 
     @Bind(R.id.ll_my_money)
     LinearLayout llMyMoney;
@@ -60,7 +61,19 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
         //我的钱包
         goHeadMyMoney();
 
+        //身份认证
+        authID();
+
         return view;
+    }
+
+    private void authID() {
+        layout_auth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AuthIDActivity.class));
+            }
+        });
     }
 
     private void goHeadMyMoney() {
@@ -104,6 +117,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
         lvCreate = (LinearLayout) view.findViewById(R.id.iv_create_activity);
         lvManager = (LinearLayout) view.findViewById(R.id.iv_managerActivity);
         lvSettings = (LinearLayout) view.findViewById(R.id.lv_settings);
+        layout_auth= (LinearLayout) view.findViewById(R.id.layout_auth);
     }
 
     private void setListener() {

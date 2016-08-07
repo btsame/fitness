@@ -23,4 +23,19 @@
     <dimen name="content_margin_bewteen_cell">8.0dip</dimen>
     <dimen name="submit_button_height">44.0dip</dimen>
     <dimen name="course_detail_font_size_wifi">12.0dip</dimen>
+    <dimen name="double_content_margin">20.0dip</dimen>
+    <dimen name="content_margin">10.0dip</dimen>
+    <dimen name="one_half_content_margin">15.0dip</dimen>
+    <dimen name="content_item_high">47.0dip</dimen>
+    <dimen name="action_bar_text_size">16.0dip</dimen>
+    <dimen name="content_item_text_size">14.0dip</dimen>
+    <dimen name="divider_height">1.0px</dimen>
+    <dimen name="text_size_13">13.0sp</dimen>
+    <dimen name="text_size_15">15.0sp</dimen>
+    <dimen name="text_size_20">20.0sp</dimen>
+    <dimen name="text_size_18">18.0sp</dimen>
+    <dimen name="v4_text_size_12">12.0dip</dimen>
+    <dimen name="text_size_12">12.0sp</dimen>
+    <color name="ticket_money">#ffff9933</color>
+    <dimen name="pop_menu_button_high">44.0dip</dimen>
 </resources>

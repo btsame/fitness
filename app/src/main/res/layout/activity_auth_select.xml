@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_main_bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/content_margin"
+        android:layout_marginRight="@dimen/content_margin"
+        android:layout_marginTop="@dimen/one_half_content_margin"
+        android:text="请选择账户类型"
+        android:textColor="@color/dark_gray_text_color"
+        android:textSize="@dimen/text_size_14" />
+
+    <LinearLayout
+        android:id="@+id/layout_auth_select_person_alypay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_margin"
+        android:background="@drawable/btn_inside_bg_selector_new"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/content_item_high">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/content_margin"
+                android:text="支付宝"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/action_bar_text_size" />
+
+            <ImageView
+                android:layout_width="12.0dip"
+                android:layout_height="18.0dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/content_margin"
+                android:background="@drawable/area_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/buttom_bar_divider" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_auth_select_company_alypay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_inside_bg_selector_new"
+        android:minHeight="@dimen/content_item_high">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/content_margin"
+            android:text="支付宝（企业）"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/action_bar_text_size" />
+
+        <ImageView
+            android:layout_width="12.0dip"
+            android:layout_height="18.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/content_margin"
+            android:background="@drawable/area_arrow" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_auth_select_person_bank"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_margin"
+        android:background="@drawable/btn_inside_bg_selector_new"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/content_item_high">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/content_margin"
+                android:text="银行卡"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/action_bar_text_size" />
+
+            <ImageView
+                android:layout_width="12.0dip"
+                android:layout_height="18.0dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/content_margin"
+                android:background="@drawable/area_arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/buttom_bar_divider" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_auth_select_company_bank"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_inside_bg_selector_new"
+        android:minHeight="@dimen/content_item_high">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/content_margin"
+            android:text="银行卡（企业）"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/action_bar_text_size" />
+
+        <ImageView
+            android:layout_width="12.0dip"
+            android:layout_height="18.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/content_margin"
+            android:background="@drawable/area_arrow" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_main_bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_auth_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="设置成功后即可提现"
+                android:textColor="@color/light_gray_text_color" />
+
+            <TextView
+                android:id="@+id/tv_hudongba_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/content_margin"
+                android:gravity="center"
+                android:textColor="@color/service_statement_color"
+                android:textSize="@dimen/text_size_14" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_sign_failed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/layout_auth_server"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="40.0dip"
+            android:gravity="center_horizontal"
+            android:text="提交成功!请等待审核"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/text_size_20" />
+
+        <ImageView
+            android:layout_width="60.0dip"
+            android:layout_height="60.0dip"
+            android:layout_above="@id/tv_sign_failed"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/content_margin"
+            android:src="@drawable/party_sign_success" />
+
+
+
+
+
+
+
+          <!--  <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/content_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客服电话："
+                    android:textColor="@color/light_gray_text_color"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/tv_hdb_server_call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="400-0821-222"
+                    android:textColor="@color/service_statement_color"
+                    android:textSize="@dimen/text_size_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客服微信："
+                    android:textColor="@color/light_gray_text_color"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hudongba04"
+                    android:textColor="@color/light_gray_text_color"
+                    android:textSize="@dimen/text_size_14" />
+            </LinearLayout>-->
+
+    </RelativeLayout>
+</LinearLayout>

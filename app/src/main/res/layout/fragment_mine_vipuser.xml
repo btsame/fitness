@@ -233,7 +233,7 @@
             android:background="@color/divider_new" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/layout_fans"
+        android:id="@+id/layout_auth"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -248,8 +248,7 @@
                 android:layout_height="20.0dip"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dip" android:background="@drawable/me_fans" />
-
+                android:layout_marginLeft="15dip" android:background="@drawable/icon_tishi" />
             <TextView
                 android:id="@+id/tv_fans"
                 android:layout_width="wrap_content"
@@ -257,17 +256,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dip"
                 android:layout_toRightOf="@id/iv_fans"
-                android:text="我的粉丝"
+                android:text="身份认证"
                 android:textColor="@color/top_introduce_text_color"
                 android:textSize="16sp" />
-            <include
-                android:id="@+id/tv_fans_notice_count"
-                layout="@layout/textview_red_count_tip"
-                android:layout_width="@dimen/home_menu_counts_size"
-                android:layout_height="@dimen/home_menu_counts_size"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="3.0dip"
-                android:layout_toRightOf="@id/tv_fans" />
             <ImageView
                 android:layout_width="12.0dip"
                 android:layout_height="18.0dip"
