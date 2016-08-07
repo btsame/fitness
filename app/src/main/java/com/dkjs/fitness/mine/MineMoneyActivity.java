@@ -12,6 +12,6 @@ public class MineMoneyActivity extends FitnessActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_allhotparty_list_item);
+        setContentView(R.layout.activity_course_details);
     }
 }

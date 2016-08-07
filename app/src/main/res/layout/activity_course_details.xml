@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RelativeLayout
+                android:id="@+id/layout_coupon_title"
+                android:layout_width="fill_parent"
+                android:layout_height="48dip"
+                android:background="@color/appgreen">
+
+                <TextView
+                    android:id="@+id/tv_coupon_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_coupon"
+                    android:layout_width="60.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white">
+
+                <ScrollView
+                    android:id="@+id/scv_course_details_mainscrollarea"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:id="@+id/framelayout_img"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent">
+
+                                <android.support.v4.view.ViewPager
+                                    android:id="@+id/gym_gallary"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="200.0dip"
+                                    android:background="@color/appgreen" />
+
+                                <ImageView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="200.0dip"
+                                    android:alpha="0.3"
+                                    android:scaleType="fitXY"
+                                    android:src="@color/appgreen" />
+
+                                <LinearLayout
+                                    android:id="@+id/img_navi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom|center"
+                                    android:layout_marginBottom="20.0dip"
+                                    android:orientation="horizontal" />
+                            </FrameLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:background="@color/white"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:id="@+id/rl_head_area"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="45dip"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="35dip"
+                                            android:layout_height="35dip"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="20dip"
+                                            android:background="@color/appgreen" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:text="用户名" />
+
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_head_area"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20.0dip"
+                                        android:layout_marginRight="20.0dip"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tv_course_name"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="16.0dip"
+                                            android:text="课程名称"
+                                            android:textColor="@color/text_title_color"
+                                            android:textSize="20.0dip" />
+
+                                        <TextView
+                                            android:id="@+id/tv_time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="6.0dip"
+                                            android:text="课程时间"
+                                            android:textColor="@color/text_secondTitle_color"
+                                            android:textSize="14.0dip" />
+
+                                        <LinearLayout
+                                            android:id="@+id/ll_reamin_times"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="6.0dip"
+                                            android:layout_marginTop="6.0dip"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/coursePrice"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="200元/人"
+                                                android:textColor="@color/red"
+                                                android:textSize="@dimen/font_size_secondary_title" />
+
+                                            <TextView
+                                                android:id="@+id/tvCanDrawBack"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_marginLeft="5.0dip"
+                                                android:layout_marginRight="5.0dip"
+                                                android:text="活动前三天可取消"
+                                                android:textColor="@color/text_subtitle_color"
+                                                android:textSize="@dimen/font_size_text" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_equip"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="20.0dip"
+                                            android:layout_marginRight="20.0dip"
+                                            android:text="自备器材:"
+                                            android:textColor="@color/black_54"
+                                            android:textSize="14.0dip" />
+
+                                        <TextView
+                                            android:id="@+id/remain_equip"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="20.0dip"
+                                            android:layout_marginRight="20.0dip"
+                                            android:text="不需要"
+                                            android:textColor="@color/black_54"
+                                            android:textSize="14.0dip" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:id="@+id/ll_combine_course"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:id="@+id/remain_course_start_time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="20.0dip"
+                                            android:layout_marginRight="20.0dip"
+                                            android:text="锁柜/淋浴"
+                                            android:textColor="@color/black_54"
+                                            android:textSize="14.0dip" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/courseIntroduction"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20.0dip"
+                                    android:layout_marginRight="20.0dip"
+                                    android:lineSpacingExtra="5.0dip"
+                                    android:maxLines="4"
+                                    android:text="课程描述"
+                                    android:textColor="@color/text_secondTitle_color"
+                                    android:textSize="@dimen/courseHintSize" />
+
+                                <Button
+                                    android:id="@+id/btnIntroDetail"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@null"
+                                    android:gravity="center"
+                                    android:text="查看详情 >"
+                                    android:textColor="@color/text_subtitle_color"
+                                    android:textSize="@dimen/courseHintSize" />
+
+                                <TextView
+                                    android:id="@+id/courseExper"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20.0dip"
+                                    android:layout_marginRight="20.0dip"
+                                    android:lineSpacingExtra="5.0dip"
+                                    android:maxLines="4"
+                                    android:text="健身经历"
+                                    android:textColor="@color/text_secondTitle_color"
+                                    android:textSize="@dimen/courseHintSize" />
+
+                                <Button
+                                    android:id="@+id/btnExpDetail"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@null"
+                                    android:gravity="center"
+                                    android:paddingBottom="30.0dip"
+                                    android:paddingTop="14.0dip"
+                                    android:text="查看详情 >"
+                                    android:textColor="@color/text_subtitle_color"
+                                    android:textSize="@dimen/courseHintSize" />
+
+                                <View
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="0.5dip"
+                                    android:background="@color/divider_color" />
+
+                                <LinearLayout
+                                    android:id="@+id/go_course_gym"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/bg_gray"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/course_detail_vertical_space"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/course_gym"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:singleLine="true"
+                                            android:text="奥林匹克森林公园"
+                                            android:textColor="@color/text_title_color"
+                                            android:textSize="@dimen/font_size_secondary_title" />
+
+                                        <ImageView
+                                            android:id="@+id/ivCourseGym"
+                                            android:layout_width="16.0dip"
+                                            android:layout_height="16.0dip"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="6.0dip"
+                                            android:src="@drawable/arrow_to_right" />
+                                    </LinearLayout>
+
+
+                                    <RelativeLayout
+                                        android:id="@+id/rlRating"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="14.0dip"
+                                        android:gravity="center">
+
+                                        <RatingBar
+                                            android:id="@+id/gym_rating"
+                                            style="@style/style_rating_large"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:isIndicator="true"
+                                            android:numStars="5"
+                                            android:stepSize="0.5" />
+
+                                        <TextView
+                                            android:id="@+id/comments_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="6.0dip"
+                                            android:layout_marginRight="20.0dip"
+                                            android:layout_toRightOf="@id/gym_rating"
+                                            android:text="0条评论"
+                                            android:textColor="@color/text_secondTitle_color"
+                                            android:textSize="14sp" />
+                                    </RelativeLayout>
+                                </LinearLayout>
+
+
+                                <View
+                                    android:id="@+id/course_comment_area_divider"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="@dimen/divide_space_height"
+                                    android:background="@color/divider_color" />
+
+                                <LinearLayout
+                                    android:id="@+id/go_comments"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:id="@+id/course_comment_area"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/course_detail_vertical_space"
+                                        android:layout_marginLeft="@dimen/course_detail_content_margin_left"
+                                        android:layout_marginRight="20.0dip"
+                                        android:layout_marginTop="@dimen/course_detail_vertical_space"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:id="@+id/user_avatar"
+                                                    android:layout_width="50.0dip"
+                                                    android:layout_height="50.0dip"
+                                                    android:scaleType="fitXY"
+                                                    android:src="@color/appgreen" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="fill_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="22.0dip"
+                                                android:layout_marginTop="4.0dip"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:id="@+id/user_name"
+                                                    android:layout_width="fill_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="用户名"
+                                                    android:textColor="@color/text_secondTitle_color"
+                                                    android:textSize="@dimen/font_size_text" />
+
+                                                <RelativeLayout
+                                                    android:layout_width="fill_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="6.0dip">
+
+                                                    <TextView
+                                                        android:id="@+id/user_comment"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_centerVertical="true"
+                                                        android:layout_gravity="center"
+                                                        android:text="评论"
+                                                        android:textColor="@color/text_subtitle_color"
+                                                        android:textSize="@dimen/font_size_text" />
+
+                                                    <TextView
+                                                        android:id="@+id/comment_date"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_alignParentRight="true"
+                                                        android:layout_centerVertical="true"
+                                                        android:layout_gravity="right"
+                                                        android:text="评论时间"
+                                                        android:textColor="@color/text_subtitle_color"
+                                                        android:textSize="@dimen/font_size_text" />
+                                                </RelativeLayout>
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="15.0dip"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="fill_parent"
+                                                android:layout_height="wrap_content"
+                                                android:background="@null"
+                                                android:gravity="center"
+                                                android:text="所有评论"
+                                                android:textColor="@color/text_subtitle_color"
+                                                android:textSize="@dimen/courseHintSize" />
+
+                                            <ImageView
+                                                android:layout_width="10.0dip"
+                                                android:layout_height="10.0dip"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_marginLeft="6.0dip"
+                                                android:src="@drawable/arrow_to_right" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/bg_gray"
+                            android:orientation="vertical"
+                            android:paddingLeft="40.0dip"
+                            android:paddingRight="40.0dip">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="10.0dip"
+                                android:layout_marginTop="20.0dip"
+                                android:text="温馨提示"
+                                android:textColor="@color/text_title_color"
+                                android:textSize="@dimen/font_size_secondary_title" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/content_margin_bewteen_cell"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="难度等级："
+                                    android:textColor="@color/black_72"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/courseDesLevel"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:text="初级"
+                                    android:textColor="@color/text_subtitle_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_courseDesCrowd"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/content_margin_bewteen_cell"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="适宜人群："
+                                    android:textColor="@color/black_72"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/courseDesCrowd"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:lineSpacingExtra="5.0dip"
+                                    android:text="有一定健身基础、希望得到团队鼓励、互动健身的健身爱好者。"
+                                    android:textColor="@color/text_subtitle_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginBottom="15dip"
+                                android:id="@+id/ll_courseDesTips"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/content_margin_bewteen_cell"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="温馨提示："
+                                    android:textColor="@color/black_72"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/courseDesTips"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:lineSpacingExtra="5.0dip"
+                                    android:text="大咖健身为健身达人组织团队健身活动，分享自己健身经验和健身动作。课程非私教课程，服务会有差别。每人体质有差别，健身过程中或健身后如遇不适请及时就医。"
+                                    android:textColor="@color/text_subtitle_color"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="55.0dip"
+                            android:background="@color/white" />
+                    </LinearLayout>
+                </ScrollView>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <ImageButton
+            android:id="@+id/btn_recommend"
+            android:layout_width="24.0dip"
+            android:layout_height="24.0dip"
+            android:layout_gravity="right"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:background="@drawable/course_share_whte"
+            android:scaleType="fitXY"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/submit_button_height"
+            android:layout_gravity="bottom|center"
+            android:alpha="0.85"
+            android:background="@color/appgreen"
+            android:clickable="false"
+            android:focusable="false"
+            android:text="参加活动"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </FrameLayout>
+</LinearLayout>
