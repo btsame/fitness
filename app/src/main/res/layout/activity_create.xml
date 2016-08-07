@@ -225,6 +225,7 @@
                     android:text="活动地点（*）：" />
 
                 <EditText
+                    android:singleLine="true"
                     android:id="@+id/et_act_address"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -247,6 +248,7 @@
                     android:text="自备器材（*）：" />
 
                 <EditText
+                    android:singleLine="true"
                     android:id="@+id/et_act_equipment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -294,6 +296,7 @@
                     android:text="活动类型（*）：" />
 
                 <Button
+                    android:textAlignment="textStart"
                     android:id="@+id/et_act_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -314,9 +317,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="是否提供淋浴/锁柜（*）：" />
+                    android:text="淋浴锁柜（*）：" />
 
                 <Button
+                    android:textAlignment="textStart"
                     android:id="@+id/et_act_shower_locker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -334,6 +338,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:inputType="text"
                     android:id="@+id/et_act_instruction"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

@@ -294,6 +294,15 @@
                     android:textColor="@color/red"
                     android:textSize="13.0sp" />
             </RelativeLayout>
+            <TextView
+                android:id="@+id/add_new_cj"
+                android:layout_width="wrap_content"
+                android:layout_height="30.0dip"
+                android:layout_gravity="end"
+                android:layout_marginRight="20.0dip"
+                android:layout_marginTop="10.0dip"
+                android:gravity="center"
+                android:text="增加一项 +" />
 
 
             <TextView

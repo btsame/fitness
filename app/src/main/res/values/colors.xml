@@ -78,4 +78,10 @@
     <color name="buttom_bar_divider">#ffd6d6d6</color>
     <color name="orange_focus_color_4r">#ffd9822b</color>
     <color name="divider_color">#ffeeeeee</color>
+    <color name="dark_gray_text_color">#ff666666</color>
+    <color name="red_text_color">#ffff0000</color>
+    <color name="color_blue">#ff0070c1</color>
+    <color name="main_lines_bg">#ffd9d9d9</color>
+    <color name="light_white">#ffaaaaaa</color>
+    <color name="result_view">#b0000000</color>
 </resources>

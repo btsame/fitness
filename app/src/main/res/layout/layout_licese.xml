@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_licese"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_color"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_blue"
+        android:orientation="vertical"
+        android:paddingTop="25.0dip">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:text="请上传营业执照副本照片"
+            android:textColor="@color/white_color" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15.0dip"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/layout_rl_license"
+                android:layout_width="145.0dip"
+                android:layout_height="196.0dip"
+                android:background="@drawable/bg_blue_btn_normal_4r">
+
+                <ImageView
+                    android:id="@+id/iv_licese"
+                    android:layout_width="fill_parent"
+                    android:layout_height="140.0dip"
+                    android:layout_marginBottom="25.0dip"
+                    android:layout_marginLeft="21.0dip"
+                    android:layout_marginRight="21.0dip"
+                    android:layout_marginTop="21.0dip"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_license" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="35.0dip"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="上传营业执照副本"
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/v4_text_size_12" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingTop="15.0dip"
+        android:text="营业执照副本照片要求:"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_13" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:background="@color/main_lines_bg" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10.0dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1、为了提高照片识别度，请"
+            android:textColor="@color/light_white"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="竖向拍摄；"
+            android:textColor="@color/ticket_money"
+            android:textSize="@dimen/text_size_13" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10.0dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2、照片确保"
+            android:textColor="@color/light_white"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="边框完整，字迹清晰，亮度均匀；"
+            android:textColor="@color/ticket_money"
+            android:textSize="@dimen/text_size_13" />
+    </LinearLayout>
+</LinearLayout>

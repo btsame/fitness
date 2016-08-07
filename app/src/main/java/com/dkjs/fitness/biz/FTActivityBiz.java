@@ -87,6 +87,11 @@ public class FTActivityBiz implements IFTActivityBiz {
     }
 
     @Override
+    public void joinInAct() {
+
+    }
+
+    @Override
     public void queryLastestActs(@NotNull final QueryActivityListener qaListener) {
         Constraint constraint = new Constraint.Builder()
                 .orderByTime()

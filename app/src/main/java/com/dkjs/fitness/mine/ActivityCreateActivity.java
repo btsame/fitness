@@ -104,8 +104,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
 
-    private String[] showerLockerStrs = new String[]{"不提供", "只提供沐浴", "只提供锁柜", "都提供"};
-    private String[] actTypeStrs = new String[]{"室外", "场馆内"};
+    private String[] showerLockerStrs = new String[]{"不提供", "沐浴", "锁柜", "沐浴+锁柜"};
+    private String[] actTypeStrs = new String[]{"户外", "室内"};
 
     int showStyle;  //标记此Acitvity的作用
     @Override
