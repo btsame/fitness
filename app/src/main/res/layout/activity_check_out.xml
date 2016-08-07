@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_main_bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/appgreen">
+
+        <ImageButton
+            android:id="@+id/left_button"
+            android:layout_width="15dip"
+            android:layout_height="15dip"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="22.0dip"
+            android:background="@null"
+            android:src="@drawable/btn_back_arrow_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="验  票"
+            android:textColor="@color/white"
+            android:textSize="16.0sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:fadingEdge="none"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:weightSum="1.0">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="310.0dip"
+                android:background="@drawable/bg_mine_top"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_num"
+                    android:layout_width="fill_parent"
+                    android:layout_height="55.0dip"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:layout_marginTop="110.0dip"
+                    android:background="@drawable/iv_edittext_bg"
+                    android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ"
+                    android:gravity="center"
+                    android:hint="请输入验证数字码"
+                    android:inputType="number"
+                    android:maxLength="14"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textColorHint="#ffaaaaaa"
+                    android:textSize="28.0dip" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/layout"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15.0dip"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="1.0dip"
+                                android:text="已成功验票 "
+                                android:textColor="#ff7dcaff"
+                                android:textSize="12.0dip" />
+
+                            <TextView
+                                android:id="@+id/auth_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10"
+                                android:textColor="#ff7dcaff"
+                                android:textSize="18.0dip" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="1.0dip"
+                                android:text=" 人"
+                                android:textColor="#ff7dcaff"
+                                android:textSize="12.0dip" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout"
+                android:layout_marginTop="-5.0dip"
+                android:background="@drawable/bg_elec_ticket_yanpiao" />
+
+            <Button
+                android:id="@+id/check_ticket"
+                android:layout_width="fill_parent"
+                android:layout_height="47.0dip"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="20.0dip"
+                android:layout_marginTop="30.0dip"
+                android:background="@drawable/btn_blue_selector_8r"
+                android:gravity="center"
+                android:text="验票"
+                android:textColor="@color/white_color"
+                android:textSize="16.0dip" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/layout_look_haschecked"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="30.0dip"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10.0dip"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_about_email_arrow"
+            android:layout_width="12.0dip"
+            android:layout_height="18.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7.0dip"
+            android:background="@drawable/area_arrow"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_about_email_arrow"
+            android:gravity="center"
+            android:text="查看已验票名单"
+            android:textSize="15.0dip" />
+
+
+    </RelativeLayout>
+</LinearLayout>

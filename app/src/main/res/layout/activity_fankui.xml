@@ -29,8 +29,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="意见反馈"
+            android:textColor="@color/white"
             android:textSize="16.0sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"   />
     </RelativeLayout>
 
     <RelativeLayout

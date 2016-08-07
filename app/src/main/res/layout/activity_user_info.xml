@@ -34,8 +34,7 @@
             android:layout_marginRight="10dip"
             android:text="保存"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+          />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"

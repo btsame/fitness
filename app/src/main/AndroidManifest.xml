@@ -35,8 +35,6 @@
         <activity android:name=".mine.UserInfoActivity" />
         <activity android:name=".act.ActShowActivity" />
         //达人 私教认证环节
-        <activity android:name=".account.IDRegisterFirstActivity" />
-        <activity android:name=".account.IDRegisterSecondActivity" />
 
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -65,7 +63,8 @@
 
         <activity android:name=".mine.FankuiActivity" />
         <activity android:name=".mine.AuthIDActivity" />
-        <activity android:name=".mine.AuthIDUpLoadActivity"></activity>
+        <activity android:name=".mine.AuthIDUpLoadActivity" />
+        <activity android:name=".mine.CheckOutTicketsActivity"></activity>
     </application>
 
 </manifest>

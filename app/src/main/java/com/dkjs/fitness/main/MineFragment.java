@@ -18,6 +18,7 @@ import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.mine.ActivityManagerActivity;
 import com.dkjs.fitness.mine.AuthIDActivity;
+import com.dkjs.fitness.mine.CheckOutTicketsActivity;
 import com.dkjs.fitness.mine.MineMoneyActivity;
 import com.dkjs.fitness.mine.SettingsActivity;
 import com.dkjs.fitness.mine.UserInfoActivity;
@@ -33,7 +34,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
     @Bind(R.id.iv_accout_icon)
     ImageView portraitIV;
     Button editUserInfo;
-    LinearLayout lvCreate, lvManager, lvSettings,layout_auth;
+    LinearLayout llCreate, llManager, llSettings, llAuthID,llCheckTicket;
 
     @Bind(R.id.ll_my_money)
     LinearLayout llMyMoney;
@@ -54,6 +55,8 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
         createActivity();
         //管理活动
         managerActivity();
+        //验票
+        checkTicket();
 
         //设置管理
         managerSettings();
@@ -67,8 +70,18 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
         return view;
     }
 
+    private void checkTicket() {
+
+        llCheckTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), CheckOutTicketsActivity.class));
+            }
+        });
+    }
+
     private void authID() {
-        layout_auth.setOnClickListener(new View.OnClickListener() {
+        llAuthID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), AuthIDActivity.class));
@@ -86,7 +99,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
     }
 
     private void managerSettings() {
-        lvSettings.setOnClickListener(new View.OnClickListener() {
+        llSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), SettingsActivity.class));
@@ -95,7 +108,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
     }
 
     private void managerActivity() {
-        lvManager.setOnClickListener(new View.OnClickListener() {
+        llManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), ActivityManagerActivity.class));
@@ -104,7 +117,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
     }
 
     private void createActivity() {
-        lvCreate.setOnClickListener(new View.OnClickListener() {
+        llCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), ActivityCreateActivity.class));
@@ -114,10 +127,11 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
 
     public void initView(View view) {
         editUserInfo = (Button) view.findViewById(R.id.btn_editUserInfo);
-        lvCreate = (LinearLayout) view.findViewById(R.id.iv_create_activity);
-        lvManager = (LinearLayout) view.findViewById(R.id.iv_managerActivity);
-        lvSettings = (LinearLayout) view.findViewById(R.id.lv_settings);
-        layout_auth= (LinearLayout) view.findViewById(R.id.layout_auth);
+        llCreate = (LinearLayout) view.findViewById(R.id.iv_create_activity);
+        llManager = (LinearLayout) view.findViewById(R.id.iv_managerActivity);
+        llSettings = (LinearLayout) view.findViewById(R.id.lv_settings);
+        llAuthID = (LinearLayout) view.findViewById(R.id.layout_auth);
+        llCheckTicket=(LinearLayout) view.findViewById(R.id.ll_check_out_ticket);
     }
 
     private void setListener() {
