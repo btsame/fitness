@@ -35,6 +35,7 @@ public class FTActivity implements Serializable{
     private int sourceType; //1图片；2视频；
     private String sourceUrl;
 
+    private User owner;
     private transient ShuoShuo shuoShuo;
 
     public String getSourceUrl() {
@@ -147,5 +148,13 @@ public class FTActivity implements Serializable{
 
     public void setActType(int actType) {
         this.actType = actType;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 }

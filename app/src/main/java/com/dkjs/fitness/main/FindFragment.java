@@ -36,8 +36,10 @@ public class FindFragment extends FitnessFragment {
 
     private void initFragment(){
         fragments = new Fragment[2];
-        fragments[0] = new FindHotFragment();
-        fragments[1] = new FindActivityFragment();
+//        fragments[0] = new FindHotFragment();
+//        fragments[1] = new FindActivityFragment();
+        fragments[0] = new FindHotActivityFragment();
+        fragments[1] = new FindActivityFragment2();
         tabNames = new String[]{"热门", "活动"};
     }
 

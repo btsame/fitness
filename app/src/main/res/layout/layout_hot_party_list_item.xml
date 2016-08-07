@@ -11,7 +11,8 @@
         android:layout_marginTop="@dimen/v4_first_party_margin_top_16"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@id/sdv_item_act_portrait"
             android:layout_width="35dip"
             android:layout_height="35dip"
             android:layout_gravity="center"
@@ -19,6 +20,7 @@
             android:background="@color/appgreen" />
 
         <TextView
+            android:id="@id/tv_item_act_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -27,14 +29,15 @@
     </LinearLayout>
 
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@id/sdv_item_act_thumbnail"
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:background="@color/appgreen" />
 
     <TextView
         android:layout_marginTop="5dip"
-        android:id="@+id/info_title"
+        android:id="@id/tv_item_act_subject"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/v4_first_margin"
@@ -90,7 +93,7 @@
                             android:scaleType="fitXY" />
 
                         <TextView
-                            android:id="@+id/info_start_date"
+                            android:id="@id/tv_item_act_time"
                             android:layout_width="0.0dip"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3.0dip"
@@ -118,7 +121,7 @@
                             android:scaleType="fitXY" />
 
                         <TextView
-                            android:id="@+id/info_area_name"
+                            android:id="@id/tv_item_act_address"
                             android:layout_width="0.0dip"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3.0dip"
@@ -132,7 +135,7 @@
 
                 <TextView
                     android:text="200元/人"
-                    android:id="@+id/info_join_fee"
+                    android:id="@+id/tv_item_act_price"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_marginRight="3.0dip"

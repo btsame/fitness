@@ -63,26 +63,31 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent">
 
-                                <android.support.v4.view.ViewPager
-                                    android:id="@+id/gym_gallary"
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="200.0dip"
-                                    android:background="@color/appgreen" />
+                                <!--<android.support.v4.view.ViewPager-->
+                                    <!--android:id="@+id/gym_gallary"-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="200.0dip"-->
+                                    <!--android:background="@color/appgreen" />-->
+                                <com.facebook.drawee.view.SimpleDraweeView
+                                    android:id="@+id/sdv_act_pic"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp"
+                                    android:background="@color/appgreen"/>
 
-                                <ImageView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="200.0dip"
-                                    android:alpha="0.3"
-                                    android:scaleType="fitXY"
-                                    android:src="@color/appgreen" />
+                                <!--<ImageView-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="200.0dip"-->
+                                    <!--android:alpha="0.3"-->
+                                    <!--android:scaleType="fitXY"-->
+                                    <!--android:src="@color/appgreen" />-->
 
-                                <LinearLayout
-                                    android:id="@+id/img_navi"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom|center"
-                                    android:layout_marginBottom="20.0dip"
-                                    android:orientation="horizontal" />
+                                <!--<LinearLayout-->
+                                    <!--android:id="@+id/img_navi"-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_gravity="bottom|center"-->
+                                    <!--android:layout_marginBottom="20.0dip"-->
+                                    <!--android:orientation="horizontal" />-->
                             </FrameLayout>
 
 
@@ -104,7 +109,8 @@
                                         android:layout_height="45dip"
                                         android:orientation="horizontal">
 
-                                        <ImageView
+                                        <com.facebook.drawee.view.SimpleDraweeView
+                                            android:id="@+id/sdv_user_header"
                                             android:layout_width="35dip"
                                             android:layout_height="35dip"
                                             android:layout_gravity="center"
@@ -112,6 +118,7 @@
                                             android:background="@color/appgreen" />
 
                                         <TextView
+                                            android:id="@+id/tv_user_nickname"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_vertical"
@@ -155,7 +162,7 @@
                                             android:orientation="horizontal">
 
                                             <TextView
-                                                android:id="@+id/coursePrice"
+                                                android:id="@+id/tv_course_Price"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="200元/人"
@@ -191,7 +198,7 @@
                                             android:textSize="14.0dip" />
 
                                         <TextView
-                                            android:id="@+id/remain_equip"
+                                            android:id="@+id/tv_remain_equip"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20.0dip"
@@ -206,7 +213,7 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="horizontal">
                                         <TextView
-                                            android:id="@+id/remain_course_start_time"
+                                            android:id="@+id/tv_show_shower_locker"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20.0dip"
@@ -230,8 +237,19 @@
                                     android:textColor="@color/text_secondTitle_color"
                                     android:textSize="@dimen/courseHintSize" />
 
+                                <TextView
+                                    android:id="@+id/tv_act_intro"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="60dp"
+                                    android:layout_marginLeft="20.0dip"
+                                    android:layout_marginRight="20.0dip"
+                                    android:background="@color/bg_gray"
+                                    android:textSize="14.0dp"
+                                    android:visibility="invisible"/>
+
                                 <Button
-                                    android:id="@+id/btnIntroDetail"
+                                    android:id="@+id/btn_introDetail"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -254,7 +272,7 @@
                                     android:textSize="@dimen/courseHintSize" />
 
                                 <Button
-                                    android:id="@+id/btnExpDetail"
+                                    android:id="@+id/btn_expDetail"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -563,7 +581,7 @@
             android:layout_marginTop="10.0dip"
             android:background="@drawable/course_share_whte"
             android:scaleType="fitXY"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/btn_ok"

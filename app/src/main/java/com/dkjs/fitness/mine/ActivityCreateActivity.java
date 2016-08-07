@@ -33,11 +33,14 @@ import com.dkjs.fitness.citydateselector.picker.DateTimePicker;
 import com.dkjs.fitness.citydateselector.utils.AssetsUtils;
 import com.dkjs.fitness.comm.AppConfig;
 import com.dkjs.fitness.comm.FitnessActivity;
+import com.dkjs.fitness.comm.GlobalUserManager;
 import com.dkjs.fitness.domain.FTActivity;
+import com.dkjs.fitness.domain.User;
 import com.dkjs.fitness.util.CameraProxy;
 import com.dkjs.fitness.util.CameraResult;
 import com.dkjs.fitness.util.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.maxleap.MLUser;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnItemClickListener;
 
@@ -104,8 +107,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
 
-    private String[] showerLockerStrs = new String[]{"不提供", "只提供沐浴", "只提供锁柜", "都提供"};
-    private String[] actTypeStrs = new String[]{"室外", "场馆内"};
+    public static String[] showerLockerStrs = new String[]{"不提供沐浴／锁柜", "只提供沐浴", "只提供锁柜", "提供沐浴／锁柜"};
+    public static String[] actTypeStrs = new String[]{"室外", "场馆内"};
 
     int showStyle;  //标记此Acitvity的作用
     @Override
@@ -379,6 +382,12 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         ftActivity.setPrice(Float.parseFloat(mPriceET.getText().toString()));
         ftActivity.setShowerAndLocker(Integer.parseInt(mShowerLockerBtn.getTag().toString()));
         ftActivity.setActType(Integer.parseInt(mActTypeBtn.getTag().toString()));
+
+        User user = new User();
+        user.setUserId(GlobalUserManager.getUserId());
+        user.setUserId(GlobalUserManager.getNickName());
+        user.setPortrait(GlobalUserManager.getPortrait());
+        ftActivity.setOwner(user);
 
 
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();

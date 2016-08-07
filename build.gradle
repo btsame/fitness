@@ -18,11 +18,20 @@ allprojects {
     repositories {
         jcenter()
 
+        flatDir {
+            dirs 'libs'
+        }
+
         maven {
             url 'https://dl.bintray.com/wangyuwei/maven'
         }
 
         maven { url "https://jitpack.io" }
+
+        //聊天控件
+        maven {
+            url "https://s3.amazonaws.com/repo.commonsware.com"
+        }
     }
 }
 

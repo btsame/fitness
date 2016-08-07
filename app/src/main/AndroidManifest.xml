@@ -33,6 +33,7 @@
         <activity android:name=".account.RegisterActivity" />
         <activity android:name=".account.ForgetPasswordActivity" />
         <activity android:name=".mine.UserInfoActivity" />
+        <activity android:name=".act.ActShowActivity" />
         //达人 私教认证环节
         <activity android:name=".account.IDRegisterFirstActivity"></activity>
         <activity android:name=".account.IDRegisterSecondActivity" />

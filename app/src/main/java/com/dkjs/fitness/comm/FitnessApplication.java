@@ -3,6 +3,7 @@ package com.dkjs.fitness.comm;
 import android.app.Application;
 import android.content.Context;
 
+import com.dkjs.fitness.domain.UserAct;
 import com.dkjs.fitness.util.LogUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.maxleap.GetCallback;
@@ -29,6 +30,9 @@ public class FitnessApplication extends Application {
         mContext = this;
 
         MaxLeap.setLogLevel(MaxLeap.LOG_LEVEL_ERROR);
+
+
+        MLObject.registerSubclass(UserAct.class);
         MaxLeap.initialize(this, "57807296a5ff7f00013e797b",
                 "ZXNhTWdKWk1xUWVXUEVQakZxVnpNUQ", MaxLeap.REGION_CN);
 

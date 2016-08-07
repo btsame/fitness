@@ -1,23 +1,13 @@
 package com.dkjs.fitness.main;
 
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,25 +21,24 @@ import com.dkjs.fitness.biz.IFTActivityBiz;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.comm.LinearItemDecoration;
 import com.dkjs.fitness.domain.FTActivity;
-import com.dkjs.fitness.domain.StateTest;
-import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.util.ToastUtils;
+import com.dkjs.fitness.util.URIUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by administrator on 16/7/10.
  */
-public class FindActivityFragment extends FitnessFragment {
+public class FindActivityFragment2 extends FitnessFragment {
 
     public static final int LOADAD_DATA = 0;
 
     SwipeRefreshLayout mFindActRL;
     RecyclerView mFindActRV;
-    TextView mTitleTV;
 
     List<FTActivity> activityList;
     ActivityAdapter activityAdapter;
@@ -91,7 +80,6 @@ public class FindActivityFragment extends FitnessFragment {
 
         mFindActRL = (SwipeRefreshLayout) view.findViewById(R.id.srl_find_activity);
         mFindActRV = (RecyclerView) view.findViewById(R.id.rv_find_activity);
-        mTitleTV = (TextView) view.findViewById(R.id.tv_act_title);
 
         mFindActRL.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -124,7 +112,7 @@ public class FindActivityFragment extends FitnessFragment {
         iftActivityBiz.queryLastestActs(new IFTActivityBiz.QueryActivityListener() {
             @Override
             public void onSuccess(List<FTActivity> actList) {
-                if(activityList != null){
+                if (activityList != null) {
                     activityList.clear();
                 }
                 activityList = actList;
@@ -166,18 +154,34 @@ public class FindActivityFragment extends FitnessFragment {
         @Override
         public ActivityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new ActivityViewHolder(
-                    LayoutInflater.from(mContext).inflate(R.layout.item_activity, null));
+                    LayoutInflater.from(mContext).inflate(R.layout.layout_allparty_list_item, null));
         }
 
         @Override
         public void onBindViewHolder(ActivityViewHolder holder, final int position) {
-            if(datas.get(position).getSourceUrl().startsWith("http") ||
-                    datas.get(position).getSourceUrl().startsWith("https")){
-                holder.stateImg.setImageURI(datas.get(position).getSourceUrl());
-            }else{
-                holder.stateImg.setImageURI("http://" + datas.get(position).getSourceUrl());
+
+            if(datas.get(position).getOwner() != null){
+                if(datas.get(position).getOwner().getPortrait() != null){
+                    holder.actOwnerPortrait.setImageURI(
+                            URIUtil.handleNetworkUri(datas.get(position).getOwner().getPortrait()));
+                }
+                holder.actOwnerNickname.setText(
+                        datas.get(position).getOwner().getNickName()
+                );
             }
-            holder.titleTC.setText(datas.get(position).getSubject());
+
+
+            holder.actSubject.setText(datas.get(position).getSubject());
+            holder.actTime.setText(datas.get(position).getBeginTime() + "到" +
+            datas.get(position).getEndTime());
+            holder.actAddress.setText(datas.get(position).getAddress());
+            holder.actPrice.setText(
+                    getString(R.string.act_price, datas.get(position).getPrice())
+            );
+
+            holder.actThumbnail.setImageURI(
+                    URIUtil.handleNetworkUri(datas.get(position).getSourceUrl())
+            );
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -198,19 +202,24 @@ public class FindActivityFragment extends FitnessFragment {
         }
 
         public class ActivityViewHolder extends RecyclerView.ViewHolder{
-            SimpleDraweeView stateImg;
-            ImageView praiseIV, commentIV;
-            TextView praiseTV, commentTV, titleTC;
+            @Bind(R.id.sdv_item_act_portrait)
+            SimpleDraweeView actOwnerPortrait;
+            @Bind(R.id.tv_item_act_nickname)
+            TextView actOwnerNickname;
+            @Bind(R.id.tv_item_act_subject)
+            TextView actSubject;
+            @Bind(R.id.tv_item_act_time)
+            TextView actTime;
+            @Bind(R.id.tv_item_act_address)
+            TextView actAddress;
+            @Bind(R.id.tv_item_act_price)
+            TextView actPrice;
+            @Bind(R.id.sdv_item_act_thumbnail)
+            SimpleDraweeView actThumbnail;
 
             public ActivityViewHolder(View itemView) {
                 super(itemView);
-                stateImg = (SimpleDraweeView)itemView.findViewById(R.id.item_activity_img);
-                praiseIV = (ImageView)itemView.findViewById(R.id.iv_praise);
-                commentIV = (ImageView)itemView.findViewById(R.id.iv_comment);
-                praiseTV = (TextView)itemView.findViewById(R.id.tv_praise_count);
-                commentTV = (TextView)itemView.findViewById(R.id.tv_comment_count);
-                titleTC = (TextView)itemView.findViewById(R.id.tv_act_title);
-
+                ButterKnife.bind(this, itemView);
             }
         }
     }
