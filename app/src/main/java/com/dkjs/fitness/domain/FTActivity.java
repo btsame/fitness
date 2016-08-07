@@ -24,6 +24,13 @@ public class FTActivity implements Serializable{
     private String selfEquipment;
     private String intruction;
 
+    private String beginTime;
+    private String endTime;
+    private String city;
+    private float price;
+    private int showerAndLocker;    //0都不提供；1只提供沐浴；2只提供锁柜；3都提供
+    private int actType;    //0户外；1室内
+
 
     private int sourceType; //1图片；2视频；
     private String sourceUrl;
@@ -94,5 +101,51 @@ public class FTActivity implements Serializable{
         this.shuoShuo = shuoShuo;
     }
 
+    public String getBeginTime() {
+        return beginTime;
+    }
 
+    public void setBeginTime(String beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public int getShowerAndLocker() {
+        return showerAndLocker;
+    }
+
+    public void setShowerAndLocker(int showerAndLocker) {
+        this.showerAndLocker = showerAndLocker;
+    }
+
+    public int getActType() {
+        return actType;
+    }
+
+    public void setActType(int actType) {
+        this.actType = actType;
+    }
 }

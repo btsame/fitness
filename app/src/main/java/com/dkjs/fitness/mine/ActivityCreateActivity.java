@@ -9,21 +9,16 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,20 +37,12 @@ import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.util.CameraProxy;
 import com.dkjs.fitness.util.CameraResult;
 import com.dkjs.fitness.util.ToastUtils;
-import com.dkjs.fitness.util.UploadPic;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnItemClickListener;
 
-import java.io.File;
-import java.text.DateFormat;
-import java.text.ParseException;
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -80,33 +67,47 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     LinearLayout mUploadPicIV;
 //    @Bind(R.id.ll_upload_video)
 //    LinearLayout mUploadVideoIV;
+    @Bind(R.id.sdv_show_act_pic)
+    SimpleDraweeView mPicSDV;
     @Bind(R.id.tv_publish_activity)
     TextView mPublishActTV;
+    @Bind(R.id.btn_publish_activity)
+    Button mPublishActBtn;
     @Bind(R.id.et_act_subject)
     EditText mSubjextET;
     @Bind(R.id.et_act_totalnum)
     EditText mTotalNumET;
-    //将edittext 更改为button
     @Bind(R.id.et_act_address)
-    Button mAddressET;
+    EditText mAddressET;
     @Bind(R.id.et_act_equipment)
     EditText mEquipmentET;
     @Bind(R.id.et_act_instruction)
     EditText mInstructionET;
     @Bind(R.id.left_button)
     ImageButton mBackIB;
+    @Bind(R.id.et_act_price)
+    EditText mPriceET;
+    @Bind(R.id.et_act_shower_locker)
+    Button mShowerLockerBtn;
+    @Bind(R.id.et_act_type)
+    Button mActTypeBtn;
 
     //时间 城市选择按钮
-    @Bind(R.id.start_time)
+    @Bind(R.id.btn_start_time)
     Button btnStartTime;
-    @Bind(R.id.end_time)
+    @Bind(R.id.btn_end_time)
     Button btnEndTime;
+    @Bind(R.id.btn_act_city)
+    Button mCityBtn;
 
     private Calendar calendar = Calendar.getInstance();
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
-    //标记此Acitvity的作用
-    int showStyle;
+
+    private String[] showerLockerStrs = new String[]{"不提供", "只提供沐浴", "只提供锁柜", "都提供"};
+    private String[] actTypeStrs = new String[]{"室外", "场馆内"};
+
+    int showStyle;  //标记此Acitvity的作用
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +129,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                 //射入图片
                 ToastUtils.showCustomToast(mContext, "获取图片成功：" + path);
                 ftActivity.setSourceUrl(path);
+                mUploadPicIV.setVisibility(View.INVISIBLE);
+                mPicSDV.setImageURI(Uri.parse("file://" + path));
             }
             @Override
             public void onFail(String message) {
@@ -141,11 +144,29 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     protected void initView() {
         super.initView();
         if (showStyle == ACTIVITY_SHOW) {
+            if(ftActivity.getSourceType() == FTActivity.SOURCE_TYPE_PIC){
+                mUploadPicIV.setVisibility(View.INVISIBLE);
+                if(ftActivity.getSourceUrl().startsWith("http") ||
+                        ftActivity.getSourceUrl().startsWith("https")){
+                    mPicSDV.setImageURI(ftActivity.getSourceUrl());
+                }else{
+                    mPicSDV.setImageURI("http://" + ftActivity.getSourceUrl());
+                }
+            }
             mSubjextET.setText(ftActivity.getSubject());
             mTotalNumET.setText("" + ftActivity.getTotalNum());
-            // mAddressET.setText(ftActivity.getAddress());
+            mAddressET.setText(ftActivity.getAddress());
             mEquipmentET.setText(ftActivity.getSelfEquipment());
             mInstructionET.setText(ftActivity.getIntruction());
+
+            btnStartTime.setText(ftActivity.getBeginTime());
+            btnEndTime.setText(ftActivity.getEndTime());
+            mCityBtn.setText(ftActivity.getCity());
+            mPriceET.setText("" + ftActivity.getPrice());
+            mShowerLockerBtn.setText(showerLockerStrs[ftActivity.getShowerAndLocker()]);
+            mShowerLockerBtn.setTag(ftActivity.getShowerAndLocker());
+            mActTypeBtn.setText(actTypeStrs[ftActivity.getActType()]);
+            mActTypeBtn.setTag(ftActivity.getActType());
         }
     }
 
@@ -153,22 +174,27 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     protected void setListener() {
         super.setListener();
         mUploadPicIV.setOnClickListener(this);
+        mPicSDV.setOnClickListener(this);
        // mUploadVideoIV.setOnClickListener(this);
         mPublishActTV.setOnClickListener(this);
+        mPublishActBtn.setOnClickListener(this);
         mBackIB.setOnClickListener(this);
+        mShowerLockerBtn.setOnClickListener(this);
+        mActTypeBtn.setOnClickListener(this);
+
         //设置活动开始时间 结束时间
         btnStartTime.setOnClickListener(this);
         btnEndTime.setOnClickListener(this);
-        mAddressET.setOnClickListener(this);
+        mCityBtn.setOnClickListener(this);
 
     }
 
 
     @Override
     public void onClick(View v) {
-        if (v == mUploadPicIV) {
+        if (v == mUploadPicIV || v == mPicSDV) {
             showSelectPicDialog();
-        }  else if (v == mPublishActTV) {
+        } else if (v == mPublishActTV || v == mPublishActBtn) {
             publishAct();
         } else if (v == mBackIB) {
             finish();
@@ -176,8 +202,12 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
             setStartTime();
         } else if (v == btnEndTime) {
             setEndTime();
-        } else if (v == mAddressET) {
+        } else if (v == mCityBtn) {
             setCity();
+        } else if(v == mShowerLockerBtn){
+            showShowerLockerDialog();
+        } else if(v == mActTypeBtn){
+            showActTypeDialog();
         }
     }
 
@@ -277,12 +307,55 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         dialogPlus.show();
     }
 
+    private void showShowerLockerDialog(){
+        DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
+                .setGravity(Gravity.CENTER)
+                .setCancelable(true)
+                .setAdapter(new ArrayAdapter<String>(mContext,
+                        android.R.layout.simple_list_item_1, showerLockerStrs))
+                .setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
+                        mShowerLockerBtn.setText(showerLockerStrs[position]);
+                        mShowerLockerBtn.setTag(position);
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        dialogPlus.show();
+    }
+
+    private void showActTypeDialog(){
+        DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
+                .setGravity(Gravity.CENTER)
+                .setCancelable(true)
+                .setAdapter(new ArrayAdapter<String>(mContext,
+                        android.R.layout.simple_list_item_1, actTypeStrs))
+                .setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
+                        mActTypeBtn.setText(actTypeStrs[position]);
+                        mActTypeBtn.setTag(position);
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        dialogPlus.show();
+    }
+
     private void publishAct() {
         if (TextUtils.isEmpty(mSubjextET.getText()) ||
                 TextUtils.isEmpty(mTotalNumET.getText()) ||
                 TextUtils.isEmpty(mAddressET.getText()) ||
                 TextUtils.isEmpty(mInstructionET.getText()) ||
-                TextUtils.isEmpty(ftActivity.getSourceUrl())) {
+                TextUtils.isEmpty(ftActivity.getSourceUrl()) ||
+                TextUtils.isEmpty(btnStartTime.getText()) ||
+                TextUtils.isEmpty(btnEndTime.getText()) ||
+                TextUtils.isEmpty(mCityBtn.getText()) ||
+                TextUtils.isEmpty(mShowerLockerBtn.getText()) ||
+                TextUtils.isEmpty(mActTypeBtn.getText()) ||
+                TextUtils.isEmpty(mPriceET.getText()) ||
+                TextUtils.isEmpty(mEquipmentET.getText())) {
             ToastUtils.showCustomToast(mContext, "请完善信息");
             return;
         }
@@ -299,6 +372,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         ftActivity.setAddress(mAddressET.getText().toString());
         ftActivity.setSelfEquipment(mEquipmentET.getText().toString());
         ftActivity.setIntruction(mInstructionET.getText().toString());
+
+        ftActivity.setBeginTime(btnStartTime.getText().toString());
+        ftActivity.setEndTime(btnEndTime.getText().toString());
+        ftActivity.setCity(mCityBtn.getText().toString());
+        ftActivity.setPrice(Float.parseFloat(mPriceET.getText().toString()));
+        ftActivity.setShowerAndLocker(Integer.parseInt(mShowerLockerBtn.getTag().toString()));
+        ftActivity.setActType(Integer.parseInt(mActTypeBtn.getTag().toString()));
+
 
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();
         ftActivityBiz.publishAct(ftActivity, new IFTActivityBiz.PublishActivityListener() {
@@ -383,9 +464,9 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                     @Override
                     public void onAddressPicked(String province, String city, String county) {
                         if (county == null) {
-                            mAddressET.setText(province + " " + city);
+                            mCityBtn.setText(province + " " + city);
                         } else {
-                            mAddressET.setText(province + " " + city + " " + county);
+                            mCityBtn.setText(province + " " + city + " " + county);
                         }
                     }
                 });

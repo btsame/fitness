@@ -18,6 +18,8 @@ public interface IFTActivityBiz {
     void removeAct(@NotNull FTActivity act, RemoveActivityListener raListener);
     void removeAct(@NotNull String shuoShuoId, RemoveActivityListener raListener);
 
+    void joinInAct();
+
     interface PublishActivityListener{
         String STEP_UPLOAD_FILE = "上传文件";
         String STEP_UPLOAD_ACT = "发布状态";
