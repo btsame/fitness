@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -64,30 +62,30 @@
                                 android:layout_height="fill_parent">
 
                                 <!--<android.support.v4.view.ViewPager-->
-                                    <!--android:id="@+id/gym_gallary"-->
-                                    <!--android:layout_width="fill_parent"-->
-                                    <!--android:layout_height="200.0dip"-->
-                                    <!--android:background="@color/appgreen" />-->
+                                <!--android:id="@+id/gym_gallary"-->
+                                <!--android:layout_width="fill_parent"-->
+                                <!--android:layout_height="200.0dip"-->
+                                <!--android:background="@color/appgreen" />-->
                                 <com.facebook.drawee.view.SimpleDraweeView
                                     android:id="@+id/sdv_act_pic"
                                     android:layout_width="match_parent"
                                     android:layout_height="200dp"
-                                    android:background="@color/appgreen"/>
+                                    android:background="@color/appgreen" />
 
                                 <!--<ImageView-->
-                                    <!--android:layout_width="fill_parent"-->
-                                    <!--android:layout_height="200.0dip"-->
-                                    <!--android:alpha="0.3"-->
-                                    <!--android:scaleType="fitXY"-->
-                                    <!--android:src="@color/appgreen" />-->
+                                <!--android:layout_width="fill_parent"-->
+                                <!--android:layout_height="200.0dip"-->
+                                <!--android:alpha="0.3"-->
+                                <!--android:scaleType="fitXY"-->
+                                <!--android:src="@color/appgreen" />-->
 
                                 <!--<LinearLayout-->
-                                    <!--android:id="@+id/img_navi"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:layout_gravity="bottom|center"-->
-                                    <!--android:layout_marginBottom="20.0dip"-->
-                                    <!--android:orientation="horizontal" />-->
+                                <!--android:id="@+id/img_navi"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="bottom|center"-->
+                                <!--android:layout_marginBottom="20.0dip"-->
+                                <!--android:orientation="horizontal" />-->
                             </FrameLayout>
 
 
@@ -148,6 +146,7 @@
                                             android:id="@+id/tv_time"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+
                                             android:layout_marginTop="6.0dip"
                                             android:text="课程时间"
                                             android:textColor="@color/text_secondTitle_color"
@@ -192,35 +191,41 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20.0dip"
-                                            android:layout_marginRight="20.0dip"
-                                            android:text="自备器材:"
-                                            android:textColor="@color/black_54"
+                                            android:text="自备器材："
+                                            android:textColor="@color/text_secondTitle_color"
                                             android:textSize="14.0dip" />
 
                                         <TextView
                                             android:id="@+id/tv_remain_equip"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="20.0dip"
-                                            android:layout_marginRight="20.0dip"
                                             android:text="不需要"
-                                            android:textColor="@color/black_54"
+                                            android:textColor="@color/text_secondTitle_color"
                                             android:textSize="14.0dip" />
                                     </LinearLayout>
+
                                     <LinearLayout
                                         android:id="@+id/ll_combine_course"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="20.0dip"
+                                            android:text="锁柜淋浴："
+                                            android:textColor="@color/text_secondTitle_color"
+                                            android:textSize="14.0dip" />
+
                                         <TextView
                                             android:id="@+id/tv_show_shower_locker"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="20.0dip"
-                                            android:layout_marginRight="20.0dip"
-                                            android:text="锁柜/淋浴"
-                                            android:textColor="@color/black_54"
+                                            android:text="不提供"
+                                            android:textColor="@color/text_secondTitle_color"
                                             android:textSize="14.0dip" />
+
                                     </LinearLayout>
 
                                 </LinearLayout>
@@ -233,20 +238,21 @@
                                     android:layout_marginRight="20.0dip"
                                     android:lineSpacingExtra="5.0dip"
                                     android:maxLines="4"
-                                    android:text="课程描述"
+                                    android:text="课程描述："
                                     android:textColor="@color/text_secondTitle_color"
-                                    android:textSize="@dimen/courseHintSize" />
+                                    android:textSize="14.0dip" />
 
                                 <TextView
                                     android:id="@+id/tv_act_intro"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:minHeight="60dp"
                                     android:layout_marginLeft="20.0dip"
                                     android:layout_marginRight="20.0dip"
                                     android:background="@color/bg_gray"
-                                    android:textSize="14.0dp"
-                                    android:visibility="invisible"/>
+                                    android:minHeight="60dp"
+                                    android:textColor="@color/text_secondTitle_color"
+                                    android:textSize="14.0dip"
+                                    android:visibility="invisible" />
 
                                 <Button
                                     android:id="@+id/btn_introDetail"
@@ -267,9 +273,9 @@
                                     android:layout_marginRight="20.0dip"
                                     android:lineSpacingExtra="5.0dip"
                                     android:maxLines="4"
-                                    android:text="健身经历"
+                                    android:text="健身经历："
                                     android:textColor="@color/text_secondTitle_color"
-                                    android:textSize="@dimen/courseHintSize" />
+                                    android:textSize="14.0dip" />
 
                                 <Button
                                     android:id="@+id/btn_expDetail"
@@ -535,10 +541,10 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_marginBottom="15dip"
                                 android:id="@+id/ll_courseDesTips"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="15dip"
                                 android:layout_marginTop="@dimen/content_margin_bewteen_cell"
                                 android:orientation="horizontal">
 

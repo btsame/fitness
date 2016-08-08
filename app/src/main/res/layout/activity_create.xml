@@ -38,7 +38,7 @@
                     android:text="创建活动"
                     android:textColor="@color/white"
                     android:textSize="16.0sp"
-                    android:textStyle="bold"  />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_publish_activity"
@@ -48,8 +48,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dip"
                     android:text="发布"
-                    android:textColor="@android:color/white"
-                     />
+                    android:textColor="@android:color/white" />
             </RelativeLayout>
 
             <FrameLayout
@@ -70,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="50dip"
                         android:layout_height="50dip"
@@ -128,6 +128,7 @@
                     android:text="人数限制（*）：" />
 
                 <EditText
+                    android:maxLength="3"
                     android:id="@+id/et_act_totalnum"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -138,6 +139,54 @@
                     android:textSize="12.0sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="@drawable/edit_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="活动费用（*）：" />
+
+                <EditText
+                    android:maxLength="3"
+                    android:id="@+id/et_act_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="@drawable/edit_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="活动类型（*）：" />
+
+                <Button
+                    android:id="@+id/et_act_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textAlignment="textStart"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -224,12 +273,12 @@
                     android:text="活动地点（*）：" />
 
                 <EditText
-                    android:singleLine="true"
                     android:id="@+id/et_act_address"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:singleLine="true"
                     android:textSize="12.0sp" />
             </LinearLayout>
 
@@ -247,64 +296,15 @@
                     android:text="自备器材（*）：" />
 
                 <EditText
-                    android:singleLine="true"
                     android:id="@+id/et_act_equipment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:singleLine="true"
                     android:textSize="12.0sp" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/edit_input_background"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15.0dip"
-                    android:text="活动费用（*）：" />
-
-                <EditText
-                    android:id="@+id/et_act_price"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:inputType="number"
-                    android:textSize="12.0sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/edit_input_background"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15.0dip"
-                    android:text="活动类型（*）：" />
-
-                <Button
-                    android:textAlignment="textStart"
-                    android:id="@+id/et_act_type"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:textSize="12.0sp" />
-            </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dip"
@@ -319,36 +319,37 @@
                     android:text="淋浴锁柜（*）：" />
 
                 <Button
-                    android:textAlignment="textStart"
                     android:id="@+id/et_act_shower_locker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:textAlignment="textStart"
                     android:textSize="12.0sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:id="@+id/rl"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edit_input_background"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <EditText
-                    android:inputType="text"
                     android:id="@+id/et_act_instruction"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dip"
-                    android:layout_weight="1"
-                    android:background="@null"
+                    android:layout_width="fill_parent"
+                    android:layout_height="240.0dip"
+                    android:layout_marginEnd="12.0dip"
+                    android:layout_marginStart="12.0dip"
+                    android:layout_marginTop="11.0dip"
+                    android:background="@drawable/edit_user_background"
                     android:gravity="top"
                     android:hint="活动说明"
-                    android:minHeight="100dip"
+                    android:paddingLeft="8.0dip"
+                    android:paddingTop="9.0dip"
                     android:textSize="12.0sp" />
-            </LinearLayout>
+            </RelativeLayout>
+
             <Button
                 android:id="@+id/btn_publish_activity"
                 android:layout_width="match_parent"
@@ -358,7 +359,6 @@
                 android:text="发布"
                 android:textColor="@color/white"
                 android:textSize="14.0sp" />
-
         </LinearLayout>
     </ScrollView>
 
