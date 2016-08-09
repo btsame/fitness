@@ -97,6 +97,12 @@ public class AuthIDActivity extends FitnessActivity {
     }
 
 
+    //上传资格证书
+
+    public void upLoadCoachImg(View view){
+        startActivity(new Intent(AuthIDActivity.this, UpLoadCoachImgActivity.class));
+    }
+
     //健身达人添加一项
     public void addNewOne(View view) {
 

@@ -474,6 +474,7 @@
 
 
                     <TextView
+                        android:onClick="upLoadCoachImg"
                         android:id="@+id/tv_upload_coach_identity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -540,6 +541,7 @@
                             android:visibility="visible" />
 
                         <TextView
+                            android:onClick="upLoadCoachImg"
                             android:id="@+id/tv_upload_coach_identity2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -609,6 +611,7 @@
 
 
                         <TextView
+                            android:onClick="upLoadCoachImg"
                             android:id="@+id/tv_upload_coach_identity3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
