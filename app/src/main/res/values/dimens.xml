@@ -13,6 +13,7 @@
     <dimen name="v4_first_margin">10.0dip</dimen>
     <dimen name="v4_first_party_margin_top_16">16.0dip</dimen>
     <dimen name="v4_text_size_15">15.0sp</dimen>
+    <dimen name="text_size_16">16.0sp</dimen>
     <dimen name="v4_text_size_13">13.0sp</dimen>
     <dimen name="font_size_secondary_title">16.0sp</dimen>
     <dimen name="font_size_text">12.0sp</dimen>
@@ -38,4 +39,11 @@
     <dimen name="text_size_12">12.0sp</dimen>
     <color name="ticket_money">#ffff9933</color>
     <dimen name="pop_menu_button_high">44.0dip</dimen>
+    <dimen name="post_item_text_height">48.0dip</dimen>
+    <dimen name="button_high">44.0dip</dimen>
+    <dimen name="button_margin_left_right">10.0dip</dimen>
+    <dimen name="button_text_size">16.0dip</dimen>
+    <dimen name="error_icon_size">50.0dip</dimen>
+    <dimen name="button_margin">15.0dip</dimen>
+    <dimen name="init_loading_size">40.0dip</dimen>
 </resources>

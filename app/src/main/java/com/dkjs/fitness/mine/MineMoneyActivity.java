@@ -1,6 +1,8 @@
 package com.dkjs.fitness.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessActivity;
@@ -13,5 +15,12 @@ public class MineMoneyActivity extends FitnessActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mine_income);
+    }
+
+
+    //提现
+
+    public void withDraw(View view){
+        startActivity(new Intent(MineMoneyActivity.this,WithDrawActivity.class));
     }
 }
