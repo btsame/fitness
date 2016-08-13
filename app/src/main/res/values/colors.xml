@@ -84,4 +84,14 @@
     <color name="main_lines_bg">#ffd9d9d9</color>
     <color name="light_white">#ffaaaaaa</color>
     <color name="result_view">#b0000000</color>
+    <color name="colorBlack">#ff000000</color>
+    <color name="circularGradientEnd">#ff000000</color>
+    <color name="circularGradientStart">#ff2d3b41</color>
+    <color name="colorSubText">#b3ffffff</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorRingBackground">#30000000</color>
+    <color name="colorMidRing">#24000000</color>
+    <color name="colorOuterRing">#3d000000</color>
+    <color name="colorInnerRing">#ff000000</color>
+    <color name="colorStopText">#3dffffff</color>
 </resources>

@@ -288,7 +288,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                                         android.Manifest.permission.CAMERA);
                                 if (checkCameraPermission != PackageManager.PERMISSION_GRANTED) {
                                     ActivityCompat.requestPermissions(ActivityCreateActivity.this,
-                                            new String[]{Manifest.permission.CAMERA},
+                                            new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                             REQUEST_CAMERA_PERMISSION);
                                     dialog.dismiss();
                                     return;
