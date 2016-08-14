@@ -30,6 +30,7 @@ public class FTActivity implements Serializable{
     private float price;
     private int showerAndLocker;    //0都不提供；1只提供沐浴；2只提供锁柜；3都提供
     private int actType;    //0户外；1室内
+    private String groupId; //聊天群ID
 
 
     private int sourceType; //1图片；2视频；
@@ -156,5 +157,13 @@ public class FTActivity implements Serializable{
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 }

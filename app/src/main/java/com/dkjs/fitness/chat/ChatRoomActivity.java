@@ -10,8 +10,10 @@ import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.comm.GlobalUserManager;
 import com.dkjs.fitness.util.URIUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import it.slyce.messaging.SlyceMessagingFragment;
 import it.slyce.messaging.listeners.LoadMoreMessagesListener;
@@ -25,6 +27,7 @@ import it.slyce.messaging.message.Message;
 public class ChatRoomActivity extends FitnessActivity implements UserSendsMessageListener,
         UserClicksAvatarPictureListener, LoadMoreMessagesListener{
 
+    @Bind(R.id.rv_char_users)
     RecyclerView mUsersRV;
     SlyceMessagingFragment chatFragment;
 
@@ -45,7 +48,7 @@ public class ChatRoomActivity extends FitnessActivity implements UserSendsMessag
     }
 
     private void initChatRoom(){
-        chatFragment = (SlyceMessagingFragment)getFragmentManager().findFragmentById(R.id.rv_char_users);
+        chatFragment = (SlyceMessagingFragment)getFragmentManager().findFragmentById(R.id.frag_chat);
 
         chatFragment.setStyle(R.style.chat_room_syle);
         chatFragment.setOnSendMessageListener(this);
@@ -59,7 +62,7 @@ public class ChatRoomActivity extends FitnessActivity implements UserSendsMessag
 
     @Override
     public List<Message> loadMoreMessages() {
-        return null;
+        return new ArrayList<Message>();
     }
 
     @Override

@@ -16,6 +16,9 @@ public class AppConfig {
 
     public static final boolean DEBUG = BuildConfig.DEBUG;
 
+    public static final String ML_APP_ID = "57807296a5ff7f00013e797b";
+    public static final String ML_API_KEY = "ZXNhTWdKWk1xUWVXUEVQakZxVnpNUQ";
+
     public static final String BAIDU_WEATHER_ENDPOINT = "http://api.map.baidu.com/";
 
     public static final String BAIDU_APP_KEY = "6tYzTvGZSOpYB5Oc2YGGOKt8";
