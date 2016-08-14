@@ -1,6 +1,7 @@
 package com.dkjs.fitness.biz;
 
-import java.security.acl.Group;
+import com.maxleap.im.entity.Group;
+
 import java.util.List;
 
 /**
