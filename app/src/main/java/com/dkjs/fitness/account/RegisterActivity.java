@@ -20,11 +20,12 @@ import android.widget.Toast;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.util.AccoutUtil;
-import com.dkjs.fitness.util.GetSmsContent;
+
 import com.maxleap.MLUser;
 import com.maxleap.MLUserManager;
-import com.maxleap.RequestSmsCodeCallback;
+import com.maxleap.RequestPhoneVerifyCallback;
 import com.maxleap.SignUpCallback;
+import com.maxleap.VerifyPhoneCallback;
 import com.maxleap.VerifySmsCodeCallback;
 import com.maxleap.exception.MLException;
 import com.maxleap.utils.ToastUtils;
@@ -33,7 +34,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class RegisterActivity extends FitnessActivity implements OnClickListener {
+public class RegisterActivity extends FitnessActivity {
     public EditText edit_user, edit_pwd, edit_yzm;
     private Button btn_getYzm, register_commit;
     CheckBox chek_xianyi;
@@ -53,8 +54,7 @@ public class RegisterActivity extends FitnessActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initView();
-        register_commit.setOnClickListener(this);
-        btn_getYzm.setOnClickListener(this);
+
 
     }
 
@@ -67,76 +67,78 @@ public class RegisterActivity extends FitnessActivity implements OnClickListener
         btn_getYzm = (Button) findViewById(R.id.btn_reister_getphone_auth);
         register_commit = (Button) findViewById(R.id.register_phone);
         chek_xianyi = (CheckBox) findViewById(R.id.register_chkphone_enoughAge);
-        authCode=edit_yzm.getText().toString();
+
     }
 
+    //获取验证码
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_reister_getphone_auth: // 发送验证码
-                if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd)
-                        ) {
-                    new Send_YzmMessage().execute();
-                    MLUserManager.requestSmsCodeInBackground(userName, new RequestSmsCodeCallback() {
-                        @Override
-                        public void done(final MLException e) {
-                            if (e != null) {
-                                //  发生错误
-                                ToastUtils.showToast(RegisterActivity.this, "发送失败");
-                            } else {
-                                ToastUtils.showToast(RegisterActivity.this, "发送成功");
-                            }
-                        }
-                    });
+    public void getAuthCode(View view){
+        userName=edit_user.getText().toString();
+        password=edit_pwd.getText().toString();
+        if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd)
+                ) {
+            new Send_YzmMessage().execute();
+            MLUserManager.requestPhoneVerifyInBackground(userName, new RequestPhoneVerifyCallback() {
+                @Override
+                public void done(final MLException e) {
+                    if (e != null) {
+                        //  发生错误
+                        ToastUtils.showToast(RegisterActivity.this, "发送失败");
+                    } else {
+                        //  成功请求
+                        ToastUtils.showToast(RegisterActivity.this, "发送成功");
+                    }
                 }
-                break;
-            case R.id.register_phone:// 注册按钮事件
-                userName=edit_user.getText().toString();
-                password=edit_pwd.getText().toString();
-                yzm=edit_yzm.getText().toString();
-                if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd) && checkAgree() && checkAuth()) {
-                    System.out.print("用户名"+userName+"密码"+password+"验证码"+yzm);
-                    MLUser user = new MLUser();
-                    user.setUserName(userName);
-                    user.setPassword(password);
-                    MLUserManager.signUpInBackground(user, new SignUpCallback() {
-                        @Override
-                        public void done(MLException e) {
-                            if (e == null) {
-                                ToastUtils.showToast(RegisterActivity.this, "注册成功");
-                                startActivity(new Intent(RegisterActivity.this,RegisterAndLoginActivity.class));
-                            } else {
-                                ToastUtils.showToast(RegisterActivity.this, "注册失败");
-                            }
-                        }
-                    });
-                } else {
-                    System.out.print("hello"+"用户名"+userName+"密码"+password+"验证码"+yzm);
-                }
-                break;
+            });
         }
 
     }
-    //
-    private Boolean checkAuth() {
-        MLUserManager.verifySmsCodeInBackground(userName, authCode, new VerifySmsCodeCallback() {
+
+    public void register(View view){
+        userName=edit_user.getText().toString();
+        password=edit_pwd.getText().toString();
+        yzm=edit_yzm.getText().toString();
+        if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd) && checkAgree() ) {
+            System.out.print("用户名"+userName+"密码"+password+"验证码"+yzm);
+            MLUser user = new MLUser();
+            user.setUserName(userName);
+            user.setPassword(password);
+            MLUserManager.signUpInBackground(user, new SignUpCallback() {
+                @Override
+                public void done(MLException e) {
+                    if (e == null) {
+                        ToastUtils.showToast(RegisterActivity.this, "注册成功");
+                        startActivity(new Intent(RegisterActivity.this,RegisterAndLoginActivity.class));
+                    } else {
+                        ToastUtils.showToast(RegisterActivity.this, "注册失败");
+                    }
+                }
+            });
+        } else {
+            System.out.print("hello"+"用户名"+userName+"密码"+password+"验证码"+yzm);
+        }
+    }
+
+    public Boolean checkAuth() {
+
+        MLUserManager.verifyPhoneInBackground("手机号码", "验证码", new VerifyPhoneCallback() {
+
             @Override
             public void done(final MLException e) {
                 if (e != null) {
                     //  发生错误
                     authTag = 0;
                 } else {
+                    //  成功请求
                     authTag = 1;
                 }
             }
         });
-        if (authTag == 1) {
-            return true;
-        } else {
+        if (authTag == 0) {
             return false;
+        } else {
+            return true;
         }
-
     }
 
     private Boolean checkAgree() {

@@ -99,6 +99,7 @@
             android:textSize="12.0sp" />
 
         <Button
+            android:onClick="getAuthCode"
             android:id="@+id/btn_reister_getphone_auth"
             android:layout_width="100dip"
             android:layout_height="fill_parent"
@@ -138,6 +139,7 @@
     </LinearLayout>
 
     <Button
+        android:onClick="register"
         android:id="@+id/register_phone"
         android:layout_width="match_parent"
         android:layout_height="45dp"

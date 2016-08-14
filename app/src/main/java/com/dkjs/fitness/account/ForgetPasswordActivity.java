@@ -19,7 +19,9 @@ import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.util.AccoutUtil;
 import com.maxleap.MLUser;
 import com.maxleap.MLUserManager;
+import com.maxleap.RequestPasswordResetCallback;
 import com.maxleap.RequestSmsCodeCallback;
+import com.maxleap.ResetPasswordCallback;
 import com.maxleap.SignUpCallback;
 import com.maxleap.VerifySmsCodeCallback;
 import com.maxleap.exception.MLException;
@@ -58,12 +60,32 @@ public class ForgetPasswordActivity extends FitnessActivity implements View.OnCl
         editUserName = (EditText) findViewById(R.id.edit_phone_user);
         editPwd = (EditText) findViewById(R.id.edit_phone_pwd);
         editYzm = (EditText) findViewById(R.id.edit_reister_phone_auth);
-        editReconfrim= (EditText) findViewById(R.id.edit_reconfrim_phone_pwd);
+        editReconfrim = (EditText) findViewById(R.id.edit_reconfrim_phone_pwd);
         btn_getYzm = (Button) findViewById(R.id.btn_reister_getphone_auth);
         register_commit = (Button) findViewById(R.id.register_phone);
 
     }
 
+
+
+    public void getAuthCode(View view){
+        if (AccoutUtil.checkPhone(ForgetPasswordActivity.this, editUserName) && AccoutUtil.checkPassword(ForgetPasswordActivity.this, editUserName, editPwd) && AccoutUtil.checkRePassWord(ForgetPasswordActivity.this, editPwd, editReconfrim)) {
+            new Send_YzmMessage().execute();
+            MLUserManager.requestPasswordResetByPhoneNumberInBackground(editUserName.getText().toString(), new RequestPasswordResetCallback() {
+                @Override
+                public void done(final MLException e) {
+                    if (e != null) {
+                        //  发生错误
+                        ToastUtils.showToast(ForgetPasswordActivity.this, "发送失败");
+                    } else {
+                        //  成功请求
+                        ToastUtils.showToast(ForgetPasswordActivity.this, "发送成功");
+                    }
+                }
+            });
+
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -71,17 +93,19 @@ public class ForgetPasswordActivity extends FitnessActivity implements View.OnCl
             case R.id.btn_reister_getphone_auth: // 发送验证码
                 if (AccoutUtil.checkPhone(ForgetPasswordActivity.this, editUserName) && AccoutUtil.checkPassword(ForgetPasswordActivity.this, editUserName, editPwd) && AccoutUtil.checkRePassWord(ForgetPasswordActivity.this, editPwd, editReconfrim)) {
                     new Send_YzmMessage().execute();
-                    MLUserManager.requestSmsCodeInBackground(editUserName.getText().toString(), new RequestSmsCodeCallback() {
+                    MLUserManager.requestPasswordResetByPhoneNumberInBackground(editUserName.getText().toString(), new RequestPasswordResetCallback() {
                         @Override
                         public void done(final MLException e) {
                             if (e != null) {
                                 //  发生错误
                                 ToastUtils.showToast(ForgetPasswordActivity.this, "发送失败");
                             } else {
+                                //  成功请求
                                 ToastUtils.showToast(ForgetPasswordActivity.this, "发送成功");
                             }
                         }
                     });
+
                 }
                 break;
             case R.id.register_phone:// 注册按钮事件
@@ -89,25 +113,28 @@ public class ForgetPasswordActivity extends FitnessActivity implements View.OnCl
                 userName = editUserName.getText().toString();
                 passWord = editPwd.getText().toString();
                 yzm = editYzm.getText().toString();
-                reConfrim=editReconfrim.getText().toString();
+                reConfrim = editReconfrim.getText().toString();
 
                 if (AccoutUtil.checkPhone(ForgetPasswordActivity.this, editUserName) && AccoutUtil.checkPassword(ForgetPasswordActivity.this, editUserName, editPwd) && checkAuth() && AccoutUtil.checkRePassWord(ForgetPasswordActivity.this, editPwd, editReconfrim)) {
 
                     MLUser user = new MLUser();
                     user.setUserName(userName);
                     user.setPassword(passWord);
-                    MLUserManager.signUpInBackground(user, new SignUpCallback() {
-                        @Override
-                        public void done(MLException e) {
-                            if (e == null) {
-                                ToastUtils.showToast(ForgetPasswordActivity.this, "重置成功");
-                                startActivity(new Intent(ForgetPasswordActivity.this, RegisterAndLoginActivity.class));
-                            } else {
-                                ToastUtils.showToast(ForgetPasswordActivity.this, "重置失败");
-                            }
-                        }
-                    });
-                } else {
+                    MLUserManager.requestResetPasswordInBackground(userName, yzm, passWord,
+                            new ResetPasswordCallback() {
+
+                                @Override
+                                public void done(final MLException e) {
+                                    if (e != null) {
+                                        //  发生错误
+                                        ToastUtils.showToast(ForgetPasswordActivity.this, "重置失败");
+                                    } else {
+                                        //  成功请求
+                                        ToastUtils.showToast(ForgetPasswordActivity.this, "重置成功");
+                                        startActivity(new Intent(ForgetPasswordActivity.this, RegisterAndLoginActivity.class));
+                                    }
+                                }
+                            });
 
                 }
                 break;
