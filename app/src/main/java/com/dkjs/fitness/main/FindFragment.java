@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessFragment;
+import com.dkjs.fitness.find.FindActivityFragment2;
+import com.dkjs.fitness.find.FindHotActivityFragment;
 
 /**
  * Created by administrator on 16/7/10.

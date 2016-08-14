@@ -54,4 +54,6 @@
     <dimen name="set_timer_font_size">18.0sp</dimen>
     <dimen name="inner_progress_bar_height">199.0dip</dimen>
     <dimen name="inner_progress_bar_width">199.0dip</dimen>
+    <dimen name="course_detail_font_size_subtitle">14.0dip</dimen>
+    <dimen name="font_size_subtitle">14.0dip</dimen>
 </resources>
