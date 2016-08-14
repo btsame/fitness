@@ -123,7 +123,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/iv_profile_user_arrow"
                     android:singleLine="true"
-                    android:text="健身达人"
+                    android:text="选择类型"
                     android:textColor="@color/forget_text_normal_color"
                     android:textSize="@dimen/content_item_text_size" />
             </RelativeLayout>

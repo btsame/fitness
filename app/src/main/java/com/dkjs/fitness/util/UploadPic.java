@@ -23,8 +23,8 @@ import java.util.Date;
  * Created by Administrator on 2016/7/31.
  */
 public class UploadPic implements View.OnClickListener {
-    // private CameraProxy cameraProxy;
-    public static final int REQUEST_CAMERA_PERMISSION = 0x11;
+
+
 
     @Override
     public void onClick(View v) {
@@ -35,7 +35,7 @@ public class UploadPic implements View.OnClickListener {
 
     }
 
-    public void showSelectPicDialog(final CameraProxy cameraProxy, final Activity activity, final Context mContext) {
+    public static void showSelectPicDialog(final CameraProxy cameraProxy, final Activity activity, final Context mContext,final int REQUEST_CAMERA_PERMISSION) {
         final DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
                 .setGravity(Gravity.BOTTOM)
                 .setCancelable(true)

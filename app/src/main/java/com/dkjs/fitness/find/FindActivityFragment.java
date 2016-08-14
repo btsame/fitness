@@ -1,4 +1,4 @@
-package com.dkjs.fitness.main;
+package com.dkjs.fitness.find;
 
 import android.content.Intent;
 import android.graphics.Canvas;

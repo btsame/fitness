@@ -1,5 +1,6 @@
 package com.dkjs.fitness.act;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.domain.FTActivity;
+import com.dkjs.fitness.find.JoinPartyAndPayActivity;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
 import com.dkjs.fitness.util.URIUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -102,5 +104,10 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
         }else if(v == mJoinActBtn){
 
         }
+    }
+
+
+    public void attendPayty(View view){
+        startActivity(new Intent(this, JoinPartyAndPayActivity.class));
     }
 }

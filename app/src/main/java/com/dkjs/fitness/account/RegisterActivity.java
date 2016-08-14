@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +25,7 @@ import com.dkjs.fitness.util.AccoutUtil;
 import com.maxleap.MLUser;
 import com.maxleap.MLUserManager;
 import com.maxleap.RequestPhoneVerifyCallback;
+import com.maxleap.RequestSmsCodeCallback;
 import com.maxleap.SignUpCallback;
 import com.maxleap.VerifyPhoneCallback;
 import com.maxleap.VerifySmsCodeCallback;
@@ -78,18 +80,34 @@ public class RegisterActivity extends FitnessActivity {
         if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd)
                 ) {
             new Send_YzmMessage().execute();
-            MLUserManager.requestPhoneVerifyInBackground(userName, new RequestPhoneVerifyCallback() {
+            MLUserManager.requestSmsCodeInBackground(userName, new RequestSmsCodeCallback() {
                 @Override
                 public void done(final MLException e) {
                     if (e != null) {
                         //  发生错误
                         ToastUtils.showToast(RegisterActivity.this, "发送失败");
+                        Log.e("register",e.toString()+userName);
                     } else {
                         //  成功请求
                         ToastUtils.showToast(RegisterActivity.this, "发送成功");
                     }
                 }
             });
+
+
+        /*   MLUserManager.requestPhoneVerifyInBackground(userName, new RequestPhoneVerifyCallback() {
+                @Override
+                public void done(final MLException e) {
+                    if (e != null) {
+                        //  发生错误
+                        ToastUtils.showToast(RegisterActivity.this, "发送失败");
+                        Log.e("register",e.toString());
+                    } else {
+                        //  成功请求
+                        ToastUtils.showToast(RegisterActivity.this, "发送成功");
+                    }
+                }
+            });*/
         }
 
     }
@@ -98,8 +116,14 @@ public class RegisterActivity extends FitnessActivity {
         userName=edit_user.getText().toString();
         password=edit_pwd.getText().toString();
         yzm=edit_yzm.getText().toString();
-        if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd) && checkAgree() ) {
-            System.out.print("用户名"+userName+"密码"+password+"验证码"+yzm);
+        if (yzm==null||"".equals(yzm)){
+            ToastUtils.showToast(RegisterActivity.this, "验证码不能为空");
+        }
+
+        Log.e("registeryzm",yzm);
+        if (AccoutUtil.checkPhone(RegisterActivity.this, edit_user) && AccoutUtil.checkPassword(RegisterActivity.this, edit_user, edit_pwd) && checkAgree()&&checkAuth() ) {
+            Log.e("registercheck",yzm);
+
             MLUser user = new MLUser();
             user.setUserName(userName);
             user.setPassword(password);
@@ -115,25 +139,52 @@ public class RegisterActivity extends FitnessActivity {
                 }
             });
         } else {
-            System.out.print("hello"+"用户名"+userName+"密码"+password+"验证码"+yzm);
+            Log.e("registercheckfail",yzm);
         }
     }
 
     public Boolean checkAuth() {
-
-        MLUserManager.verifyPhoneInBackground("手机号码", "验证码", new VerifyPhoneCallback() {
-
+/*
+        MLUserManager.verifySmsCodeInBackground(userName, yzm, new VerifySmsCodeCallback() {
             @Override
             public void done(final MLException e) {
                 if (e != null) {
                     //  发生错误
                     authTag = 0;
+                    Log.e("registerauthTag",e.toString());
                 } else {
                     //  成功请求
                     authTag = 1;
                 }
             }
         });
+
+
+*/
+        MLUserManager.verifyPhoneInBackground(userName, yzm, new VerifyPhoneCallback() {
+
+            @Override
+            public void done(final MLException e) {
+                if (e != null) {
+                    //  发生错误
+                    authTag = 0;
+                    Log.e("registerauthTag",e.toString());
+                    if(!e.toString().equals("验证码有误！")){
+                        Log.e("registerauthTagsucced",e.toString());
+                        authTag = 1;
+                    }else{
+                        ToastUtils.showToast(RegisterActivity.this, "验证码有误！");
+                    }
+
+                } else {
+                    //  成功请求
+                    authTag = 1;
+                    Log.e("registerauthTagsucced",e.toString());
+                }
+            }
+        });
+
+
         if (authTag == 0) {
             return false;
         } else {

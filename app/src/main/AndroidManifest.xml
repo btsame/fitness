@@ -68,7 +68,8 @@
         <activity android:name=".mine.AuthIDUpLoadActivity" />
         <activity android:name=".mine.CheckOutTicketsActivity" />
         <activity android:name=".mine.UpLoadCoachImgActivity" />
-        <activity android:name=".mine.WithDrawActivity"></activity>
+        <activity android:name=".mine.WithDrawActivity" />
+        <activity android:name=".find.JoinPartyAndPayActivity"></activity>
     </application>
 
 </manifest>

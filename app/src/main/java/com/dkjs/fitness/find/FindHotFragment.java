@@ -1,4 +1,4 @@
-package com.dkjs.fitness.main;
+package com.dkjs.fitness.find;
 
 import android.content.Context;
 import android.net.Uri;
