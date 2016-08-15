@@ -294,7 +294,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                                     return;
                                 }
                             }
-                            cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
+//                            cameraProxy.getPhoto2Camera(AppConfig.PHOTO_DIRECTORY + "/" + fileName);
                             cameraProxy.getPhoto2CameraCrop(AppConfig.PHOTO_DIRECTORY + "/" + fileName,
                                     FTActivity.PIC_WIDTH, FTActivity.PIC_HEIGHT);
                         } else {

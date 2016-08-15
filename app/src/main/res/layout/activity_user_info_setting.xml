@@ -12,6 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="50.0dip"
         android:background="@color/appgreen">
+
         <ImageButton
             android:id="@+id/left_button"
             android:layout_width="15dip"
@@ -45,277 +46,303 @@
             android:textColor="@color/white" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:onClick="upLoadImg"
-        android:id="@+id/user_head_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="70.0dip">
 
-        <TextView
-            android:id="@+id/user_head_hint"
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15.0dip"
-            android:text="头像" />
+            android:orientation="vertical">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/cuser_head"
-            android:layout_width="55.0dip"
-            android:layout_height="55.0dip"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40.0dip"
-            android:layout_toRightOf="@id/user_head_hint"
-            android:src="@mipmap/user_head" />
-    </RelativeLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
+            <RelativeLayout
+                android:id="@+id/user_head_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="70.0dip"
+                android:onClick="upLoadImg">
 
-        <TextView
-            android:id="@+id/user_nikename_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15.0dip"
-            android:text="昵称" />
+                <TextView
+                    android:id="@+id/user_head_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="头像" />
 
-        <EditText
-            android:id="@+id/user_nikename"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40.0dip"
-            android:layout_toRightOf="@id/user_nikename_hint"
-            android:background="@null"
-            android:maxLength="20"
-            android:textSize="12.0sp" />
-    </RelativeLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/cuser_head"
+                    android:layout_width="55.0dip"
+                    android:layout_height="55.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_toRightOf="@id/user_head_hint"
+                    android:background="@mipmap/user_head" />
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/user_sex_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15.0dip"
-            android:text="性别" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
 
-        <RadioGroup
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="40.0dip"
-            android:layout_toEndOf="@id/user_sex_hint"
-            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
 
-            <RadioButton
-                android:id="@+id/sex_man"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:button="@null"
-                android:drawableLeft="@drawable/sex_selector"
-                android:drawablePadding="5.0dip"
-                android:gravity="center"
-                android:text="男"
-                android:textColor="#ff565656" />
+                <TextView
+                    android:id="@+id/user_nikename_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="昵称" />
 
-            <RadioButton
-                android:id="@+id/sex_woman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="35.0dip"
-                android:button="@null"
-                android:drawableLeft="@drawable/sex_selector"
-                android:drawablePadding="5.0dip"
-                android:gravity="center"
-                android:text="女"
-                android:textColor="#ff565656" />
-        </RadioGroup>
-    </RelativeLayout>
+                <EditText
+                    android:id="@+id/user_nikename"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_toRightOf="@id/user_nikename_hint"
+                    android:background="@null"
+                    android:maxLength="8"
+                    android:singleLine="true"
+                    android:textSize="12.0sp" />
+            </RelativeLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
 
-    <RelativeLayout
-        android:id="@+id/user_bir_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
 
-        <TextView
-            android:id="@+id/user_bir_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15.0dip"
-            android:text="年龄" />
+                <TextView
+                    android:id="@+id/user_sex_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15.0dip"
+                    android:text="性别" />
 
-        <Button
-            android:id="@+id/btn_date_set"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40.0dip"
-            android:layout_toRightOf="@id/user_bir_hint"
-            android:background="@null"
-            android:ellipsize="end"
-            android:onClick="setDate"
-            android:paddingRight="40dip"
-            android:singleLine="true"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textSize="12.0sp" />
-    </RelativeLayout>
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="40.0dip"
+                    android:layout_toEndOf="@id/user_sex_hint"
+                    android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
-        <TextView
-            android:id="@+id/user_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15.0dip"
-            android:text="身高" />
-        <EditText
-            android:id="@+id/et_user_height"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40.0dip"
-            android:layout_toRightOf="@id/user_height"
-            android:background="@null"
-            android:maxLength="20"
-            android:textSize="12.0sp" />
-    </RelativeLayout>
+                    <RadioButton
+                        android:id="@+id/sex_man"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/sex_selector"
+                        android:drawablePadding="5.0dip"
+                        android:gravity="center"
+                        android:text="男"
+                        android:textColor="#ff565656" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
-        <TextView
-            android:id="@+id/user_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15.0dip"
-            android:text="体重" />
-        <EditText
-            android:id="@+id/et_user_weight"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40.0dip"
-            android:layout_toRightOf="@id/user_weight"
-            android:background="@null"
-            android:maxLength="20"
-            android:textSize="12.0sp" />
-    </RelativeLayout>
+                    <RadioButton
+                        android:id="@+id/sex_woman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="35.0dip"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/sex_selector"
+                        android:drawablePadding="5.0dip"
+                        android:gravity="center"
+                        android:text="女"
+                        android:textColor="#ff565656" />
+                </RadioGroup>
+            </RelativeLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
 
-    <RelativeLayout
-        android:id="@+id/user_area_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
+            <RelativeLayout
+                android:id="@+id/user_bir_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
 
-        <TextView
-            android:id="@+id/user_area_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15.0dip"
-            android:text="城市" />
+                <TextView
+                    android:id="@+id/user_bir_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15.0dip"
+                    android:text="年龄" />
 
-        <Button
-            android:id="@+id/btn_city_set"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="40.0dip"
-            android:layout_toEndOf="@id/user_area_hint"
-            android:background="@null"
-            android:ellipsize="end"
-            android:onClick="setCity"
-            android:paddingRight="40dip"
-            android:singleLine="true"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textSize="12.0sp" />
-    </RelativeLayout>
+                <Button
+                    android:id="@+id/btn_date_set"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_toRightOf="@id/user_bir_hint"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:onClick="setDate"
+                    android:paddingRight="40dip"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textSize="12.0sp" />
+            </RelativeLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1.0px"
-        android:layout_marginLeft="5.0dip"
-        android:layout_marginRight="5.0dip"
-        android:background="@color/appgray" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
 
-    <RelativeLayout
-        android:id="@+id/user_single_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="45.0dip">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
 
-        <TextView
-            android:id="@+id/user_single_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15.0dip"
-            android:text="签名" />
+                <TextView
+                    android:id="@+id/user_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15.0dip"
+                    android:text="身高" />
 
-        <EditText
-            android:id="@+id/user_single"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="40.0dip"
-            android:layout_toRightOf="@id/user_single_hint"
-            android:background="@null"
-            android:hint="18个字或以下"
-            android:maxLength="18"
-            android:textColor="#ffb3b3b3"
-            android:textColorHint="#ffb3b3b3"
-            android:textSize="12.0sp" />
-    </RelativeLayout>
+                <EditText
+                    android:id="@+id/et_user_height"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_toRightOf="@id/user_height"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:singleLine="true"
+                    android:textSize="12.0sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
+
+                <TextView
+                    android:id="@+id/user_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15.0dip"
+                    android:text="体重" />
+
+                <EditText
+                    android:id="@+id/et_user_weight"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_toRightOf="@id/user_weight"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:singleLine="true"
+                    android:textSize="12.0sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
+
+            <RelativeLayout
+                android:id="@+id/user_area_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
+
+                <TextView
+                    android:id="@+id/user_area_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15.0dip"
+                    android:text="城市" />
+
+                <Button
+                    android:id="@+id/btn_city_set"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="40.0dip"
+                    android:layout_toEndOf="@id/user_area_hint"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:onClick="setCity"
+                    android:paddingRight="40dip"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textSize="12.0sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
+
+            <RelativeLayout
+                android:id="@+id/user_single_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="45.0dip">
+
+                <TextView
+                    android:id="@+id/user_single_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="签名" />
+
+                <EditText
+                    android:id="@+id/user_single"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_toRightOf="@id/user_single_hint"
+                    android:background="@null"
+
+                    android:maxLength="40"
+                    android:maxLines="3"
+                    android:textSize="12.0sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
