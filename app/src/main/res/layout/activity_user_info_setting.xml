@@ -177,35 +177,40 @@
                 android:layout_marginRight="5.0dip"
                 android:background="@color/appgray" />
 
-            <RelativeLayout
-                android:id="@+id/user_bir_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="45.0dip">
 
-                <TextView
-                    android:id="@+id/user_bir_hint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="15.0dip"
-                    android:text="年龄" />
 
-                <Button
-                    android:id="@+id/btn_date_set"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40.0dip"
-                    android:layout_toRightOf="@id/user_bir_hint"
-                    android:background="@null"
-                    android:ellipsize="end"
-                    android:onClick="setDate"
-                    android:paddingRight="40dip"
-                    android:singleLine="true"
-                    android:text=""
-                    android:textAlignment="textStart"
-                    android:textSize="12.0sp" />
-            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/user_bir_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="45.0dip">
+
+                    <TextView
+                        android:id="@+id/user_bir_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="15.0dip"
+                        android:text="年龄" />
+
+                    <Button
+                        android:id="@+id/btn_date_set"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40.0dip"
+                        android:layout_toRightOf="@id/user_bir_hint"
+                        android:background="@null"
+                        android:ellipsize="end"
+                        android:onClick="setDate"
+                        android:paddingRight="40dip"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textStart"
+                        android:textSize="12.0sp" />
+                </RelativeLayout>
+
+
+
 
             <TextView
                 android:layout_width="fill_parent"
@@ -280,6 +285,9 @@
                 android:layout_marginRight="5.0dip"
                 android:background="@color/appgray" />
 
+
+
+
             <RelativeLayout
                 android:id="@+id/user_area_layout"
                 android:layout_width="fill_parent"
@@ -338,8 +346,7 @@
                     android:layout_marginLeft="40.0dip"
                     android:layout_toRightOf="@id/user_single_hint"
                     android:background="@null"
-
-                    android:maxLength="40"
+                    android:maxLength="140"
                     android:maxLines="3"
                     android:textSize="12.0sp" />
             </RelativeLayout>

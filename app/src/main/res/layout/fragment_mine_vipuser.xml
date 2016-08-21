@@ -33,15 +33,15 @@
                 android:text="用户名"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-            <Button
+            <TextView
                 android:textAlignment="textStart"
                 android:id="@+id/btn_editUserInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dip"
                 android:background="@null"
-                android:text="编辑个人资料"
+                android:text="个人资料"
                 android:textSize="12dp" />
         </LinearLayout>
     </LinearLayout>

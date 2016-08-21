@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -65,6 +66,12 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     public static final int ACTIVITY_SHOW = 2;
     public static final String PARAM_SHOW_STYLE = "showSytle";
     public static final String PARAM_FTACTIVITY = "ftActivity";
+    public static final int FEE_RESULT_CODE=3;
+
+    String TAG="ActivityCreateActivity";
+
+    //获取活动价格
+    String price;
 
     @Bind(R.id.ll_upload_pic)
     LinearLayout mUploadPicIV;
@@ -88,12 +95,15 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     EditText mInstructionET;
     @Bind(R.id.left_button)
     ImageButton mBackIB;
-    @Bind(R.id.et_act_price)
-    EditText mPriceET;
+   /* @Bind(R.id.et_act_price)
+    EditText mPriceET;*/
     @Bind(R.id.et_act_shower_locker)
     Button mShowerLockerBtn;
     @Bind(R.id.et_act_type)
     Button mActTypeBtn;
+
+    @Bind(R.id.btn_act_fee)
+    Button mActFeeBtn;
 
     //时间 城市选择按钮
     @Bind(R.id.btn_start_time)
@@ -103,12 +113,29 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     @Bind(R.id.btn_act_city)
     Button mCityBtn;
 
+    //设置活动价格
+    @Bind(R.id.ll_set_price)
+    LinearLayout llSetPrice;
+
+    //设置活动标签
+    @Bind(R.id.et_act_tag)
+    EditText etActTag;
+
+    //性别限制
+
+    @Bind(R.id.et_act_sex)
+    Button btnSetSex;
+
+
     private Calendar calendar = Calendar.getInstance();
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
 
+
+
     public static String[] showerLockerStrs = new String[]{"不提供沐浴／锁柜", "只提供沐浴", "只提供锁柜", "提供沐浴／锁柜"};
     public static String[] actTypeStrs = new String[]{"室外", "场馆内"};
+    public static String[] actSexStrs = new String[]{"没有限制", "仅限男生","仅限女生"};
 
     int showStyle;  //标记此Acitvity的作用
     @Override
@@ -165,11 +192,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
             btnStartTime.setText(ftActivity.getBeginTime());
             btnEndTime.setText(ftActivity.getEndTime());
             mCityBtn.setText(ftActivity.getCity());
-            mPriceET.setText("" + ftActivity.getPrice());
+            //mPriceET.setText("" + ftActivity.getPrice());
             mShowerLockerBtn.setText(showerLockerStrs[ftActivity.getShowerAndLocker()]);
             mShowerLockerBtn.setTag(ftActivity.getShowerAndLocker());
             mActTypeBtn.setText(actTypeStrs[ftActivity.getActType()]);
             mActTypeBtn.setTag(ftActivity.getActType());
+
+            btnSetSex.setText(actTypeStrs[ftActivity.getActSex()]);
+            btnSetSex.setTag(ftActivity.getActSex());
         }
     }
 
@@ -184,11 +214,13 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         mBackIB.setOnClickListener(this);
         mShowerLockerBtn.setOnClickListener(this);
         mActTypeBtn.setOnClickListener(this);
-
+        mActFeeBtn.setOnClickListener(this);
         //设置活动开始时间 结束时间
         btnStartTime.setOnClickListener(this);
         btnEndTime.setOnClickListener(this);
         mCityBtn.setOnClickListener(this);
+
+        btnSetSex.setOnClickListener(this);
 
     }
 
@@ -211,11 +243,62 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
             showShowerLockerDialog();
         } else if(v == mActTypeBtn){
             showActTypeDialog();
+        }else if(v==mActFeeBtn){
+            setPrice();
+        }else if(v==btnSetSex){
+            setSex();
         }
     }
 
+
+
+    private void setSex(){
+        DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
+                .setGravity(Gravity.CENTER)
+                .setCancelable(true)
+                .setAdapter(new ArrayAdapter<String>(mContext,
+                        android.R.layout.simple_list_item_1, actSexStrs))
+                .setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
+                        btnSetSex.setText(actSexStrs[position]);
+                        btnSetSex.setTag(position);
+                        dialog.dismiss();
+                    }
+                })
+                .create();
+        dialogPlus.show();
+    }
+
+
+    private void setPrice(){
+        //  startActivity(new Intent(this,SetPriceActivity.class));
+
+       startActivityForResult(new Intent(this,SetPriceActivity.class),FEE_RESULT_CODE);
+    }
+
+
+
     private void setCity() {
-        new AddressInitTask(this).execute("北京", "北京", "东城区");
+
+        try {
+            ArrayList<AddressPicker.Province> data = new ArrayList<AddressPicker.Province>();
+            String json = AssetsUtils.readText(this, "city2.json");
+            data.addAll(JSON.parseArray(json, AddressPicker.Province.class));
+            AddressPicker picker = new AddressPicker(this, data);
+            picker.setHideProvince(true);
+            picker.setSelectedItem("北京市", "北京市", "东城区");
+            picker.setOnAddressPickListener(new AddressPicker.OnAddressPickListener() {
+                @Override
+                public void onAddressPicked(String province, String city, String county) {
+
+                    mCityBtn.setText(city + " " + county);
+                }
+            });
+            picker.show();
+        } catch (Exception e) {
+
+        }
     }
 
 
@@ -253,6 +336,19 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         cameraProxy.onResult(requestCode, resultCode, data);
+
+
+        if(requestCode==FEE_RESULT_CODE){
+            //获取活动价格
+            price=data.getExtras().getString("result");
+
+            Log.e(TAG,price);
+            mActFeeBtn.setText(price+"元/人");
+        }
+
+
+
+
     }
 
     @Override
@@ -357,8 +453,8 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                 TextUtils.isEmpty(mCityBtn.getText()) ||
                 TextUtils.isEmpty(mShowerLockerBtn.getText()) ||
                 TextUtils.isEmpty(mActTypeBtn.getText()) ||
-                TextUtils.isEmpty(mPriceET.getText()) ||
-                TextUtils.isEmpty(mEquipmentET.getText())) {
+                //TextUtils.isEmpty(mPriceET.getText()) ||
+                TextUtils.isEmpty(mEquipmentET.getText())||TextUtils.isEmpty(btnSetSex.getText())) {
             ToastUtils.showCustomToast(mContext, "请完善信息");
             return;
         }
@@ -379,16 +475,17 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         ftActivity.setBeginTime(btnStartTime.getText().toString());
         ftActivity.setEndTime(btnEndTime.getText().toString());
         ftActivity.setCity(mCityBtn.getText().toString());
-        ftActivity.setPrice(Float.parseFloat(mPriceET.getText().toString()));
+        //ftActivity.setPrice(Float.parseFloat(mPriceET.getText().toString()));
         ftActivity.setShowerAndLocker(Integer.parseInt(mShowerLockerBtn.getTag().toString()));
         ftActivity.setActType(Integer.parseInt(mActTypeBtn.getTag().toString()));
+
+        ftActivity.setActSex(Integer.parseInt(btnSetSex.getTag().toString()));
 
         User user = new User();
         user.setUserId(GlobalUserManager.getUserId());
         user.setUserId(GlobalUserManager.getNickName());
         user.setPortrait(GlobalUserManager.getPortrait());
         ftActivity.setOwner(user);
-
 
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();
         ftActivityBiz.publishAct(ftActivity, new IFTActivityBiz.PublishActivityListener() {
@@ -409,82 +506,5 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         });
     }
 
-    public class AddressInitTask extends AsyncTask<String, Void, ArrayList<AddressPicker.Province>> {
-        private Activity activity;
-        private ProgressDialog dialog;
-        private String selectedProvince = "", selectedCity = "", selectedCounty = "";
-        private boolean hideCounty = false;
-
-        /**
-         * 初始化为不显示区县的模式
-         *
-         * @param activity
-         * @param hideCounty is hide County
-         */
-        public AddressInitTask(Activity activity, boolean hideCounty) {
-            this.activity = activity;
-            this.hideCounty = hideCounty;
-            dialog = ProgressDialog.show(activity, null, "正在初始化数据...", true, true);
-        }
-
-        public AddressInitTask(Activity activity) {
-            this.activity = activity;
-            dialog = ProgressDialog.show(activity, null, "正在初始化数据...", true, true);
-        }
-
-        @Override
-        protected ArrayList<AddressPicker.Province> doInBackground(String... params) {
-            if (params != null) {
-                switch (params.length) {
-                    case 1:
-                        selectedProvince = params[0];
-                        break;
-                    case 2:
-                        selectedProvince = params[0];
-                        selectedCity = params[1];
-                        break;
-                    case 3:
-                        selectedProvince = params[0];
-                        selectedCity = params[1];
-                        selectedCounty = params[2];
-                        break;
-                    default:
-                        break;
-                }
-            }
-            ArrayList<AddressPicker.Province> data = new ArrayList<AddressPicker.Province>();
-            try {
-                String json = AssetsUtils.readText(activity, "city.json");
-                data.addAll(JSON.parseArray(json, AddressPicker.Province.class));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(ArrayList<AddressPicker.Province> result) {
-            dialog.dismiss();
-            if (result.size() > 0) {
-                AddressPicker picker = new AddressPicker(activity, result);
-                picker.setHideCounty(hideCounty);
-                picker.setSelectedItem(selectedProvince, selectedCity, selectedCounty);
-                picker.setOnAddressPickListener(new AddressPicker.OnAddressPickListener() {
-                    @Override
-                    public void onAddressPicked(String province, String city, String county) {
-                        if (county == null) {
-                            mCityBtn.setText(province + " " + city);
-                        } else {
-                            mCityBtn.setText(province + " " + city + " " + county);
-                        }
-                    }
-                });
-                picker.show();
-            } else {
-                Toast.makeText(activity, "数据初始化失败", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-    }
 
 }

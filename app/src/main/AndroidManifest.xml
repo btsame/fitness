@@ -67,7 +67,10 @@
         <activity android:name=".mine.CheckOutTicketsActivity" />
         <activity android:name=".mine.UpLoadCoachImgActivity" />
         <activity android:name=".mine.WithDrawActivity" />
-        <activity android:name=".find.JoinPartyAndPayActivity"></activity>
+        <activity android:name=".find.JoinPartyAndPayActivity" />
+        <activity android:name=".find.HomePageActivity" />
+        <activity android:name=".mine.SetPriceActivity" />
+        <activity android:name=".mine.AboutPriceActivity"></activity>
     </application>
 
 </manifest>
