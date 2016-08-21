@@ -46,6 +46,8 @@
 
         <activity android:name=".mine.ActivityManagerActivity" />
 
+        <activity android:name=".chat.ChatRoomActivity" />
+
         <!-- 视频录制Activity -->
         <activity
             android:name="com.jmolsmobile.landscapevideocapture.VideoCaptureActivity"

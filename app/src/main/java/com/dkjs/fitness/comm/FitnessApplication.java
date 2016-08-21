@@ -12,6 +12,9 @@ import com.maxleap.MLObject;
 import com.maxleap.MLUser;
 import com.maxleap.MaxLeap;
 import com.maxleap.exception.MLException;
+import com.maxleap.im.DataHandler;
+import com.maxleap.im.MLParrot;
+import com.maxleap.im.ParrotException;
 import com.maxleap.social.MLHermes;
 
 /**
@@ -20,7 +23,9 @@ import com.maxleap.social.MLHermes;
 public class FitnessApplication extends Application {
 
     private static final String TAG = "FitnessApplication";
-    private Context mContext;
+    private static Context mContext;
+
+    private static MLParrot mGlobalParrot;
 
 
     @Override
@@ -33,9 +38,8 @@ public class FitnessApplication extends Application {
 
 
         MLObject.registerSubclass(UserAct.class);
-        MaxLeap.initialize(this, "57807296a5ff7f00013e797b",
-                "ZXNhTWdKWk1xUWVXUEVQakZxVnpNUQ", MaxLeap.REGION_CN);
-
+        MaxLeap.initialize(this, AppConfig.ML_APP_ID,
+                AppConfig.ML_API_KEY, MaxLeap.REGION_CN);
 
         LogUtil.e(TAG, "***************************FitnessApplication");
 
@@ -53,11 +57,27 @@ public class FitnessApplication extends Application {
                 });
 
 
-        MLHermes.initialize(this, "57807296a5ff7f00013e797b",
-                "ZXNhTWdKWk1xUWVXUEVQakZxVnpNUQ");
-        MLUser currentUser = MLUser.getCurrentUser();
-        if(currentUser != null){
+        MLHermes.initialize(this, AppConfig.ML_APP_ID,
+                AppConfig.ML_API_KEY);
+        mGlobalParrot = MLParrot.getInstance();
+
+        if(GlobalUserManager.isUserLogin()){
+            MLUser currentUser = MLUser.getCurrentUser();
             MLHermes.setSessionToken(currentUser.getSessionToken());
+            mGlobalParrot.initWithCustomAccount(AppConfig.ML_APP_ID, AppConfig.ML_API_KEY,
+                    currentUser.getSessionToken(), null);
+            mGlobalParrot.login(new DataHandler<String>() {
+                @Override
+                public void onSuccess(String s) {
+                    LogUtil.e(TAG, "***************************IM login success");
+                }
+
+                @Override
+                public void onError(ParrotException e) {
+                    LogUtil.e(TAG, "***************************IM login failed");
+                }
+            });
+
         } else {
             //
         }
@@ -70,9 +90,11 @@ public class FitnessApplication extends Application {
 
     }
 
-    public Context getGlobalContext() {
+    public static Context getGlobalContext() {
         return mContext;
     }
 
-
+    public static MLParrot getmGlobalParrot() {
+        return mGlobalParrot;
+    }
 }

@@ -14,6 +14,7 @@ import com.maxleap.MLQueryManager;
 import com.maxleap.MLUser;
 import com.maxleap.SaveCallback;
 import com.maxleap.exception.MLException;
+import com.maxleap.im.entity.Group;
 import com.maxleap.social.CommentManager;
 import com.maxleap.social.DataHandler;
 import com.maxleap.social.DataListHandler;
@@ -38,10 +39,12 @@ public class FTActivityBiz implements IFTActivityBiz {
 
     ShuoShuoManager manager;
     CommentManager commentManager;
+    IChatGroupBiz chatGroupBiz;
 
     public FTActivityBiz() {
         manager = MLHermes.getShuoShuoManager();
         commentManager = MLHermes.getCommentManager();
+        chatGroupBiz = new ChatGroupBiz();
     }
 
     @Override
@@ -51,33 +54,49 @@ public class FTActivityBiz implements IFTActivityBiz {
         IFileBiz fileBiz = new FileBiz();
         fileBiz.uploadFile(ftActivity.getSourceUrl(), new IFileBiz.FileUploadListener() {
             @Override
-            public void onSucess(String url) {
+            public void onSucess(final String url) {
                 ftActivity.setSourceUrl(url);
 
-                Gson gson = new Gson();
-                String actDetail = gson.toJson(ftActivity);
-                LogUtil.e(TAG, "actDetail:" + actDetail);
+                List<String> userIdList = new ArrayList<String>();
+                userIdList.add(GlobalUserManager.getUserId());
+                chatGroupBiz.createGroup(ftActivity.getSubject(), userIdList,
+                        new IChatGroupBiz.GroupHandlerListener<Group>() {
+                            @Override
+                            public void onSuccess(Group group) {
+                                ftActivity.setGroupId(group.getId());
+                                Gson gson = new Gson();
+                                String actDetail = gson.toJson(ftActivity);
+                                LogUtil.e(TAG, "actDetail:" + actDetail);
 
-                ShuoShuo shuoShuo = new ShuoShuo();
-                shuoShuo.setUserId(GlobalUserManager.getUserId());
-                shuoShuo.setContent(actDetail);
-                manager.createOrUpdateShuoShuo(shuoShuo, new DataHandler<String>() {
-                    @Override
-                    public void onSuccess(String objectId) {
-                        if (paListener != null) {
-                            paListener.onProgress(paListener.STEP_UPLOAD_FILE, 100);
-                            paListener.onSuccess();
-                        }
+                                ShuoShuo shuoShuo = new ShuoShuo();
+                                shuoShuo.setUserId(GlobalUserManager.getUserId());
+                                shuoShuo.setContent(actDetail);
+                                manager.createOrUpdateShuoShuo(shuoShuo, new DataHandler<String>() {
+                                    @Override
+                                    public void onSuccess(String objectId) {
+                                        if (paListener != null) {
+                                            paListener.onProgress(paListener.STEP_UPLOAD_FILE, 100);
+                                            paListener.onSuccess();
+                                        }
 
-                    }
+                                    }
 
-                    @Override
-                    public void onError(HermsException e) {
-                        if (paListener != null) {
-                            paListener.onFailure(e.getMessage());
-                        }
-                    }
-                });
+                                    @Override
+                                    public void onError(HermsException e) {
+                                        if (paListener != null) {
+                                            paListener.onFailure(e.getMessage());
+                                        }
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onFailure(String errorCode) {
+                                if (paListener != null) {
+                                    paListener.onFailure(errorCode);
+                                }
+                            }
+                        });
             }
 
             @Override
@@ -97,7 +116,6 @@ public class FTActivityBiz implements IFTActivityBiz {
 
 
     }
-
 
 
     @Override
@@ -137,53 +155,97 @@ public class FTActivityBiz implements IFTActivityBiz {
     }
 
     @Override
-    public void removeAct(@NotNull FTActivity actList, final RemoveActivityListener raListener) {
-        manager.deleteShuoShuo(actList.getShuoShuo().getObjectId(), new DataHandler<Void>() {
-
+    public void removeAct(@NotNull final FTActivity actList, final RemoveActivityListener raListener) {
+        chatGroupBiz.deleteGroup(actList.getGroupId(), new IChatGroupBiz.GroupHandlerListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                if (raListener != null) {
-                    raListener.onSuccess();
-                }
+                manager.deleteShuoShuo(actList.getShuoShuo().getObjectId(), new DataHandler<Void>() {
+
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        if (raListener != null) {
+                            raListener.onSuccess();
+                        }
+                    }
+
+                    @Override
+                    public void onError(HermsException e) {
+                        if (raListener != null) {
+                            raListener.onFailure(e.getMessage());
+                        }
+                    }
+                });
             }
 
             @Override
-            public void onError(HermsException e) {
+            public void onFailure(String errorCode) {
                 if (raListener != null) {
-                    raListener.onFailure(e.getMessage());
+                    raListener.onFailure(errorCode);
                 }
             }
         });
+
     }
 
     @Override
-    public void removeAct(@NotNull String shuoShuoId, final RemoveActivityListener raListener) {
-        manager.deleteShuoShuo(shuoShuoId, new DataHandler<Void>() {
-
+    public void removeAct(@NotNull final String shuoShuoId, final RemoveActivityListener raListener) {
+        manager.getShuoShuo(shuoShuoId, new DataHandler<ShuoShuo>() {
             @Override
-            public void onSuccess(Void aVoid) {
-                if(raListener != null){
-                    raListener.onSuccess();
-                }
+            public void onSuccess(ShuoShuo shuoShuo) {
+                String content = shuoShuo.getContent();
+                content = content.replaceAll("\\\\", "\"");
+                LogUtil.e(TAG, "*************************content:" + content);
+                Gson gson = new Gson();
+                FTActivity act = gson.fromJson(content, FTActivity.class);
+                chatGroupBiz.deleteGroup(act.getGroupId(), new IChatGroupBiz.GroupHandlerListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        manager.deleteShuoShuo(shuoShuoId, new DataHandler<Void>() {
+
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                if (raListener != null) {
+                                    raListener.onSuccess();
+                                }
+                            }
+
+                            @Override
+                            public void onError(HermsException e) {
+                                if (raListener != null) {
+                                    raListener.onFailure(e.getMessage());
+                                }
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(String errorCode) {
+                        if (raListener != null) {
+                            raListener.onFailure(errorCode);
+                        }
+                    }
+                });
             }
 
             @Override
             public void onError(HermsException e) {
-                if(raListener != null){
+                if (raListener != null) {
                     raListener.onFailure(e.getMessage());
                 }
             }
         });
+
     }
 
     /**
      * 前期在客户端实现创建，后期应该放在云端，这样会有事务
-     * @param actId
+     *
+     * @param act
      * @param userId
      * @param jqListener
      */
     @Override
-    public void joinInAct(@NotNull final String actId, @NotNull final String userId, final JoinQuitActListener jqListener) {
+    public void joinInAct(@NotNull final FTActivity act, @NotNull final String userId, final JoinQuitActListener jqListener) {
 //        commentManager.favoriteComment(userId, actId, new DataHandler<String>() {
 //            @Override
 //            public void onSuccess(String s) {
@@ -215,15 +277,28 @@ public class FTActivityBiz implements IFTActivityBiz {
 //        });
 
         UserAct userAct = new UserAct();
-        userAct.setActId(actId);
+        userAct.setActId(act.getShuoShuo().getObjectId());
         userAct.setUserId(userId);
         MLDataManager.saveInBackground(userAct, new SaveCallback() {
             @Override
             public void done(MLException e) {
                 if (e == null) {
-                    if (jqListener != null) {
-                        jqListener.onSuccess();
-                    }
+                    chatGroupBiz.removeGroupMember(act.getGroupId(), userId, new IChatGroupBiz.GroupHandlerListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            if (jqListener != null) {
+                                jqListener.onSuccess();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(String errorCode) {
+                            if (jqListener != null) {
+                                jqListener.onFailure(errorCode);
+                            }
+                        }
+                    });
+
                 } else {
                     if (jqListener != null) {
                         jqListener.onFailure(e.getMessage());
@@ -234,7 +309,7 @@ public class FTActivityBiz implements IFTActivityBiz {
     }
 
     @Override
-    public void quitAct(@NotNull final String actId, @NotNull final String userId, final JoinQuitActListener jqListener) {
+    public void quitAct(@NotNull final FTActivity act, @NotNull final String userId, final JoinQuitActListener jqListener) {
 //        commentManager.getComments(actId, new DataListHandler<Comment>() {
 //            @Override
 //            public void onSuccess(List<Comment> list) {
@@ -266,39 +341,52 @@ public class FTActivityBiz implements IFTActivityBiz {
 //                }
 //            }
 //        });
-        removeUserAct(actId, userId, jqListener);
+        removeUserAct(act, userId, jqListener);
 
 
     }
 
-    private void removeUserAct(String actId, String userId, final JoinQuitActListener jqListener){
-        MLQuery<UserAct> userActMLQuery = MLQuery.getQuery(UserAct.class);
-        userActMLQuery.whereEqualTo("actId", actId);
-        userActMLQuery.whereEqualTo("userId", userId);
-        MLQueryManager.getFirstInBackground(userActMLQuery, new GetCallback<UserAct>() {
+    private void removeUserAct(final FTActivity act, final String userId, final JoinQuitActListener jqListener) {
+        chatGroupBiz.removeGroupMember(act.getGroupId(), userId, new IChatGroupBiz.GroupHandlerListener<Void>() {
             @Override
-            public void done(UserAct userAct, MLException e) {
-                if (userAct == null || e != null) {
-                    if (jqListener != null) {
-                        jqListener.onFailure(e.getMessage());
-                    }
-                } else {
-                    MLDataManager.deleteInBackground(userAct, new DeleteCallback() {
-                        @Override
-                        public void done(MLException e) {
-                            if (e == null) {
-                                if (jqListener != null) {
-                                    jqListener.onFailure(e.getMessage());
-                                }
-                            } else {
-                                if (jqListener != null) {
-                                    jqListener.onFailure(e.getMessage());
-                                }
+            public void onSuccess(Void aVoid) {
+                MLQuery<UserAct> userActMLQuery = MLQuery.getQuery(UserAct.class);
+                userActMLQuery.whereEqualTo("actId", act.getShuoShuo().getObjectId());
+                userActMLQuery.whereEqualTo("userId", userId);
+                MLQueryManager.getFirstInBackground(userActMLQuery, new GetCallback<UserAct>() {
+                    @Override
+                    public void done(UserAct userAct, MLException e) {
+                        if (userAct == null || e != null) {
+                            if (jqListener != null) {
+                                jqListener.onFailure(e.getMessage());
                             }
+                        } else {
+                            MLDataManager.deleteInBackground(userAct, new DeleteCallback() {
+                                @Override
+                                public void done(MLException e) {
+                                    if (e == null) {
+                                        if (jqListener != null) {
+                                            jqListener.onFailure(e.getMessage());
+                                        }
+                                    } else {
+                                        if (jqListener != null) {
+                                            jqListener.onFailure(e.getMessage());
+                                        }
+                                    }
+                                }
+                            });
                         }
-                    });
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(String errorCode) {
+                if (jqListener != null) {
+                    jqListener.onFailure(errorCode);
                 }
             }
         });
+
     }
 }

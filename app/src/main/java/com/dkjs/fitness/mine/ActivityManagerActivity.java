@@ -1,5 +1,6 @@
 package com.dkjs.fitness.mine;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,20 +8,40 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import com.dkjs.fitness.R;
+import com.dkjs.fitness.chat.ChatRoomActivity;
+import com.dkjs.fitness.comm.FitnessActivity;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
-public class ActivityManagerActivity extends FragmentActivity {
+public class ActivityManagerActivity extends FitnessActivity {
     TabLayout mTabLayout;
     ViewPager mVP;
     Fragment[] fragments;
     String[] tabNames;
     FragActivityAdapter mPagerAdapter;
 
+    @Bind(R.id.tv_sign_state)
+    TextView mChatRoomTV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manager_party_list_item);
+
+        ButterKnife.bind(this);
+
+        mChatRoomTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, ChatRoomActivity.class));
+            }
+        });
        // initView();
         //initFragment();
 

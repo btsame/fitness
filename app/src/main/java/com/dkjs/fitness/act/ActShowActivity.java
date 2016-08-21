@@ -69,6 +69,7 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
     protected void setListener() {
         super.setListener();
         mIntroCtlBtn.setOnClickListener(this);
+        mJoinActBtn.setOnClickListener(this);
     }
 
     private void initData(){
@@ -100,6 +101,8 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
                 mActIntroTV.setVisibility(View.VISIBLE);
                 mIntroCtlBtn.setText("关闭详情 >");
             }
+        }else if(v == mJoinActBtn){
+
         }
     }
 
