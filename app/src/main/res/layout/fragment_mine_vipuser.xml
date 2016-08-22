@@ -199,7 +199,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dip"
                 android:background="@drawable/me_party_income" />
-
             <TextView
                 android:id="@+id/tv_money"
                 android:layout_width="wrap_content"
@@ -210,16 +209,6 @@
                 android:text="我的钱包"
                 android:textColor="@color/top_introduce_text_color"
                 android:textSize="16sp" />
-
-            <include
-                android:id="@+id/tv_fans_notice_count"
-                layout="@layout/textview_red_count_tip"
-                android:layout_width="@dimen/home_menu_counts_size"
-                android:layout_height="@dimen/home_menu_counts_size"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="3.0dip"
-                android:layout_toRightOf="@id/tv_money" />
-
             <ImageView
                 android:layout_width="12.0dip"
                 android:layout_height="18.0dip"
