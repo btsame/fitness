@@ -7,12 +7,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dkjs.fitness.R;
+import com.dkjs.fitness.biz.FTActivityBiz;
+import com.dkjs.fitness.biz.IFTActivityBiz;
+import com.dkjs.fitness.chat.ChatRoomActivity;
 import com.dkjs.fitness.comm.FitnessActivity;
+import com.dkjs.fitness.comm.GlobalUserManager;
 import com.dkjs.fitness.domain.FTActivity;
+import com.dkjs.fitness.domain.UserAct;
 import com.dkjs.fitness.find.JoinPartyAndPayActivity;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
+import com.dkjs.fitness.util.ToastUtils;
 import com.dkjs.fitness.util.URIUtil;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,6 +56,9 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
     Button mJoinActBtn;
 
     FTActivity ftActivity;
+    IFTActivityBiz ftActivityBiz;
+
+    boolean hasJoinAct = false;
 
 
     @Override
@@ -60,7 +71,9 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
             ftActivity = (FTActivity) getIntent().getSerializableExtra(EXTRA_ACT_DATA);
 
         }
+        ftActivityBiz = new FTActivityBiz();
 
+        judgeJoinAct();
         initData();
         setListener();
     }
@@ -91,6 +104,33 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
         }
     }
 
+    private void judgeJoinAct(){
+        if(ftActivity.getOwner().getUserId().equals(GlobalUserManager.getUserId())){
+            hasJoinAct = true;
+            mJoinActBtn.setText("进入群聊");
+            return;
+        }
+        ftActivityBiz.queryActMember(ftActivity.getActId(), new IFTActivityBiz.QueryMemberListener() {
+            @Override
+            public void onSuccess(List<UserAct> userList) {
+                for(UserAct temp : userList){
+                    if(temp.getUserId().equals(GlobalUserManager.getUserId())){
+                        hasJoinAct = true;
+                        mJoinActBtn.setText("进入群聊");
+                        break;
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(String msg) {
+                ToastUtils.showCustomToast(mContext, msg);
+            }
+        });
+
+    }
+
     @Override
     public void onClick(View v) {
         if(v == mIntroCtlBtn){
@@ -102,6 +142,24 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
                 mIntroCtlBtn.setText("关闭详情 >");
             }
         }else if(v == mJoinActBtn){
+            if(hasJoinAct){
+                Intent intent = new Intent(mContext, ChatRoomActivity.class);
+                intent.putExtra(ChatRoomActivity.GROUPID_EXTRA, ftActivity.getShuoShuo().getObjectId());
+                startActivity(intent);
+            }else{
+                ftActivityBiz.joinInAct(ftActivity, GlobalUserManager.getUserId(), GlobalUserManager.getNickName(),
+                        GlobalUserManager.getPortrait(), new IFTActivityBiz.JoinQuitActListener() {
+                            @Override
+                            public void onSuccess() {
+                                ToastUtils.showCustomToast(mContext, "参加活动成功");
+                            }
+
+                            @Override
+                            public void onFailure(String msg) {
+                                ToastUtils.showCustomToast(mContext, "参加活动失败");
+                            }
+                        });
+            }
 
         }
     }

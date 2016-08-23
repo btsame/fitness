@@ -385,10 +385,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
         User user = new User();
         user.setUserId(GlobalUserManager.getUserId());
-        user.setUserId(GlobalUserManager.getNickName());
+        user.setNickName(GlobalUserManager.getNickName());
         user.setPortrait(GlobalUserManager.getPortrait());
         ftActivity.setOwner(user);
 
+
+        if(!GlobalUserManager.isUserLogin()){
+            ToastUtils.showCustomToast(mContext, "请登录！");
+        }
 
         IFTActivityBiz ftActivityBiz = new FTActivityBiz();
         ftActivityBiz.publishAct(ftActivity, new IFTActivityBiz.PublishActivityListener() {

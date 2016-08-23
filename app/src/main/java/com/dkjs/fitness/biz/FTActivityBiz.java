@@ -2,11 +2,13 @@ package com.dkjs.fitness.biz;
 
 import com.dkjs.fitness.comm.GlobalUserManager;
 import com.dkjs.fitness.domain.FTActivity;
+import com.dkjs.fitness.domain.User;
 import com.dkjs.fitness.domain.UserAct;
 import com.dkjs.fitness.util.LogUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.maxleap.DeleteCallback;
+import com.maxleap.FindCallback;
 import com.maxleap.GetCallback;
 import com.maxleap.MLDataManager;
 import com.maxleap.MLQuery;
@@ -63,7 +65,12 @@ public class FTActivityBiz implements IFTActivityBiz {
                         new IChatGroupBiz.GroupHandlerListener<Group>() {
                             @Override
                             public void onSuccess(Group group) {
-                                ftActivity.setGroupId(group.getId());
+                                String groupId = group.getId();
+                                if (groupId.startsWith("\"")) {
+                                    groupId = groupId.substring(1, groupId.length() - 1);
+                                }
+                                ftActivity.setGroupId(groupId);
+
                                 Gson gson = new Gson();
                                 String actDetail = gson.toJson(ftActivity);
                                 LogUtil.e(TAG, "actDetail:" + actDetail);
@@ -245,7 +252,8 @@ public class FTActivityBiz implements IFTActivityBiz {
      * @param jqListener
      */
     @Override
-    public void joinInAct(@NotNull final FTActivity act, @NotNull final String userId, final JoinQuitActListener jqListener) {
+    public void joinInAct(@NotNull final FTActivity act, @NotNull final String userId,
+                          String nickName, String portrait, final JoinQuitActListener jqListener) {
 //        commentManager.favoriteComment(userId, actId, new DataHandler<String>() {
 //            @Override
 //            public void onSuccess(String s) {
@@ -279,11 +287,13 @@ public class FTActivityBiz implements IFTActivityBiz {
         UserAct userAct = new UserAct();
         userAct.setActId(act.getShuoShuo().getObjectId());
         userAct.setUserId(userId);
+        userAct.setNickname(nickName);
+        userAct.setPortrait(portrait);
         MLDataManager.saveInBackground(userAct, new SaveCallback() {
             @Override
             public void done(MLException e) {
                 if (e == null) {
-                    chatGroupBiz.removeGroupMember(act.getGroupId(), userId, new IChatGroupBiz.GroupHandlerListener<Void>() {
+                    chatGroupBiz.addGroupMember(act.getGroupId(), userId, new IChatGroupBiz.GroupHandlerListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             if (jqListener != null) {
@@ -344,6 +354,26 @@ public class FTActivityBiz implements IFTActivityBiz {
         removeUserAct(act, userId, jqListener);
 
 
+    }
+
+    @Override
+    public void queryActMember(String shuoShuoId, final QueryMemberListener listener) {
+        MLQuery<UserAct> mlQuery = MLQuery.getQuery(UserAct.class);
+        mlQuery.whereEqualTo("actId", shuoShuoId);
+        MLQueryManager.findAllInBackground(mlQuery, new FindCallback<UserAct>() {
+            @Override
+            public void done(List<UserAct> list, MLException e) {
+                if(e != null){
+                    if(listener != null){
+                        listener.onFailure(e.getMessage());
+                    }
+                }else{
+                    if(listener != null){
+                        listener.onSuccess(list);
+                    }
+                }
+            }
+        });
     }
 
     private void removeUserAct(final FTActivity act, final String userId, final JoinQuitActListener jqListener) {

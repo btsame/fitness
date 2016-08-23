@@ -2,8 +2,10 @@ package com.dkjs.fitness.biz;
 
 import com.dkjs.fitness.comm.FitnessApplication;
 import com.maxleap.im.DataHandler;
+import com.maxleap.im.DataListHandler;
 import com.maxleap.im.ParrotException;
 import com.maxleap.im.entity.Group;
+import com.maxleap.im.entity.MessageHistory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,5 +92,25 @@ public class ChatGroupBiz implements IChatGroupBiz{
                 }
             }
         });
+    }
+
+    @Override
+    public void queryChatRecord(String groupId, long timestamp, final int limit, final GroupHandlerListener<List<MessageHistory>> listener) {
+        FitnessApplication.getmGlobalParrot().recentGroupMessages(groupId, timestamp, limit,
+                new DataListHandler<MessageHistory>() {
+                    @Override
+                    public void onSuccess(List<MessageHistory> list) {
+                        if(listener != null){
+                            listener.onSuccess(list);
+                        }
+                    }
+
+                    @Override
+                    public void onError(ParrotException e) {
+                        if(listener != null){
+                            listener.onFailure(e.getMessage());
+                        }
+                    }
+                });
     }
 }
