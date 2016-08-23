@@ -123,7 +123,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/iv_profile_user_arrow"
                     android:singleLine="true"
-                    android:text="选择类型"
+                    android:text="健身达人"
                     android:textColor="@color/forget_text_normal_color"
                     android:textSize="@dimen/content_item_text_size" />
             </RelativeLayout>
@@ -150,6 +150,21 @@
                     android:layout_width="fill_parent"
                     android:layout_height="1.0dip"
                     android:background="@color/first_lines_bg" />
+
+
+                <EditText
+                    android:id="@+id/et_account_alipay"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/content_item_high"
+                    android:background="@color/white_color"
+                    android:hint="支付宝账号"
+                    android:paddingLeft="@dimen/content_margin"
+                    android:textSize="@dimen/action_bar_text_size" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:background="@color/first_lines_bg" />
+
 
                 <RelativeLayout
                     android:id="@+id/rl_identity_photo"
@@ -206,6 +221,9 @@
                         android:visibility="invisible" />
 
                 </RelativeLayout>
+
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -242,6 +260,16 @@
                     android:text="2.证件照片只用于身份认证，不会用于其他用途，请放心上传；"
                     android:textColor="@color/dark_gray_text_color"
                     android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:gravity="left"
+                    android:text="3.支付宝账号用于参加活动人支付使用，不会用于其他用途，请放心填写；"
+                    android:textColor="@color/dark_gray_text_color"
+                    android:textSize="@dimen/text_size_12" />
+
             </LinearLayout>
 
             <LinearLayout

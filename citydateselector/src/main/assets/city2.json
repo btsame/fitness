@@ -1,0 +1,134 @@
+[
+  {
+    "cities": [
+      {
+        "counties": [
+          {"areaId":"110101","areaName":"东城区"},
+          {"areaId":"110102","areaName":"西城区"},
+          {"areaId":"110105","areaName":"朝阳区"},
+          {"areaId":"110106","areaName":"丰台区"},
+          {"areaId":"110107","areaName":"石景山区"},
+          {"areaId":"110108","areaName":"海淀区"},
+          {"areaId":"110109","areaName":"门头沟区"},
+          {"areaId":"110111","areaName":"房山区"},
+          {"areaId":"110112","areaName":"通州区"},
+          {"areaId":"110113","areaName":"顺义区"},
+          {"areaId":"110114","areaName":"昌平区"},
+          {"areaId":"110115","areaName":"大兴区"},
+          {"areaId":"110116","areaName":"怀柔区"},
+          {"areaId":"110117","areaName":"平谷区"},
+          {"areaId":"110228","areaName":"密云县"},
+          {"areaId":"110229","areaName":"延庆县"}
+        ],
+        "areaName": "北京市 ",
+        "areaId": "110000"
+      },
+      {
+        "counties": [
+          {"areaId": "310101","areaName": "黄浦区"},
+          {"areaId": "310104","areaName": "徐汇区"},
+          {"areaId": "310105","areaName": "长宁区"},
+          {"areaId": "310106","areaName": "静安区"},
+          {"areaId": "310107","areaName": "普陀区"},
+          {"areaId": "310108","areaName": "闸北区"},
+          {"areaId": "310109","areaName": "虹口区"},
+          {"areaId": "310110","areaName": "杨浦区"},
+          {"areaId": "310112","areaName": "闵行区"},
+          {"areaId": "310113","areaName": "宝山区"},
+          {"areaId": "310114","areaName": "嘉定区"},
+          {"areaId": "310115","areaName": "浦东新区"},
+          {"areaId": "310116","areaName": "金山区"},
+          {"areaId": "310117","areaName": "松江区"},
+          {"areaId": "310118","areaName": "青浦区"},
+          {"areaId": "310120","areaName": "奉贤区"},
+          {"areaId": "310199","areaName": "卢湾区(黄浦区)"},
+          {"areaId": "310230","areaName": "崇明县"}
+        ],
+        "areaName": "上海市",
+        "areaId": "310000"
+      },
+      {
+        "counties": [
+          {"areaId":"440103","areaName":"荔湾区"},
+          {"areaId":"440104","areaName":"越秀区"},
+          {"areaId":"440105","areaName":"海珠区"},
+          {"areaId":"440106","areaName":"天河区"},
+          {"areaId":"440111","areaName":"白云区"},
+          {"areaId":"440112","areaName":"黄埔区"},
+          {"areaId":"440113","areaName":"番禺区"},
+          {"areaId":"440114","areaName":"花都区"},
+          {"areaId":"440115","areaName":"南沙区"},
+          {"areaId":"440116","areaName":"萝岗区"},
+          {"areaId":"440183","areaName":"增城市"},
+          {"areaId":"440184","areaName":"从化市"}
+        ],
+        "areaName": "广州市 ",
+        "areaId": "440100"
+      },
+      {
+        "counties": [
+          {"areaId":"440303","areaName":"罗湖区"},
+          {"areaId":"440304","areaName":"福田区"},
+          {"areaId":"440305","areaName":"南山区"},
+          {"areaId":"440306","areaName":"宝安区"},
+          {"areaId":"440307","areaName":"龙岗区"},
+          {"areaId":"440308","areaName":"盐田区"},
+          {"areaId":"440396","areaName":"坪山新区(龙岗区)"},
+          {"areaId":"440397","areaName":"大鹏新区(龙岗区)"},
+          {"areaId":"440398","areaName":"光明新区(宝安区)"},
+          {"areaId":"440399","areaName":"龙华新区(宝安区)"}
+        ],
+        "areaName": "深圳市",
+        "areaId": "440300"
+      },
+      {
+        "counties": [
+          {"areaId":"610102","areaName":"新城区"},
+          {"areaId":"610103","areaName":"碑林区"},
+          {"areaId":"610104","areaName":"莲湖区"},
+          {"areaId":"610111","areaName":"灞桥区"},
+          {"areaId":"610112","areaName":"未央区"},
+          {"areaId":"610113","areaName":"雁塔区"},
+          {"areaId":"610114","areaName":"阎良区"},
+          {"areaId":"610115","areaName":"临潼区"},
+          {"areaId":"610116","areaName":"长安区"},
+          {"areaId":"610122","areaName":"蓝田县"},
+          {"areaId":"610124","areaName":"周至县"},
+          {"areaId":"610125","areaName":"户县"},
+          {"areaId":"610126","areaName":"高陵县"}
+        ],
+        "areaName": "西安市 ",
+        "areaId": "610100"
+      },
+      {
+        "counties": [
+          {"areaId":"510104","areaName":"锦江区"},
+          {"areaId":"510105","areaName":"青羊区"},
+          {"areaId":"510106","areaName":"金牛区"},
+          {"areaId":"510107","areaName":"武侯区"},
+          {"areaId":"510108","areaName":"成华区"},
+          {"areaId":"510112","areaName":"龙泉驿区"},
+          {"areaId":"510113","areaName":"青白江区"},
+          {"areaId":"510114","areaName":"新都区"},
+          {"areaId":"510115","areaName":"温江区"},
+          {"areaId":"510121","areaName":"金堂县"},
+          {"areaId":"510122","areaName":"双流县"},
+          {"areaId":"510124","areaName":"郫县"},
+          {"areaId":"510129","areaName":"大邑县"},
+          {"areaId":"510131","areaName":"蒲江县"},
+          {"areaId":"510132","areaName":"新津县"},
+          {"areaId":"510181","areaName":"都江堰市"},
+          {"areaId":"510182","areaName":"彭州市"},
+          {"areaId":"510183","areaName":"邛崃市"},
+          {"areaId":"510184","areaName":"崇州市"},
+          {"areaId":"510198","areaName":"高新区(武侯区)"},
+          {"areaId":"510199","areaName":"高新西区(郫县)"}
+        ],
+        "areaName": "成都市",
+        "areaId": "510100"
+      }
+    ],
+    "areaName": "北京市 ",
+    "areaId": "110000"
+  }
+]

@@ -95,7 +95,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="活动主题（*）："
+                    android:text="活动主题："
+                    android:textColor="@color/top_introduce_text_color"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
@@ -114,6 +115,9 @@
                 android:layout_marginRight="5.0dip"
                 android:background="@color/appgray" />
 
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dip"
@@ -125,7 +129,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="人数限制（*）：" />
+                    android:text="人数限制："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <EditText
                     android:maxLength="3"
@@ -136,8 +142,131 @@
                     android:background="@null"
                     android:hint="建议20人以内"
                     android:inputType="number"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
+
+            <RelativeLayout
+                android:id="@+id/rl_act_type"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="@drawable/edit_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_centerVertical="true"
+                    android:text="活动类型："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <TextView
+                    android:id="@+id/tv_act_type"
+                    android:layout_marginRight="35dip"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+                <ImageView
+                    android:layout_width="12.0dip"
+                    android:layout_height="18.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dip"
+                    android:background="@drawable/area_arrow" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_act_fee"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="@drawable/edit_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_centerVertical="true"
+                    android:text="活动费用"
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <TextView
+                    android:id="@+id/tv_act_fee"
+                    android:layout_marginRight="35dip"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+                <ImageView
+                    android:layout_width="12.0dip"
+                    android:layout_height="18.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dip"
+                    android:background="@drawable/area_arrow" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@color/appgray" />
+
+            <RelativeLayout
+
+                android:id="@+id/rl_more_settings"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="@drawable/edit_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_centerVertical="true"
+                    android:text="更多设置"
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <TextView
+                    android:id="@+id/tv_act_more"
+                    android:layout_marginRight="35dip"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+                <ImageView
+                    android:layout_width="12.0dip"
+                    android:layout_height="18.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dip"
+                    android:background="@drawable/area_arrow" />
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -150,42 +279,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="活动费用（*）：" />
+                    android:text="活动标签："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <EditText
-                    android:maxLength="3"
-                    android:id="@+id/et_act_price"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:inputType="number"
-                    android:textSize="12.0sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/edit_input_background"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15.0dip"
-                    android:text="活动类型（*）：" />
-
-                <Button
-                    android:id="@+id/et_act_type"
+                    android:hint="格式为#减脂##瘦腿#,最多添加两个"
+                    android:singleLine="true"
+                    android:id="@+id/et_act_tag"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:textAlignment="textStart"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
@@ -199,7 +308,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="开始时间（*）：" />
+                    android:text="性别限制："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+                <Button
+                    android:id="@+id/et_act_sex"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:background="@drawable/edit_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:text="开始时间："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <Button
                     android:id="@+id/btn_start_time"
@@ -209,7 +348,8 @@
                     android:background="@null"
                     android:inputType="number"
                     android:textAlignment="textStart"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
             </LinearLayout>
 
             <LinearLayout
@@ -223,7 +363,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="结束时间（*）：" />
+                    android:text="结束时间："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <Button
                     android:id="@+id/btn_end_time"
@@ -233,7 +375,8 @@
                     android:background="@null"
                     android:inputType="number"
                     android:textAlignment="textStart"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
@@ -247,7 +390,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="活动城市（*）：" />
+                    android:text="活动城市："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <Button
                     android:id="@+id/btn_act_city"
@@ -256,7 +401,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:textAlignment="textStart"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
@@ -270,7 +416,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="活动地点（*）：" />
+                    android:text="活动地点："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <EditText
                     android:id="@+id/et_act_address"
@@ -279,7 +427,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:singleLine="true"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
             <LinearLayout
@@ -293,7 +442,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="自备器材（*）：" />
+                    android:text="自备器材："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <EditText
                     android:id="@+id/et_act_equipment"
@@ -303,7 +454,8 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:singleLine="true"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -316,7 +468,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
-                    android:text="淋浴锁柜（*）：" />
+                    android:text="淋浴锁柜："
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
                 <Button
                     android:id="@+id/et_act_shower_locker"
@@ -326,8 +480,11 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:textAlignment="textStart"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
+
+
 
             <RelativeLayout
                 android:id="@+id/rl"
@@ -347,7 +504,8 @@
                     android:hint="活动说明"
                     android:paddingLeft="8.0dip"
                     android:paddingTop="9.0dip"
-                    android:textSize="12.0sp" />
+                    android:textColor="@color/top_introduce_text_color"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
             </RelativeLayout>
 
             <Button

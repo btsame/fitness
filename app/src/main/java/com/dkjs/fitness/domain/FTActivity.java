@@ -33,6 +33,7 @@ public class FTActivity implements Serializable{
     private int actType;    //0户外；1室内
     private String groupId; //聊天群ID
 
+    private int actSex; //不限 限男性 女性
 
     private int sourceType; //1图片；2视频；
     private String sourceUrl;
@@ -151,6 +152,14 @@ public class FTActivity implements Serializable{
         this.showerAndLocker = showerAndLocker;
     }
 
+    public int getActSex() {
+        return actSex;
+    }
+
+    public void setActSex(int actSex) {
+        this.actSex = actSex;
+    }
+
     public int getActType() {
         return actType;
     }
@@ -158,6 +167,7 @@ public class FTActivity implements Serializable{
     public void setActType(int actType) {
         this.actType = actType;
     }
+
 
     public User getOwner() {
         return owner;

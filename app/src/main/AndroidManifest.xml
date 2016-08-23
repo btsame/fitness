@@ -45,7 +45,6 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".mine.ActivityManagerActivity" />
-
         <activity android:name=".chat.ChatRoomActivity" />
 
         <!-- 视频录制Activity -->
@@ -69,7 +68,11 @@
         <activity android:name=".mine.CheckOutTicketsActivity" />
         <activity android:name=".mine.UpLoadCoachImgActivity" />
         <activity android:name=".mine.WithDrawActivity" />
-        <activity android:name=".find.JoinPartyAndPayActivity"></activity>
+        <activity android:name=".find.JoinPartyAndPayActivity" />
+        <activity android:name=".find.HomePageActivity" />
+        <activity android:name=".mine.SetPriceActivity" />
+        <activity android:name=".mine.AboutPriceActivity" />
+        <activity android:name=".mine.CreateActMoreSettingsActivity"></activity>
     </application>
 
 </manifest>

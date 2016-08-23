@@ -7,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +25,8 @@ import com.dkjs.fitness.util.CameraProxy;
 import com.dkjs.fitness.util.CameraResult;
 import com.dkjs.fitness.util.ToastUtils;
 import com.dkjs.fitness.util.UploadPic;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ import java.util.Date;
 public class UserInfoActivity extends FitnessActivity {
 
     Button btnDate, btnCity;
-    ImageView ivIcon;
+    SimpleDraweeView ivIcon;
     private Calendar calendar = Calendar.getInstance();
 
     private FTActivity ftActivity;
@@ -77,7 +77,7 @@ public class UserInfoActivity extends FitnessActivity {
     protected void initView() {
         btnCity = (Button) findViewById(R.id.btn_city_set);
         btnDate = (Button) findViewById(R.id.btn_date_set);
-        ivIcon= (ImageView) findViewById(R.id.cuser_head);
+        ivIcon= (SimpleDraweeView) findViewById(R.id.cuser_head);
         btnCity.setText("北京 北京 东城区");
         btnDate.setText(" ");
     }

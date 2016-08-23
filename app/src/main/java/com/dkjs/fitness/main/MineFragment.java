@@ -33,7 +33,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
 
     @Bind(R.id.iv_accout_icon)
     ImageView portraitIV;
-    Button editUserInfo;
+    TextView editUserInfo;
     LinearLayout llCreate, llManager, llSettings, llAuthID,llCheckTicket;
 
     @Bind(R.id.ll_my_money)
@@ -66,6 +66,9 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
 
         //身份认证
         authID();
+
+        //活动指南
+
 
         return view;
     }
@@ -126,7 +129,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
     }
 
     public void initView(View view) {
-        editUserInfo = (Button) view.findViewById(R.id.btn_editUserInfo);
+        editUserInfo = (TextView) view.findViewById(R.id.btn_editUserInfo);
         llCreate = (LinearLayout) view.findViewById(R.id.iv_create_activity);
         llManager = (LinearLayout) view.findViewById(R.id.iv_managerActivity);
         llSettings = (LinearLayout) view.findViewById(R.id.lv_settings);

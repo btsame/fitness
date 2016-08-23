@@ -33,15 +33,15 @@
                 android:text="用户名"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-            <Button
+            <TextView
                 android:textAlignment="textStart"
                 android:id="@+id/btn_editUserInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dip"
                 android:background="@null"
-                android:text="编辑个人资料"
+                android:text="个人资料"
                 android:textSize="12dp" />
         </LinearLayout>
     </LinearLayout>
@@ -199,7 +199,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dip"
                 android:background="@drawable/me_party_income" />
-
             <TextView
                 android:id="@+id/tv_money"
                 android:layout_width="wrap_content"
@@ -210,16 +209,6 @@
                 android:text="我的钱包"
                 android:textColor="@color/top_introduce_text_color"
                 android:textSize="16sp" />
-
-            <include
-                android:id="@+id/tv_fans_notice_count"
-                layout="@layout/textview_red_count_tip"
-                android:layout_width="@dimen/home_menu_counts_size"
-                android:layout_height="@dimen/home_menu_counts_size"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="3.0dip"
-                android:layout_toRightOf="@id/tv_money" />
-
             <ImageView
                 android:layout_width="12.0dip"
                 android:layout_height="18.0dip"
