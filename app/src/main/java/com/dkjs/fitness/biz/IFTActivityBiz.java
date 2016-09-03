@@ -1,6 +1,8 @@
 package com.dkjs.fitness.biz;
 
 import com.dkjs.fitness.domain.FTActivity;
+import com.dkjs.fitness.domain.User;
+import com.dkjs.fitness.domain.UserAct;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -18,8 +20,11 @@ public interface IFTActivityBiz {
     void removeAct(@NotNull FTActivity act, RemoveActivityListener raListener);
     void removeAct(@NotNull String shuoShuoId, RemoveActivityListener raListener);
 
-    void joinInAct(@NotNull FTActivity act, @NotNull String userId, JoinQuitActListener jqListener);
+    void joinInAct(@NotNull FTActivity act, @NotNull String userId, String nickname,
+                   String portrait, JoinQuitActListener jqListener);
     void quitAct(@NotNull FTActivity act, @NotNull String userId, JoinQuitActListener jqListener);
+
+    void queryActMember(String shuoShuoId, QueryMemberListener listener);
 
     interface PublishActivityListener{
         String STEP_UPLOAD_FILE = "上传文件";
@@ -42,6 +47,11 @@ public interface IFTActivityBiz {
 
     interface JoinQuitActListener{
         void onSuccess();
+        void onFailure(String msg);
+    }
+
+    interface QueryMemberListener{
+        void onSuccess(List<UserAct> userList);
         void onFailure(String msg);
     }
 

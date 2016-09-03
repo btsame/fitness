@@ -9,25 +9,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.dkjs.fitness.R;
 import com.dkjs.fitness.adapter.PicSelectAdapter;
 import com.dkjs.fitness.biz.FTActivityBiz;
 import com.dkjs.fitness.biz.IFTActivityBiz;
-import com.dkjs.fitness.citydateselector.picker.AddressPicker;
-import com.dkjs.fitness.citydateselector.picker.DateTimePicker;
-import com.dkjs.fitness.citydateselector.utils.AssetsUtils;
 import com.dkjs.fitness.comm.AppConfig;
 import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.comm.GlobalUserManager;
@@ -48,7 +41,6 @@ import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnItemClickListener;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -364,7 +356,7 @@ public class ActivityCreateActivity1 extends FitnessActivity implements View.OnC
 
 
     private void publishAct() {
-        
+
 
         if (ftActivity.getBeginTime() != null) {
             ToastUtils.showCustomToast(mContext, ftActivity.getBeginTime());

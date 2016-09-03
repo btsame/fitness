@@ -3,6 +3,7 @@ package com.dkjs.fitness.domain;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
 import com.maxleap.social.entity.ShuoShuo;
 
 import java.io.Serializable;
@@ -40,7 +41,13 @@ public class FTActivity implements Serializable{
     private String actTag;
 
     private User owner;
-    private transient ShuoShuo shuoShuo;
+
+
+    @Expose
+    private ShuoShuo shuoShuo;
+
+    @Expose
+    private String actId;
 
 
     public String getActTag() {
@@ -114,6 +121,7 @@ public class FTActivity implements Serializable{
 
     public void setShuoShuo(ShuoShuo shuoShuo) {
         this.shuoShuo = shuoShuo;
+        actId = shuoShuo.getObjectId();
     }
 
     public String getBeginTime() {
@@ -187,5 +195,13 @@ public class FTActivity implements Serializable{
 
     public void setGroupId(String groupId) {
         this.groupId = groupId;
+    }
+
+    public String getActId() {
+        return actId;
+    }
+
+    public void setActId(String actId) {
+        this.actId = actId;
     }
 }

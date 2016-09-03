@@ -144,7 +144,6 @@ public class RegisterActivity extends FitnessActivity {
     }
 
     public Boolean checkAuth() {
-/*
         MLUserManager.verifySmsCodeInBackground(userName, yzm, new VerifySmsCodeCallback() {
             @Override
             public void done(final MLException e) {
@@ -160,29 +159,28 @@ public class RegisterActivity extends FitnessActivity {
         });
 
 
-*/
-        MLUserManager.verifyPhoneInBackground(userName, yzm, new VerifyPhoneCallback() {
-
-            @Override
-            public void done(final MLException e) {
-                if (e != null) {
-                    //  发生错误
-                    authTag = 0;
-                    Log.e("registerauthTag",e.toString());
-                    if(!e.toString().equals("验证码有误！")){
-                        Log.e("registerauthTagsucced",e.toString());
-                        authTag = 1;
-                    }else{
-                        ToastUtils.showToast(RegisterActivity.this, "验证码有误！");
-                    }
-
-                } else {
-                    //  成功请求
-                    authTag = 1;
-                    Log.e("registerauthTagsucced",e.toString());
-                }
-            }
-        });
+//        MLUserManager.verifyPhoneInBackground(userName, yzm, new VerifyPhoneCallback() {
+//
+//            @Override
+//            public void done(final MLException e) {
+//                if (e != null) {
+//                    //  发生错误
+//                    authTag = 0;
+//                    Log.e("registerauthTag",e.toString());
+//                    if(!e.toString().equals("验证码有误！")){
+//                        Log.e("registerauthTagsucced",e.toString());
+//                        authTag = 1;
+//                    }else{
+//                        ToastUtils.showToast(RegisterActivity.this, "验证码有误！");
+//                    }
+//
+//                } else {
+//                    //  成功请求
+//                    authTag = 1;
+//                    Log.e("registerauthTagsucced",e.toString());
+//                }
+//            }
+//        });
 
 
         if (authTag == 0) {

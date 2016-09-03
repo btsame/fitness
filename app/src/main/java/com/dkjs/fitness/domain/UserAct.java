@@ -9,6 +9,8 @@ import com.maxleap.MLObject;
 @MLClassName("UserAct")
 public class UserAct extends MLObject {
     private String userId;
+    private String nickname;
+    private String portrait;
     private String actId;
     private boolean isPay;
 
@@ -34,5 +36,21 @@ public class UserAct extends MLObject {
 
     public void setIsPay(boolean isPay) {
         put("isPay", isPay);
+    }
+
+    public String getNickname() {
+        return getString("nickname");
+    }
+
+    public void setNickname(String nickname) {
+        put("nickname", nickname);
+    }
+
+    public String getPortrait() {
+        return getString("portrait");
+    }
+
+    public void setPortrait(String portrait) {
+        put("portrait", portrait);
     }
 }

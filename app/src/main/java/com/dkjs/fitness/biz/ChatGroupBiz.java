@@ -2,8 +2,13 @@ package com.dkjs.fitness.biz;
 
 import com.dkjs.fitness.comm.FitnessApplication;
 import com.maxleap.im.DataHandler;
+import com.maxleap.im.DataListHandler;
 import com.maxleap.im.ParrotException;
+import com.maxleap.im.SimpleDataHandler;
 import com.maxleap.im.entity.Group;
+import com.maxleap.im.entity.Message;
+import com.maxleap.im.entity.MessageBuilder;
+import com.maxleap.im.entity.MessageHistory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +93,75 @@ public class ChatGroupBiz implements IChatGroupBiz{
                 if(listener != null){
                     listener.onFailure(e.getMessage());
                 }
+            }
+        });
+    }
+
+    @Override
+    public void queryChatRecord(String groupId, long timestamp, final int limit, final GroupHandlerListener<List<MessageHistory>> listener) {
+//        groupId = "\"" + groupId + "\"";
+        FitnessApplication.getmGlobalParrot().recentGroupMessages(groupId, timestamp, limit,
+                new DataListHandler<MessageHistory>() {
+                    @Override
+                    public void onSuccess(List<MessageHistory> list) {
+                        if(listener != null){
+                            listener.onSuccess(list);
+                        }
+                    }
+
+                    @Override
+                    public void onError(ParrotException e) {
+                        if(listener != null){
+                            listener.onFailure(e.getMessage());
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void sendTextMessage(String groupId, String msg, final GroupHandlerListener<Void> listener) {
+        Message message = MessageBuilder.newBuilder()
+                .toGroup(groupId)
+                .text(msg);
+        FitnessApplication.getmGlobalParrot().sendMessage(message, new SimpleDataHandler<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                if(listener != null){
+                    listener.onSuccess(aVoid);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void sendImgMessage(final String groupId, String imgPath, final GroupHandlerListener<Void> listener) {
+        IFileBiz fileBiz = new FileBiz();
+        fileBiz.uploadFile(imgPath, new IFileBiz.FileUploadListener() {
+            @Override
+            public void onSucess(String url) {
+                Message message = MessageBuilder.newBuilder()
+                        .toGroup(groupId)
+                        .image(url);
+                FitnessApplication.getmGlobalParrot().sendMessage(message, new SimpleDataHandler<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        if(listener != null){
+                            listener.onSuccess(aVoid);
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(String reason) {
+                if(listener != null){
+                    listener.onFailure(reason);
+                }
+            }
+
+            @Override
+            public void onProgress(int i) {
+
             }
         });
     }
