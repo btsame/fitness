@@ -23,6 +23,9 @@ public interface IChatGroupBiz {
     void queryChatRecord(String groupId, long timestamp, int limit,
                          GroupHandlerListener<List<MessageHistory>> listener);
 
+    void sendTextMessage(String groupId, String msg, GroupHandlerListener<Void> listener);
+    void sendImgMessage(String groupId, String imgPath, GroupHandlerListener<Void> listener);
+
 
     interface GroupHandlerListener<T>{
         void onSuccess(T t);

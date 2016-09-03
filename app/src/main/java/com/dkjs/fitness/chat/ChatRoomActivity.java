@@ -2,7 +2,6 @@ package com.dkjs.fitness.chat;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.widget.RecyclerView;
 
 import com.dkjs.fitness.R;
@@ -10,13 +9,13 @@ import com.dkjs.fitness.biz.ChatGroupBiz;
 import com.dkjs.fitness.biz.IChatGroupBiz;
 import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.comm.GlobalUserManager;
+import com.dkjs.fitness.util.ToastUtils;
 import com.dkjs.fitness.util.URIUtil;
 import com.maxleap.im.entity.MessageContent;
 import com.maxleap.im.entity.MessageHistory;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -81,7 +80,7 @@ public class ChatRoomActivity extends FitnessActivity implements UserSendsMessag
         chatFragment.setDefaultAvatarUrl(URIUtil.handleNetworkUri(GlobalUserManager.getPortrait()));
         chatFragment.setDefaultUserId(GlobalUserManager.getUserId());
         chatFragment.setPictureButtonVisible(true);
-//        chatFragment.setMoreMessagesExist(true);
+        chatFragment.setMoreMessagesExist(true);
     }
 
     public void loadChatRecord(){
@@ -122,7 +121,7 @@ public class ChatRoomActivity extends FitnessActivity implements UserSendsMessag
 
             @Override
             public void onFailure(String errorCode) {
-
+                ToastUtils.showCustomToast(mContext, errorCode);
             }
         });
     }
@@ -140,11 +139,32 @@ public class ChatRoomActivity extends FitnessActivity implements UserSendsMessag
 
     @Override
     public void onUserSendsTextMessage(String s) {
+        chatGroupBiz.sendTextMessage(groupId, s, new IChatGroupBiz.GroupHandlerListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                ToastUtils.showCustomToast(mContext, "发送成功");
+            }
+
+            @Override
+            public void onFailure(String errorCode) {
+                ToastUtils.showCustomToast(mContext, "发送失败");
+            }
+        });
 
     }
 
     @Override
     public void onUserSendsMediaMessage(Uri uri) {
+        chatGroupBiz.sendImgMessage(groupId, uri.getPath(), new IChatGroupBiz.GroupHandlerListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                ToastUtils.showCustomToast(mContext, "发送成功");
+            }
 
+            @Override
+            public void onFailure(String errorCode) {
+                ToastUtils.showCustomToast(mContext, "发送失败");
+            }
+        });
     }
 }

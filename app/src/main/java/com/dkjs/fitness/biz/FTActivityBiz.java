@@ -288,7 +288,10 @@ public class FTActivityBiz implements IFTActivityBiz {
         userAct.setActId(act.getShuoShuo().getObjectId());
         userAct.setUserId(userId);
         userAct.setNickname(nickName);
-        userAct.setPortrait(portrait);
+        if(portrait != null){
+            userAct.setPortrait(portrait);
+        }
+
         MLDataManager.saveInBackground(userAct, new SaveCallback() {
             @Override
             public void done(MLException e) {
