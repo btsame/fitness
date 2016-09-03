@@ -1,19 +1,15 @@
 package com.dkjs.fitness.mine;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,7 +19,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.dkjs.fitness.R;
@@ -36,17 +31,17 @@ import com.dkjs.fitness.citydateselector.utils.AssetsUtils;
 import com.dkjs.fitness.comm.AppConfig;
 import com.dkjs.fitness.comm.FitnessActivity;
 import com.dkjs.fitness.comm.GlobalUserManager;
+import com.dkjs.fitness.comm.HeadTitleView;
 import com.dkjs.fitness.domain.FTActivity;
 import com.dkjs.fitness.domain.User;
+import com.dkjs.fitness.publish.CreateActMoreSettingsActivity;
+import com.dkjs.fitness.publish.SetPriceActivity;
 import com.dkjs.fitness.util.CameraProxy;
 import com.dkjs.fitness.util.CameraResult;
 import com.dkjs.fitness.util.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.maxleap.MLUser;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnItemClickListener;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -74,14 +69,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     //获取活动价格
     String price;
 
-    @Bind(R.id.ll_upload_pic)
-    LinearLayout mUploadPicIV;
-    //    @Bind(R.id.ll_upload_video)
+     @Bind(R.id.ll_upload_pic)
+       LinearLayout mUploadPicIV;
+    // @Bind(R.id.ll_upload_video)
 //    LinearLayout mUploadVideoIV;
     @Bind(R.id.sdv_show_act_pic)
     SimpleDraweeView mPicSDV;
-    @Bind(R.id.tv_publish_activity)
-    TextView mPublishActTV;
+  /*  @Bind(R.id.tv_publish_activity)
+    TextView mPublishActTV;*/
     @Bind(R.id.btn_publish_activity)
     Button mPublishActBtn;
     @Bind(R.id.et_act_subject)
@@ -90,16 +85,13 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     EditText mTotalNumET;
     @Bind(R.id.et_act_address)
     EditText mAddressET;
-    @Bind(R.id.et_act_equipment)
-    EditText mEquipmentET;
+
     @Bind(R.id.et_act_instruction)
     EditText mInstructionET;
     @Bind(R.id.left_button)
     ImageButton mBackIB;
-    /* @Bind(R.id.et_act_price)
-     EditText mPriceET;*/
-    @Bind(R.id.et_act_shower_locker)
-    Button mShowerLockerBtn;
+
+
     //活动类型
     @Bind(R.id.rl_act_type)
     RelativeLayout mActTypeBtn;
@@ -107,18 +99,30 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     @Bind(R.id.tv_act_type)
     TextView mActTypeTv;
 
-    /* @Bind(R.id.btn_act_fee)
-     Button mActFeeBtn;*/
     @Bind(R.id.tv_act_fee)
     TextView mActFeeTv;
 
     //时间 城市选择按钮
-    @Bind(R.id.btn_start_time)
-    Button btnStartTime;
-    @Bind(R.id.btn_end_time)
-    Button btnEndTime;
-    @Bind(R.id.btn_act_city)
-    Button mCityBtn;
+    @Bind(R.id.rl_act_strat_time)
+    RelativeLayout rlStartTime;
+
+    @Bind(R.id.tv_act_time)
+    TextView tvStartTime;
+
+    @Bind(R.id.rl_end_time)
+    RelativeLayout rlEndTime;
+
+    @Bind(R.id.tv_act_end_time)
+    TextView tvEndTime;
+
+    //活动城市
+
+    @Bind(R.id.rl_act_city)
+    RelativeLayout rlSetCity;
+
+    @Bind(R.id.tv_act_city)
+    TextView tvSetCity;
+
 
     //设置活动价格
     @Bind(R.id.rl_more_settings)
@@ -129,18 +133,15 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     RelativeLayout rlSetPrice;
 
     //设置活动标签
-    @Bind(R.id.et_act_tag)
-    EditText etActTag;
+  /*  @Bind(R.id.et_act_tag)
+    EditText etActTag;*/
 
-    //性别限制
-
-    @Bind(R.id.et_act_sex)
-    Button btnSetSex;
 
 
     private Calendar calendar = Calendar.getInstance();
     private CameraProxy cameraProxy;
     private FTActivity ftActivity;
+    HeadTitleView headTitleView;
 
 
     public static String[] showerLockerStrs = new String[]{"不提供沐浴／锁柜", "只提供沐浴", "只提供锁柜", "提供沐浴／锁柜"};
@@ -164,7 +165,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         initView();
         setListener();
 
-        cameraProxy = new CameraProxy(new CameraResult() {
+      cameraProxy = new CameraProxy(new CameraResult() {
             @Override
             public void onSuccess(String path) {
                 //射入图片
@@ -185,9 +186,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
     @Override
     protected void initView() {
         super.initView();
+
+        headTitleView= (HeadTitleView) findViewById(R.id.headview);
+        headTitleView.setRightButtonVisibility(true);
+
+
         if (showStyle == ACTIVITY_SHOW) {
             if (ftActivity.getSourceType() == FTActivity.SOURCE_TYPE_PIC) {
-                mUploadPicIV.setVisibility(View.INVISIBLE);
+                 mUploadPicIV.setVisibility(View.INVISIBLE);
                 if (ftActivity.getSourceUrl().startsWith("http") ||
                         ftActivity.getSourceUrl().startsWith("https")) {
                     mPicSDV.setImageURI(ftActivity.getSourceUrl());
@@ -198,41 +204,36 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
             mSubjextET.setText(ftActivity.getSubject());
             mTotalNumET.setText("" + ftActivity.getTotalNum());
             mAddressET.setText(ftActivity.getAddress());
-            mEquipmentET.setText(ftActivity.getSelfEquipment());
+
             mInstructionET.setText(ftActivity.getIntruction());
 
-            btnStartTime.setText(ftActivity.getBeginTime());
-            btnEndTime.setText(ftActivity.getEndTime());
-            mCityBtn.setText(ftActivity.getCity());
+            tvStartTime.setText(ftActivity.getBeginTime());
+            tvEndTime.setText(ftActivity.getEndTime());
+            tvSetCity.setText(ftActivity.getCity());
             mActFeeTv.setText("" + ftActivity.getPrice());
-            mShowerLockerBtn.setText(showerLockerStrs[ftActivity.getShowerAndLocker()]);
-            mShowerLockerBtn.setTag(ftActivity.getShowerAndLocker());
+
             mActTypeTv.setText(actTypeStrs[ftActivity.getActType()]);
             mActTypeTv.setTag(ftActivity.getActType());
 
-            btnSetSex.setText(actTypeStrs[ftActivity.getActSex()]);
-            btnSetSex.setTag(ftActivity.getActSex());
+
         }
     }
 
     @Override
     protected void setListener() {
         super.setListener();
-        mUploadPicIV.setOnClickListener(this);
+       mUploadPicIV.setOnClickListener(this);
         mPicSDV.setOnClickListener(this);
         // mUploadVideoIV.setOnClickListener(this);
-        mPublishActTV.setOnClickListener(this);
+       // mPublishActTV.setOnClickListener(this);
         mPublishActBtn.setOnClickListener(this);
         mBackIB.setOnClickListener(this);
-        mShowerLockerBtn.setOnClickListener(this);
         mActTypeBtn.setOnClickListener(this);
         rlSetPrice.setOnClickListener(this);
         //设置活动开始时间 结束时间
-        btnStartTime.setOnClickListener(this);
-        btnEndTime.setOnClickListener(this);
-        mCityBtn.setOnClickListener(this);
-
-        btnSetSex.setOnClickListener(this);
+        rlStartTime.setOnClickListener(this);
+        rlEndTime.setOnClickListener(this);
+        rlSetCity.setOnClickListener(this);
 
         rlSetMore.setOnClickListener(this);
 
@@ -241,27 +242,23 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        if (v == mUploadPicIV || v == mPicSDV) {
+     if (v == mUploadPicIV || v == mPicSDV) {
             showSelectPicDialog();
-        } else if (v == mPublishActTV || v == mPublishActBtn) {
+        } /*else if (v == mPublishActTV || v == mPublishActBtn) {
             publishAct();
-        } else if (v == mBackIB) {
+        }*/ else if (v == mBackIB) {
             finish();
-        } else if (v == btnStartTime) {
+        } else if (v == rlStartTime) {
             setStartTime();
-        } else if (v == btnEndTime) {
+        } else if (v == rlEndTime) {
             setEndTime();
-        } else if (v == mCityBtn) {
+        } else if (v == rlSetCity) {
             setCity();
-        } else if (v == mShowerLockerBtn) {
-            showShowerLockerDialog();
         } else if (v == mActTypeBtn) {
             showActTypeDialog();
         } else if (v == rlSetPrice) {
             setPrice();
-        } else if (v == btnSetSex) {
-            setSex();
-        } else if (v == rlSetMore) {
+        }  else if (v == rlSetMore) {
             setMore();
         }
     }
@@ -270,23 +267,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         startActivity(new Intent(this, CreateActMoreSettingsActivity.class));
     }
 
-    private void setSex() {
-        DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
-                .setGravity(Gravity.CENTER)
-                .setCancelable(true)
-                .setAdapter(new ArrayAdapter<String>(mContext,
-                        android.R.layout.simple_list_item_1, actSexStrs))
-                .setOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
-                        btnSetSex.setText(actSexStrs[position]);
-                        btnSetSex.setTag(position);
-                        dialog.dismiss();
-                    }
-                })
-                .create();
-        dialogPlus.show();
-    }
+
 
 
     private void setPrice() {
@@ -309,7 +290,7 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                 @Override
                 public void onAddressPicked(String province, String city, String county) {
 
-                    mCityBtn.setText(city + " " + county);
+                    tvSetCity.setText(city + " " + county);
                 }
             });
             picker.show();
@@ -321,14 +302,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     private void setEndTime() {
         DateTimePicker picker = new DateTimePicker(this, DateTimePicker.HOUR_OF_DAY);
-        picker.setRange(2000, 2030);
+        picker.setRange(2000, 2050);
         picker.setSelectedItem(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH),
                 20, 00);
         picker.setOnDateTimePickListener(new DateTimePicker.OnYearMonthDayTimePickListener() {
             @Override
             public void onDateTimePicked(String year, String month, String day, String hour, String minute) {
                 // showToast(year + "-" + month + "-" + day + " " + hour + ":" + minute);
-                btnEndTime.setText(year + "-" + month + "-" + day + " " + hour + ":" + minute);
+                tvEndTime.setText(year + "-" + month + "-" + day + " " + hour + ":" + minute);
             }
         });
         picker.show();
@@ -336,14 +317,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
 
     private void setStartTime() {
         DateTimePicker picker = new DateTimePicker(this, DateTimePicker.HOUR_OF_DAY);
-        picker.setRange(2000, 2030);
+        picker.setRange(2000, 2050);
         picker.setSelectedItem(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH),
                 19, 00);
         picker.setOnDateTimePickListener(new DateTimePicker.OnYearMonthDayTimePickListener() {
             @Override
             public void onDateTimePicked(String year, String month, String day, String hour, String minute) {
                 // showToast(year + "-" + month + "-" + day + " " + hour + ":" + minute);
-                btnStartTime.setText(year + "-" + month + "-" + day + " " + hour + ":" + minute);
+                tvStartTime.setText(year + "-" + month + "-" + day + " " + hour + ":" + minute);
             }
         });
         picker.show();
@@ -355,12 +336,11 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         cameraProxy.onResult(requestCode, resultCode, data);
         if (requestCode == FEE_RESULT_CODE) {
             price = data.getExtras().getString("result");
-            if (price != null)
+            if (price != null&&""!=price){
                 //获取活动价格
-                mActFeeTv.setText(price + "元/人");
-
+                mActFeeTv.setText(price);
+            }
         }
-
 
     }
 
@@ -419,24 +399,6 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         dialogPlus.show();
     }
 
-    private void showShowerLockerDialog() {
-        DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
-                .setGravity(Gravity.CENTER)
-                .setCancelable(true)
-                .setAdapter(new ArrayAdapter<String>(mContext,
-                        android.R.layout.simple_list_item_1, showerLockerStrs))
-                .setOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
-                        mShowerLockerBtn.setText(showerLockerStrs[position]);
-                        mShowerLockerBtn.setTag(position);
-                        dialog.dismiss();
-                    }
-                })
-                .create();
-        dialogPlus.show();
-    }
-
     private void showActTypeDialog() {
         DialogPlus dialogPlus = DialogPlus.newDialog(mContext)
                 .setGravity(Gravity.CENTER)
@@ -461,13 +423,11 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
                 TextUtils.isEmpty(mAddressET.getText()) ||
                 TextUtils.isEmpty(mInstructionET.getText()) ||
                 TextUtils.isEmpty(ftActivity.getSourceUrl()) ||
-                TextUtils.isEmpty(btnStartTime.getText()) ||
-                TextUtils.isEmpty(btnEndTime.getText()) ||
-                TextUtils.isEmpty(mCityBtn.getText()) ||
-                TextUtils.isEmpty(mShowerLockerBtn.getText()) ||
+                TextUtils.isEmpty(tvStartTime.getText()) ||
+                TextUtils.isEmpty(tvEndTime.getText()) ||
+                TextUtils.isEmpty(tvSetCity.getText()) ||
                 TextUtils.isEmpty(mActTypeTv.getText()) ||
-                TextUtils.isEmpty(mActFeeTv.getText()) ||
-                TextUtils.isEmpty(mEquipmentET.getText()) || TextUtils.isEmpty(btnSetSex.getText())) {
+                TextUtils.isEmpty(mActFeeTv.getText())) {
             ToastUtils.showCustomToast(mContext, "请完善信息");
             return;
         }
@@ -482,17 +442,14 @@ public class ActivityCreateActivity extends FitnessActivity implements View.OnCl
         ftActivity.setSubject(mSubjextET.getText().toString());
         ftActivity.setTotalNum(Integer.parseInt(mTotalNumET.getText().toString()));
         ftActivity.setAddress(mAddressET.getText().toString());
-        ftActivity.setSelfEquipment(mEquipmentET.getText().toString());
         ftActivity.setIntruction(mInstructionET.getText().toString());
 
-        ftActivity.setBeginTime(btnStartTime.getText().toString());
-        ftActivity.setEndTime(btnEndTime.getText().toString());
-        ftActivity.setCity(mCityBtn.getText().toString());
+        ftActivity.setBeginTime(tvStartTime.getText().toString());
+        ftActivity.setEndTime(tvEndTime.getText().toString());
+        ftActivity.setCity(tvSetCity.getText().toString());
         ftActivity.setPrice(Float.parseFloat(mActFeeTv.getText().toString()));
-        ftActivity.setShowerAndLocker(Integer.parseInt(mShowerLockerBtn.getTag().toString()));
         ftActivity.setActType(Integer.parseInt(mActTypeTv.getTag().toString()));
 
-        ftActivity.setActSex(Integer.parseInt(btnSetSex.getTag().toString()));
 
         User user = new User();
         user.setUserId(GlobalUserManager.getUserId());

@@ -16,6 +16,7 @@ import com.dkjs.fitness.R;
 import com.dkjs.fitness.account.RegisterAndLoginActivity;
 import com.dkjs.fitness.comm.FitnessFragment;
 import com.dkjs.fitness.mine.ActivityCreateActivity;
+import com.dkjs.fitness.mine.ActivityCreateActivity1;
 import com.dkjs.fitness.mine.ActivityManagerActivity;
 import com.dkjs.fitness.mine.AuthIDActivity;
 import com.dkjs.fitness.mine.CheckOutTicketsActivity;
@@ -123,7 +124,7 @@ public class MineFragment extends FitnessFragment implements View.OnClickListene
         llCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ActivityCreateActivity.class));
+                startActivity(new Intent(getActivity(), ActivityCreateActivity1.class));
             }
         });
     }

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@color/light_blue_500</color>
     <color name="colorPrimaryDark">@color/light_blue_900</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff71bd9c</color>
 
     <!-- main pageBottomTab colors -->
     <color name="tab_color_1">#FF00796B</color>
@@ -95,4 +95,18 @@
     <color name="colorInnerRing">#ff000000</color>
     <color name="colorStopText">#3dffffff</color>
     <color name="divider_color_dark">#ffd2d2d2</color>
+
+
+    <color name="grayback">#fffafafa</color>
+    <color name="setting_gray">#fff2f2f2</color>
+    <color name="main_purple_color">#ff574e5f</color>
+    <color name="c_gray">#ffcccccc</color>
+    <color name="ed_bg">#ffededed</color>
+    <color name="main_green_color">#ff31a56e</color>
+    <color name="a_gray">#ffaaaaaa</color>
+    <color name="f7_bg">#fff7f7f7</color>
+    <color name="notification_text_gray_50">#7f666666</color>
+    <color name="setting_text_gray_color">#99584f60</color>
+    <color name="timeline_unlock_color">#ffcccccc</color>
+
 </resources>

@@ -113,7 +113,7 @@
                                             android:layout_height="35dip"
                                             android:layout_gravity="center"
                                             android:layout_margin="20dip"
-                                            android:background="@color/appgreen" />
+                                            android:background="@drawable/user_head" />
 
                                         <TextView
                                             android:id="@+id/tv_user_nickname"
@@ -590,7 +590,6 @@
             android:visibility="invisible" />
 
         <Button
-            android:onClick="attendPayty"
             android:id="@+id/btn_ok"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/submit_button_height"

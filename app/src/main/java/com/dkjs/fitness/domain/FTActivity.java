@@ -36,9 +36,21 @@ public class FTActivity implements Serializable{
 
     private int sourceType; //1图片；2视频；
     private String sourceUrl;
+    //活动标签
+    private String actTag;
 
     private User owner;
     private transient ShuoShuo shuoShuo;
+
+
+    public String getActTag() {
+        return actTag;
+    }
+
+    public void setActTag(String actTag) {
+        this.actTag = actTag;
+    }
+
 
     public String getSourceUrl() {
         return sourceUrl;

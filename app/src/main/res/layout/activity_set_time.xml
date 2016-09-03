@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dip"
         android:background="@color/appgreen">
 
         <ImageButton
+            android:onClick="OnBack"
             android:id="@+id/left_button"
             android:layout_width="15dip"
             android:layout_height="15dip"
@@ -26,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="5dp"
-            android:text="高级设置"
+            android:text="活动时间"
             android:textColor="@color/white"
             android:textSize="16.0sp"
             android:textStyle="bold" />
@@ -42,39 +44,9 @@
             android:text="保存"
             android:textColor="@android:color/white" />
     </RelativeLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dip"
-        android:background="@drawable/edit_input_background"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15.0dip"
-            android:text="自备器材"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/top_introduce_text_color" />
-
-        <EditText
-            android:id="@+id/et_act_equipment"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/top_introduce_text_color" />
-    </LinearLayout>
-
     <RelativeLayout
-        android:onClick="OnSetType"
-        android:id="@+id/rl_act_type"
+        android:layout_marginTop="10dip"
+        android:id="@+id/rl_act_strat_time"
         android:layout_width="match_parent"
         android:layout_height="45dip"
         android:background="@drawable/edit_input_background"
@@ -86,12 +58,12 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15.0dip"
-            android:text="活动类型"
+            android:text="开始时间"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/top_introduce_text_color" />
 
         <TextView
-            android:id="@+id/tv_act_type"
+            android:id="@+id/tv_act_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -109,13 +81,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_act_sex"
+        android:id="@+id/rl_end_time"
         android:layout_width="match_parent"
         android:layout_height="45dip"
-
         android:background="@drawable/edit_input_background"
         android:gravity="center_vertical"
-        android:onClick="OnSetSex"
         android:orientation="horizontal">
 
         <TextView
@@ -123,12 +93,12 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15.0dip"
-            android:text="性别限制"
+            android:text="结束时间"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/top_introduce_text_color" />
 
         <TextView
-            android:id="@+id/tv_act_sex"
+            android:id="@+id/tv_act_end_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -144,45 +114,5 @@
             android:layout_margin="10dip"
             android:background="@drawable/area_arrow" />
     </RelativeLayout>
-
-
-    <RelativeLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="45dip"
-
-        android:background="@drawable/edit_input_background"
-        android:gravity="center_vertical"
-        android:onClick="OnSetShower"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15.0dip"
-            android:text="淋浴锁柜"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/top_introduce_text_color" />
-
-        <TextView
-            android:id="@+id/tv_act_shower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="35dip"
-            android:text="" />
-
-        <ImageView
-            android:layout_width="12.0dip"
-            android:layout_height="18.0dip"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="10dip"
-            android:background="@drawable/area_arrow" />
-    </RelativeLayout>
-
 
 </LinearLayout>
-

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dkjs.fitness.mine.SetPriceActivity">
+    tools:context=".publish.SetPriceActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:background="@color/appgreen">
 
                 <ImageButton
-                    android:id="@+id/left_button"
+                    android:onClick="OnBack"             android:id="@+id/left_button"
                     android:layout_width="15dip"
                     android:layout_height="15dip"
                     android:layout_alignParentStart="true"
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15.0dip"
                     android:layout_marginRight="10dip"
-                    android:background="@color/appgreen"
+                    android:background="@drawable/green_button_selector"
                     android:onClick="OnCalculePrice"
                     android:text="估算" />
 

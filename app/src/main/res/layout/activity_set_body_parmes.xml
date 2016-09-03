@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appgreen"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.dkjs.fitness.train.SetBodyParmesActivity">
+
+    <LinearLayout
+        android:layout_width="200dip"
+        android:layout_height="45dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/edit_input_background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15.0dip"
+            android:text="身高: " />
+
+        <EditText
+            android:id="@+id/et_height"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@null"
+            android:inputType="number"
+            android:maxLength="3"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="CM " />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dip"
+        android:layout_height="40dip"
+        android:background="@drawable/edit_input_background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15.0dip"
+            android:text="体重: " />
+
+        <EditText
+            android:id="@+id/et_weight"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@null"
+            android:inputType="number"
+            android:maxLength="3"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="KG " />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dip"
+        android:layout_height="40dip"
+        android:background="@drawable/edit_input_background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15.0dip"
+            android:text="年龄: " />
+
+        <EditText
+            android:id="@+id/et_age"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@null"
+
+            android:inputType="number"
+            android:maxLength="3"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="      " />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dip"
+        android:layout_height="40dip"
+        android:background="@drawable/edit_input_background"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15.0dip"
+            android:text="性别:" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_sex"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:orientation="horizontal">
+            <RadioButton
+                android:checked="true"
+                android:id="@+id/sex_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15.0dip"
+                android:button="@null"
+                android:drawableLeft="@drawable/sex_selector"
+                android:drawablePadding="5.0dip"
+                android:gravity="center"
+                android:text="女"
+                android:textColor="#ff565656" />
+            <RadioButton
+                android:paddingLeft="30dip"
+                android:id="@+id/sex_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:button="@null"
+                android:drawableLeft="@drawable/sex_selector"
+                android:drawablePadding="5.0dip"
+                android:gravity="center"
+                android:text="男"
+                android:textColor="#ff565656" />
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="200dip"
+        android:layout_height="40dip"
+        android:background="@drawable/edit_input_background"
+        android:orientation="horizontal"
+        android:text="保存">
+    </Button>
+</LinearLayout>

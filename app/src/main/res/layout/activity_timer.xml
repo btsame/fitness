@@ -1,90 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="500dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_marginTop="25dip"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <com.dkjs.fitness.train.RoundProgressBar
 
-            <TextView
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BMI"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20.1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="正常标准"/>
+            android:id="@+id/roundProgressBarBfp"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_toLeftOf="@+id/roundProgressBarBmi"
+            android_custom:roundColor="@color/colorMidRing"
+            android_custom:roundProgressColor="@color/appgreen"
+            android_custom:roundWidth="8dip"
+            android_custom:textColor="@color/appgreen"
+            android_custom:textSize="16sp" />
 
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="25dip"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="体脂率"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20.1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="背肌显露，腹肌明显"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginTop="25dip"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BMI"/>
+        <com.dkjs.fitness.train.RoundProgressBar
+            android:id="@+id/roundProgressBarBmi"
+            android:layout_width="120dip"
+            android:layout_height="120dip"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android_custom:roundColor="@color/colorMidRing"
+            android_custom:roundProgressColor="@color/appgreen"
+            android_custom:roundWidth="10dip"
+            android_custom:textColor="@color/appgreen"
+            android_custom:textSize="18sp" />
 
 
+        <com.dkjs.fitness.train.RoundProgressBar
+            android:id="@+id/roundProgressBarBft"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_toRightOf="@+id/roundProgressBarBmi"
+            android_custom:roundColor="@color/colorMidRing"
+            android_custom:roundProgressColor="@color/appgreen"
+            android_custom:roundWidth="8dip"
+            android_custom:textColor="@color/appgreen"
+            android_custom:textSize="16sp" />
 
-        </LinearLayout>
+    </RelativeLayout>
 
-
+    <LinearLayout
+        android:background="@drawable/circular_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <com.dkjs.fitness.train.RoundProgressTimer
+            android_custom:roundWidth="8dip"
+            android:layout_width="218dip"
+            android:layout_height="218dip" />
 
     </LinearLayout>
 
@@ -100,8 +84,7 @@
         <RelativeLayout
             android:id="@+id/top_hidden_layout"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/roundsCountText"
@@ -131,17 +114,17 @@
                     android:paddingTop="23.0dip"
                     android:src="@mipmap/icon_stop_circle" />
 
-              <!--  <com.alphapod.fitsifu.jordanyeoh.widget.RobotoCondensedLight
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/stop_button"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginRight="21.0dip"
-                    android:layout_marginTop="3.0dip"
-                    android:text="stop"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorStopText"
-                    android:textSize="13.0sp" />-->
+                <!--  <com.alphapod.fitsifu.jordanyeoh.widget.RobotoCondensedLight
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@id/stop_button"
+                      android:layout_centerHorizontal="true"
+                      android:layout_marginRight="21.0dip"
+                      android:layout_marginTop="3.0dip"
+                      android:text="stop"
+                      android:textAllCaps="true"
+                      android:textColor="@color/colorStopText"
+                      android:textSize="13.0sp" />-->
             </RelativeLayout>
         </RelativeLayout>
 
@@ -188,31 +171,30 @@
                 android:layout_height="fill_parent"
                 android:visibility="invisible">
 
-               <!-- <include
-                    android:id="@+id/circle_layout"
-                    layout="@layout/main_timer_circle_layout"
-                    android:layout_width="@dimen/inner_circle_width"
-                    android:layout_height="@dimen/inner_circle_height"
-                    android:layout_centerInParent="true" />-->
+                <!-- <include
+                     android:id="@+id/circle_layout"
+                     layout="@layout/main_timer_circle_layout"
+                     android:layout_width="@dimen/inner_circle_width"
+                     android:layout_height="@dimen/inner_circle_height"
+                     android:layout_centerInParent="true" />-->
 
-             <!--   <com.alphapod.fitsifu.jordanyeoh.widget.CircularProgressBar
-                    android:id="@+id/outer_progressbar"
-                    android:layout_width="@dimen/outer_progress_bar_width"
-                    android:layout_height="@dimen/outer_progress_bar_height"
-                    android:layout_centerInParent="true"
-                    app:background_progressbar_end_color="@color/colorTransparent"
-                    app:background_progressbar_start_color="@color/colorTransparent"
-                    app:background_progressbar_width="1.0dip"
-                    app:progressbar_end_color="@color/colorOuterProgressBarGradientEnd"
-                    app:progressbar_start_color="@color/colorOuterProgressBarGradientStart"
-                    app:progressbar_width="2.0dip" />-->
+                <!--   <com.alphapod.fitsifu.jordanyeoh.widget.CircularProgressBar
+                       android:id="@+id/outer_progressbar"
+                       android:layout_width="@dimen/outer_progress_bar_width"
+                       android:layout_height="@dimen/outer_progress_bar_height"
+                       android:layout_centerInParent="true"
+                       app:background_progressbar_end_color="@color/colorTransparent"
+                       app:background_progressbar_start_color="@color/colorTransparent"
+                       app:background_progressbar_width="1.0dip"
+                       app:progressbar_end_color="@color/colorOuterProgressBarGradientEnd"
+                       app:progressbar_start_color="@color/colorOuterProgressBarGradientStart"
+                       app:progressbar_width="2.0dip" />-->
 
                 <ImageView
                     android:id="@+id/inner_progressbar"
                     android:layout_width="@dimen/inner_progress_bar_width"
                     android:layout_height="@dimen/inner_progress_bar_height"
-                    android:layout_centerInParent="true"
-                    />
+                    android:layout_centerInParent="true" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

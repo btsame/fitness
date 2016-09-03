@@ -102,12 +102,10 @@ public class ActShowActivity extends FitnessActivity implements View.OnClickList
                 mIntroCtlBtn.setText("关闭详情 >");
             }
         }else if(v == mJoinActBtn){
-
+            startActivity(new Intent(this, JoinPartyAndPayActivity.class));
         }
     }
 
 
-    public void attendPayty(View view){
-        startActivity(new Intent(this, JoinPartyAndPayActivity.class));
-    }
+
 }

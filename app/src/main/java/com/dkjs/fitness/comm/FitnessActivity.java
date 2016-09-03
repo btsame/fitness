@@ -1,6 +1,7 @@
 package com.dkjs.fitness.comm;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,8 +30,12 @@ public class FitnessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
     }
-    protected void initView(){}
-    protected void setListener(){}
+
+    protected void initView() {
+    }
+
+    protected void setListener() {
+    }
 
     @Override
     protected void onResume() {
@@ -44,12 +49,12 @@ public class FitnessActivity extends AppCompatActivity {
 
     /*Toast提示处理*/
     @SuppressLint("HandlerLeak")
-    public Handler mToastHandler = new Handler(){
+    public Handler mToastHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case SHOW_TOAST_MSG:
-                    String str = (String)msg.obj;
-                    if(!TextUtils.isEmpty(str)){
+                    String str = (String) msg.obj;
+                    if (!TextUtils.isEmpty(str)) {
                         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
                     }
                     break;
@@ -74,8 +79,17 @@ public class FitnessActivity extends AppCompatActivity {
         }
     }
 
-    protected void showLoadingDialog(){
-        if(mLoadingDialog == null){
+    public void exitEdit(Activity mActivity) {
+        if ((System.currentTimeMillis() - clickTime) > 2000) {
+            Toast.makeText(this, "再按一次后退键退出编辑，请先保存", Toast.LENGTH_SHORT).show();
+            clickTime = System.currentTimeMillis();
+        } else {
+            mActivity.finish();
+        }
+    }
+
+    protected void showLoadingDialog() {
+        if (mLoadingDialog == null) {
             mLoadingDialog = new LoadingDialog.Builder(mContext)
                     .setCancelable(true)
                     .setCanceledOnTouchOutside(false)
@@ -87,9 +101,9 @@ public class FitnessActivity extends AppCompatActivity {
         mLoadingDialog.show();
     }
 
-    protected void dismissLoadingDialog(){
-        if(mLoadingDialog == null) return;
+    protected void dismissLoadingDialog() {
+        if (mLoadingDialog == null) return;
 
-        if(mLoadingDialog.isShowing()) mLoadingDialog.dismiss();
+        if (mLoadingDialog.isShowing()) mLoadingDialog.dismiss();
     }
 }

@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".account.RegisterAndLoginActivity" />
-        <activity android:name=".mine.ActivityCreateActivity" />
+        <activity android:name=".mine.ActivityCreateActivity1" />
         <activity android:name=".mine.MineMoneyActivity" />
         <activity android:name=".account.RegisterActivity" />
         <activity android:name=".account.ForgetPasswordActivity" />
@@ -70,9 +70,14 @@
         <activity android:name=".mine.WithDrawActivity" />
         <activity android:name=".find.JoinPartyAndPayActivity" />
         <activity android:name=".find.HomePageActivity" />
-        <activity android:name=".mine.SetPriceActivity" />
+        <activity android:name=".publish.SetPriceActivity" />
         <activity android:name=".mine.AboutPriceActivity" />
-        <activity android:name=".mine.CreateActMoreSettingsActivity"></activity>
+        <activity android:name=".publish.CreateActMoreSettingsActivity" />
+        <activity android:name=".train.SetBodyParmesActivity" />
+        <activity android:name=".publish.SetTimeActivity" />
+        <activity android:name=".publish.SetLocationActivity" />
+        <activity android:name=".publish.SetAccountActivity" />
+        <activity android:name=".publish.SetTagActivity"></activity>
     </application>
 
 </manifest>
